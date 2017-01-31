@@ -119,7 +119,7 @@ y
 
 ## Ciclos, Repeticiones o Loops
 
-Habrá muchas ocaciones en las que ocuparemos realizar en varias ocaciones una misma rutina, para ésto existe el ciclo for:
+Habrá muchas ocasiones en las que ocuparemos realizar en varias ocasiones una misma rutina, para ésto existe el ciclo for:
 
 
 ```r
@@ -138,7 +138,7 @@ for(i in 1:5){
 
 ----
 
-Y en ocaciones no sabremos hasta que momento queremos el ciclo lo que podemos usar:
+Y en ocasiones no sabremos hasta que momento queremos el ciclo lo que podemos usar:
 
 
 ```r
@@ -196,7 +196,6 @@ rep(1, times=3)
 ```
 ## [1] 1 1 1
 ```
-
 
 ----
 
