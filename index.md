@@ -19,13 +19,13 @@ repo        : Curso
 Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: 
 ### R base 
 https://www.r-project.org/ 
- 
+
 #### [Windows] 
 > https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe 
- 
+
 #### [Linux - Ubuntu] 
 > `sudo apt install r-base` 
- 
+
 #### [Mac - VideoTutorial] 
 > https://www.youtube.com/watch?v=ICGkG7Gg6j0 
 
@@ -33,14 +33,14 @@ https://www.r-project.org/
 
 ## IDE 
 Un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan dos de varias opciones para trabajar con R. 
- 
+
 #### Tinn-R 
 > https://sourceforge.net/projects/tinn-r/ 
- 
+
 #### R-Studio [Recomendado] 
 > https://www.rstudio.com/ 
 
----- 
+----
 
 ## Primeros pasos 
 R puede ser usado como una calculadora: 
@@ -65,10 +65,10 @@ Pero su potencial va más allá...
  
 Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;) 
 
------ 
+-----
 
 ### Creación de objetos 
- 
+
 En R podemos crear y manipular objetos asignándole valores, cadenas de texto, funciones y un largo etc. 
 Por ser el primer contacto con R, crearemos un objeto (izquierda del símbolo `=`), asignándole como valor la cadena de texto "Hola mundo" 
 
@@ -80,11 +80,11 @@ Ahora para mostrar en consola lo que contiene la variable u objeto `saludo`, lo 
 ```
 ## [1] "Hola mundo"
 ```
- 
+
 **NOTA:** 
 > R es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`. 
 
---- 
+-----
 
 Otra manera de asignar valores a las variables es mediante el símbolo `<-` que se compone de un menor que y el signo de menos. 
  
@@ -115,7 +115,7 @@ y
 ## [1] 35
 ```
 
----
+------
 
 ## Ciclos, Repeticiones o Loops 
  
@@ -136,7 +136,7 @@ for(i in 1:5){
 ## [1] 5
 ```
 
----- 
+----
 
 Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: 
  
@@ -161,9 +161,9 @@ while(i < 50){
 ---
 
 ## Vectores 
- 
+
 Realmente hemos trabajado con vectores desde que empezamos con `10 + 5`, lo que nos devuelve R es un vector de índice 1, estas son otras formas de crear vectores. 
- 
+
 
 ```r
 X <- c(1,2,3) 
@@ -173,7 +173,7 @@ X
 ```
 ## [1] 1 2 3
 ```
- 
+
 La manera anterior es a través del método concatenar `c( )`, que une los elementos separados por una coma, otra forma de crear un vector (numérico en éste caso) es usando `:` que nos hace una lista de uno en uno desde el primero valor hasta el último. 
 
 ```r
@@ -185,7 +185,7 @@ X
 ## [1] 1 2 3
 ```
 
----- 
+-----
 
 Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo n veces, podemos usar la función `rep(x,times=n)`, que repetirá un número definido de veces lo indicado como parámetro x. 
 
@@ -197,7 +197,7 @@ rep(1, times=3)
 ## [1] 1 1 1
 ```
 
----- 
+-----
 
 ## Condiciones (if-else) 
 Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. 
@@ -216,7 +216,7 @@ if(10%%2==0){
 ## [1] "Es par"
 ```
 
---- 
+-----
 
 Otra forma, única para el lenguaje de R es la siguiente. 
 
@@ -229,4 +229,4 @@ ifelse(10%%2==0,"Par","Impar")
 ## [1] "Par"
 ```
 
----
+-----
