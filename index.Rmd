@@ -29,6 +29,8 @@ https://www.r-project.org/
 #### [Mac - VideoTutorial]
 > https://www.youtube.com/watch?v=ICGkG7Gg6j0
 
+---
+
 ## IDE
 Un entorno de desarrollo integrado será necesario para facilitar el desarrollo de codigos en R, por lo que se presentan dos de varias opciones para trabajar con R.
 
