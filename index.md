@@ -29,6 +29,8 @@ https://www.r-project.org/
 #### [Mac - VideoTutorial]
 > https://www.youtube.com/watch?v=ICGkG7Gg6j0
 
+---
+
 ## IDE
 Un entorno de desarrollo integrado será necesario para facilitar el desarrollo de codigos en R, por lo que se presentan dos de varias opciones para trabajar con R.
 
@@ -197,3 +199,35 @@ rep(1, times=3)
 
 
 ----
+
+## Condiciones (if-else)
+Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no.
+
+Para ello usaremos las condiciones, existen dos maneras:
+
+```r
+if(10%%2==0){
+  print("Es par")
+}else{
+  print("Es impar")
+}
+```
+
+```
+## [1] "Es par"
+```
+
+---
+
+Otra forma unica para el lenguaje de R es la siguiente.
+
+```r
+set.seed(1)
+ifelse(10%%2==0,"Par","Impar") 
+```
+
+```
+## [1] "Par"
+```
+
+---
