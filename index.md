@@ -42,12 +42,22 @@ Un entorno de desarrollo integrado será necesario para facilitar el desarrollo 
 
 ## Primeros pasos
 R puede ser usado como una calculadora:
-```{R}
+
+```r
 10+5
 ```
+
+```
+## [1] 15
+```
 o
-```{R}
+
+```r
 10/5
+```
+
+```
+## [1] 2
 ```
 Pero su potencial va más allá...
 
@@ -59,13 +69,14 @@ Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)
 
 En R podemos crear y manipular objetos asignadole valores, cadenas de texto, funciones y un largo etc.
 Por ser el primer contacto con R, crearemos un objeto (izquierda del simbolo `=`), asignadole como valor la cadena de texto "Hola mundo"
-```{R, eval=F}
+
+```r
 saludo = "Hola mundo"
 ```
 Ahora para mostrar en consola lo que contiene la variable u objeto `saludo`, lo escribiremos tal cual y obtendremos una salida muy similar a la siguiente.
-```{R, echo=F}
-saludo = "Hola mundo"
-saludo
+
+```
+## [1] "Hola mundo"
 ```
 
 **NOTA:**
@@ -75,18 +86,31 @@ saludo
 
 Otra manera de asignar valores a las variables es mediante el símbolo `<-` que se compone de un menor que y el signo de menos.
 
-```{R}
+
+```r
 x <- 10+5
 ```
 
 Es recomendable incluir un espacio simple a cada lado del operador de asignacion para incrementar la legibilidad. Pero NO coloques un espacio entre el `<` y el `-` que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un unico simbolo.
 
 Tambien podemos reasignar un valor a la variable que hemos creado y reutilizar la variable para realizar un calculo:
-```{R}
+
+```r
 x <- 10+20
 x
+```
+
+```
+## [1] 30
+```
+
+```r
 y <- x + 5
 y
+```
+
+```
+## [1] 35
 ```
 
 ---
@@ -95,22 +119,41 @@ y
 
 Habrá muchas ocaciones en las que ocuparemos realizar en varias ocaciones una misma rutina, para ésto existe el ciclo for:
 
-```{R}
+
+```r
 for(i in 1:5){
   print(i)
 }
+```
+
+```
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
 ```
 
 ----
 
 Y en ocaciones no sabremos hasta que momento queremos el ciclo lo que podemos usar:
 
-```{R}
+
+```r
 i = 1
 while(i < 50){
   i = i * 2
   print(i)
 }
+```
+
+```
+## [1] 2
+## [1] 4
+## [1] 8
+## [1] 16
+## [1] 32
+## [1] 64
 ```
 
 ---
@@ -119,22 +162,37 @@ while(i < 50){
 
 Realmente hemos trabajado con vectores desde que empezamos con `10 + 5`, lo que nos devuelve R es un vector de indice 1, estas son otras formas de crear vectores.
 
-```{R}
+
+```r
 X <- c(1,2,3)
 X
 ```
 
+```
+## [1] 1 2 3
+```
+
 La manera enterior es a traves del método concatenar `c( )`, que une los elementos separados por una coma, otra forma de crear un vector (númerico en éste caso) es usando `:` que nos hace una lista de uno en uno desde el primero valor hasta el último.
-```{R}
+
+```r
 X <- 1:3
 X
+```
+
+```
+## [1] 1 2 3
 ```
 
 ----
 
 Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo n veces, podemos usar la función `rep(x,times=n)`, que repetira un número definido de veces lo indicado como parametro x.
-```{R}
+
+```r
 rep(1, times=3) 
+```
+
+```
+## [1] 1 1 1
 ```
 
 
