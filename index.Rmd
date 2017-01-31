@@ -95,7 +95,7 @@ y
 
 ## Ciclos, Repeticiones o Loops
 
-Habrá muchas ocasiones en las que ocuparemos realizar en varias ocasiones una misma rutina, para ésto existe el ciclo for:
+Habrá momentos en las que ocuparemos realizar un número determinado de veces una misma rutina, para ésto existe el ciclo for:
 
 ```{R}
 for(i in 1:5){
@@ -105,7 +105,7 @@ for(i in 1:5){
 
 ----
 
-Y en ocasiones no sabremos hasta que momento queremos el ciclo lo que podemos usar:
+Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar:
 
 ```{R}
 i = 1
