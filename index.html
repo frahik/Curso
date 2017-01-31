@@ -70,9 +70,16 @@ Empezaremos por lo más básico, Podemos instalar R desde el siguiente link:</p>
 <p><a href="https://www.youtube.com/watch?v=ICGkG7Gg6j0">https://www.youtube.com/watch?v=ICGkG7Gg6j0</a></p>
 </blockquote>
 
-<h2>IDE</h2>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<p>Un entorno de desarrollo integrado será necesario para facilitar el desarrollo de codigos en R, por lo que se presentan dos de varias opciones para trabajar con R.</p>
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>IDE</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Un entorno de desarrollo integrado será necesario para facilitar el desarrollo de codigos en R, por lo que se presentan dos de varias opciones para trabajar con R.</p>
 
 <h4>Tinn-R</h4>
 
@@ -90,7 +97,7 @@ Empezaremos por lo más básico, Podemos instalar R desde el siguiente link:</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-2" style="background:;">
+<slide class="" id="slide-3" style="background:;">
   <hgroup>
     <h2>Primeros pasos</h2>
   </hgroup>
@@ -119,7 +126,7 @@ Empezaremos por lo más básico, Podemos instalar R desde el siguiente link:</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-3" style="background:;">
+<slide class="" id="slide-4" style="background:;">
   <hgroup>
     <h3>Creación de objetos</h3>
   </hgroup>
@@ -145,7 +152,7 @@ Por ser el primer contacto con R, crearemos un objeto (izquierda del simbolo <co
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-5" style="background:;">
   <article data-timings="">
     <p>Otra manera de asignar valores a las variables es mediante el símbolo <code>&lt;-</code> que se compone de un menor que y el signo de menos.</p>
 
@@ -174,7 +181,7 @@ y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -197,7 +204,7 @@ y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-7" style="background:;">
   <article data-timings="">
     <p>Y en ocaciones no sabremos hasta que momento queremos el ciclo lo que podemos usar:</p>
 
@@ -220,7 +227,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Vectores</h2>
   </hgroup>
@@ -247,7 +254,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <article data-timings="">
     <p>Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo n veces, podemos usar la función <code>rep(x,times=n)</code>, que repetira un número definido de veces lo indicado como parametro x.</p>
 
@@ -261,7 +268,45 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Condiciones (if-else)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no.</p>
+
+<p>Para ello usaremos las condiciones, existen dos maneras:</p>
+
+<pre><code class="r">if(10%%2==0){
+  print(&quot;Es par&quot;)
+}else{
+  print(&quot;Es impar&quot;)
+}
+</code></pre>
+
+<pre><code>## [1] &quot;Es par&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <article data-timings="">
+    <p>Otra forma unica para el lenguaje de R es la siguiente.</p>
+
+<pre><code class="r">set.seed(1)
+ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;) 
+</code></pre>
+
+<pre><code>## [1] &quot;Par&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
   <article data-timings="">
     
   </article>
@@ -280,43 +325,43 @@ X
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Primeros pasos'>
+        data-slide=2 title='IDE'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Creación de objetos'>
+        data-slide=3 title='Primeros pasos'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='NA'>
+        data-slide=4 title='Creación de objetos'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Ciclos, Repeticiones o Loops'>
+        data-slide=5 title='NA'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='NA'>
+        data-slide=6 title='Ciclos, Repeticiones o Loops'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Vectores'>
+        data-slide=7 title='NA'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='NA'>
+        data-slide=8 title='Vectores'>
          8
       </a>
     </li>
@@ -324,6 +369,24 @@ X
       <a href="#" target="_self" rel='tooltip' 
         data-slide=9 title='NA'>
          9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Condiciones (if-else)'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='NA'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='NA'>
+         12
       </a>
     </li>
   </ul>

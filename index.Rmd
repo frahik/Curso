@@ -141,3 +141,26 @@ rep(1, times=3)
 
 
 ----
+
+## Condiciones (if-else)
+Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no.
+
+Para ello usaremos las condiciones, existen dos maneras:
+```{R}
+
+if(10%%2==0){
+  print("Es par")
+}else{
+  print("Es impar")
+}
+```
+
+---
+
+Otra forma unica para el lenguaje de R es la siguiente.
+```{R}
+set.seed(1)
+ifelse(10%%2==0,"Par","Impar") 
+```
+
+---
