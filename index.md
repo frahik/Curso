@@ -16,15 +16,20 @@ repo        : Curso
 
 ## Instalación de R 
 ¡Saludos! 
-Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: 
-### R base 
-https://www.r-project.org/ 
+Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: https://www.r-project.org/ 
 
 #### [Windows] 
 > https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe 
 
-#### [Linux - Ubuntu] 
-> `sudo apt install r-base` 
+#### [Linux ]
+##### Debian y derivados (Ubuntu, Elementary)
+> `sudo apt-get install r-base`
+
+##### RPM (Redhat, CentOS y derivados)
+> `sudo yum install R-core R-devel`
+
+##### Arch (Antergos, Cinnamon y derivados)
+> `sudo pacman -S r`
 
 #### [Mac - VideoTutorial] 
 > https://www.youtube.com/watch?v=ICGkG7Gg6j0 
