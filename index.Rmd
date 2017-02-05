@@ -37,7 +37,7 @@ Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: htt
 ----
 
 ## IDE 
-Un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan dos de varias opciones para trabajar con R. 
+Una vez instalo R, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan dos de varias opciones para trabajar con R. 
 
 #### Tinn-R 
 > https://sourceforge.net/projects/tinn-r/ 
@@ -46,7 +46,6 @@ Un entorno de desarrollo integrado será necesario para facilitar el desarrollo 
 > https://www.rstudio.com/ 
 
 ----
-
 ## Primeros pasos 
 R puede ser usado como una calculadora: 
 ```{R} 
