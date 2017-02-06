@@ -1,6 +1,6 @@
 ---
 title       : Curso R - Básico
-subtitle    : Aprendiendo lo básico de R
+subtitle    : Un curso para programadores y NO programadores
 author      : Francisco Javier Luna Vázquez
 job         : Investigador 
 framework   : io2012        
@@ -8,18 +8,27 @@ highlighter : highlight.js
 hitheme     : magula
 widgets     : [mathjax, quiz, bootstrap]            
 mode        : selfcontained # {standalone, draft}
-#knit        : slidify::knit2slides
+knit        : slidify::knit2slides
 github      :
 user        : frahik
 repo        : Curso
 license     : by-sa
 ---
 
-## Instalación de R 
-¡Saludos! 
-Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: https://www.r-project.org/ 
+## Hablemos de **R**
 
-Pero como muchos somos algo despistados, estas son las maneras más populares para instalar R en distintos Sistemas Operativos:
+El objetivo de la diapositiva es proporcionar un punto de partida para las personas interesadas en aprender a usar **R**, esto con el fin de promover el conocimiento de manera sencilla, practica y entendible.
+
+**R** se distribuye de manera gratuita y es un sistema para análisis estadísticos, tiene una vista doble, como programa y lenguaje de programación y es considerado como una implementación del dialecto del lenguaje S creado por los laboratorios AT&T Bell.
+
+**R** está disponible en varias formas: el código fuente escrito principalmente en C, esencialmente para máquinas Unix y Linux, o como archivos binarios pre-compilados para Windows, Linux (Debian, RedHat,SuSe) y Macintosh, se distribuye bajo los términos de _GNU General Public Licence_ al igual que esta diapositiva.
+
+-----
+
+## Instalación de **R** 
+Empezaremos por lo más básico, Podemos instalar **R** desde el siguiente link: https://www.r-project.org/ 
+
+Pero como muchos somos algo despistados, estas son las maneras más populares para instalar **R** en distintos Sistemas Operativos:
 
 |Sistema Operativo | Método   |
 |------------------|----------|
@@ -32,7 +41,7 @@ Pero como muchos somos algo despistados, estas son las maneras más populares pa
 ----
 
 ## IDE 
-Una vez instalo R, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan tres de varias opciones para trabajar con R. 
+Una vez instalado, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en **R**, por lo que se presentan tres de varias opciones para trabajar con **R**. 
 
 |       IDE             |  Link     |
 |:---------------------:|-----------|
@@ -41,8 +50,11 @@ Una vez instalo R, un entorno de desarrollo integrado será necesario para facil
 | R commander (Rcmdr)   |http://www.rcommander.com/ |
 
 ----
+
 ## Primeros pasos 
-R puede ser usado como una calculadora: 
+
+En un principio y la manera más sencilla de ver **R** es que puede ser usado como una calculadora: 
+
 
 ```r
 10+5 
@@ -51,7 +63,9 @@ R puede ser usado como una calculadora:
 ```
 ## [1] 15
 ```
-o 
+
+o
+
 
 ```r
 10/5 
@@ -60,16 +74,17 @@ o
 ```
 ## [1] 2
 ```
+
 Pero su potencial va más allá... 
 
-Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)
+Principalmente por que esta diapositiva fue diseñada en **R** y RMarkdown ;)
 
 --- 
 
 ## Creación de objetos 
 
-En R podemos crear y manipular objetos asignándole valores, cadenas de texto, funciones y un largo etc. 
-Por ser el primer contacto con R, crearemos un objeto (izquierda del símbolo `=`), asignándole como valor la cadena de texto "Hola mundo" 
+En **R** podemos crear y manipular objetos asignándole valores, cadenas de texto, funciones y un largo etc. 
+Por ser el primer contacto con **R**, crearemos un objeto (izquierda del símbolo `=`), asignándole como valor la cadena de texto "Hola mundo" 
 
 ```r
 saludo = "Hola mundo" 
@@ -81,7 +96,7 @@ Ahora para mostrar en consola lo que contiene la _variable_ u _objeto_ `saludo`,
 ```
 
 **NOTA:** 
-> R es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`. 
+> **R** es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`. 
 
 -----
 
@@ -98,6 +113,7 @@ También podemos reasignar un valor a la variable que hemos creado y reutilizar 
 
 ```r
 y <- x + 5 
+y
 ```
 
 
@@ -107,42 +123,9 @@ y <- x + 5
 
 ------
 
-## Condiciones (if-else) 
-Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. 
- 
-Para ello usaremos las condiciones, existen dos maneras: 
-
-```r
-if(10%%2==0){ 
-  print("Es par") 
-}else{ 
-  print("Es impar") 
-} 
-```
-
-```
-## [1] "Es par"
-```
-
------
-
-
-Otra forma, única para el lenguaje de R es la siguiente. 
-
-```r
-set.seed(1) 
-ifelse(10%%2==0,"Par","Impar")  
-```
-
-```
-## [1] "Par"
-```
-
------
-
 ## Vectores 
 
-Realmente hemos trabajado con vectores desde que empezamos con `10 + 5`, lo que nos devuelve R es un vector de índice 1, estas son otras formas de crear vectores. 
+Realmente hemos trabajado con vectores desde que empezamos con `10 + 5`, lo que nos devuelve **R** es un vector de índice 1, estas son otras formas de crear vectores. 
 
 
 ```r
@@ -180,7 +163,7 @@ rep(1, times=3)
 -----
 
 ## Matrices
-Para crear una matriz en R se utiliza la función
+Para crear una matriz en **R** se utiliza la función
 
 
 ```r
@@ -246,7 +229,7 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 
 -----
 
-## Escribir y leer archivos de texto, CSV en R.
+## Escribir y leer archivos de texto, CSV en **R**.
 
 ### Archivo de texto
 
@@ -264,6 +247,38 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
 
 
+
+-----
+
+## Condiciones (if-else) 
+Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. 
+ 
+Para ello usaremos las condiciones, existen dos maneras: 
+
+```r
+if(10%%2==0){ 
+  print("Es par") 
+}else{ 
+  print("Es impar") 
+} 
+```
+
+```
+## [1] "Es par"
+```
+
+-----
+
+Otra forma, única para el lenguaje de **R** es la siguiente. 
+
+```r
+set.seed(1) 
+ifelse(10%%2==0,"Par","Impar")  
+```
+
+```
+## [1] "Par"
+```
 
 -----
 
@@ -311,15 +326,15 @@ while(i < 50){
 ---
 
 ## Paquetes
-Los paquetes en R, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de R y para instalarlos basta un comando en la propia terminal de R:
+Los paquetes en **R**, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de **R** y para instalarlos basta un comando en la propia terminal de **R**:
 
 `install.packages("NombreDelPaquete")`
 
-Con ello podremos expandir el potencial de R y a la vez facilitarnos el trabajo de _«hacerlo por nosotros mismos»_.
+Con ello podremos expandir el potencial de **R** y a la vez facilitarnos el trabajo de _«hacerlo por nosotros mismos»_.
 
 -----
 
-## Ejemplos para trabajar en R
+## Ejemplos para trabajar en **R**
 
 Supongamos que
 
