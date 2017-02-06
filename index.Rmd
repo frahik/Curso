@@ -135,6 +135,45 @@ rep(1, times=3)
 
 -----
 
+### Accediendo a los valores del vector
+
+Partiendo de que tenemos un vector con la edad de los integrantes de una familia se podría observar como si fuera una tabla:
+
+|1  |2  |3  |4  |5  |
+|---|---|---|---|---|
+|45 |43 |13 |8  | 5 |
+
+dónde, si queremos saber la edad del primer integrante, podemos observar que su edad es 45, y el promedio de todas las edades (es decir $\sum_{i=1}^{5} x_i$) es de 22.8 años.
+
+Todos éstos calculos se pueden hacer de manera rápida y en algunos casos son intuitivos, pero con grandes cantidades de datos, estas tareas se vuelven más complejas, pero continuemos con el mismo ejemplo en  **R**.
+
+------
+
+Partiendo de la edad de los cinco integrantes, crearemos un vector con las edades de cada uno
+```{R Familia}
+edad_familia <- c(45,43,13,8,5)
+```
+
+para consultar la edad de un integrante $x$ basta con poner la posición a la que queremos acceder, en éste caso, la primer posición:
+```{R Familia1, eval=F}
+edad_familia[1]
+```
+```{R Familia1Res,echo=F}
+edad_familia <- c(45,43,13,8,5)
+edad_familia[1]
+```
+
+Mientras que para calcular el promedio basta con usar la función `mean( )`
+```{R familia2, eval=F}
+mean(edad_familia)
+```
+```{R familia2Res, echo=F}
+edad_familia <- c(45,43,13,8,5)
+mean(edad_familia)
+```
+
+-----
+
 ## Matrices
 Para crear una matriz en **R** se utiliza la función
 
