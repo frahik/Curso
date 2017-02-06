@@ -239,6 +239,44 @@ while(i &lt; 50){
 
 <slide class="" id="slide-8" style="background:;">
   <hgroup>
+    <h2>Condiciones (if-else)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. </p>
+
+<p>Para ello usaremos las condiciones, existen dos maneras: </p>
+
+<pre><code class="r">if(10%%2==0){ 
+  print(&quot;Es par&quot;) 
+}else{ 
+  print(&quot;Es impar&quot;) 
+} 
+</code></pre>
+
+<pre><code>## [1] &quot;Es par&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <article data-timings="">
+    <p>Otra forma, única para el lenguaje de R es la siguiente. </p>
+
+<pre><code class="r">set.seed(1) 
+ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)  
+</code></pre>
+
+<pre><code>## [1] &quot;Par&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
     <h2>Vectores</h2>
   </hgroup>
   <article data-timings="">
@@ -264,7 +302,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <article data-timings="">
     <p>Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo n veces, podemos usar la función <code>rep(x,times=n)</code>, que repetirá un número definido de veces lo indicado como parámetro x. </p>
 
@@ -278,45 +316,117 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
-    <h2>Condiciones (if-else)</h2>
+    <h2>Matrices</h2>
   </hgroup>
   <article data-timings="">
-    <p>Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. </p>
-
-<p>Para ello usaremos las condiciones, existen dos maneras: </p>
-
-<pre><code class="r">if(10%%2==0){ 
-  print(&quot;Es par&quot;) 
-}else{ 
-  print(&quot;Es impar&quot;) 
-} 
-</code></pre>
-
-<pre><code>## [1] &quot;Es par&quot;
-</code></pre>
-
+    
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h3>apply</h3>
+  </hgroup>
   <article data-timings="">
-    <p>Otra forma, única para el lenguaje de R es la siguiente. </p>
+    <p>La función <code>apply</code> permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operacion realizad, ya sea por filas o por columnas. </p>
 
-<pre><code class="r">set.seed(1) 
-ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)  
+<p>Veamos que el uso es:</p>
+
+<pre><code class="r">apply(X, MARGIN, FUN)
 </code></pre>
 
-<pre><code>## [1] &quot;Par&quot;
-</code></pre>
+<p>Donde <code>X</code> es el vector o matriz original, <code>MARGIN</code> indica donde se aplicara la función (1 indica fila, 2 indica columna) y FUN es la funcion a aplicar (Suma, promedio, entre muchas otras).</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-14" style="background:;">
+  <article data-timings="">
+    <p>Para ver un ejemplo, crearemos una matriz con 9 valores y sacaremos el promedio por columna.</p>
+
+<pre><code class="r">x &lt;- matrix(data = 1:9, nrow=3, ncol=3, byrow = TRUE)
+x
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
+</code></pre>
+
+<pre><code class="r">apply(x,2,mean)
+</code></pre>
+
+<pre><code>## [1] 4 5 6
+</code></pre>
+
+<p>El argumento 2 en <code>apply(x,2,mean)</code> indica que el cálculo debe realizarse en la segunda dimensión, es decir, en las columnas. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h3>sapply</h3>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h3>lapply</h3>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Graficas</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que «Una imagen vale más que mil palabras»</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Paquetes</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Los paquetes en R, son como «Extensiones» y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de R y para instalarlos basta un comando en la propia terminal de R:</p>
+
+<p><code>install.packages(&quot;NombreDelPaquete&quot;)</code></p>
+
+<p>Con ello podremos expandir el potencial de R y a la vez facilitarnos el trabajo de «hacerlo por nosotros mismos»</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Ejemplos para trabajar en R</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
   <article data-timings="">
     
   </article>
@@ -371,7 +481,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Vectores'>
+        data-slide=8 title='Condiciones (if-else)'>
          8
       </a>
     </li>
@@ -383,7 +493,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Condiciones (if-else)'>
+        data-slide=10 title='Vectores'>
          10
       </a>
     </li>
@@ -395,8 +505,56 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='NA'>
+        data-slide=12 title='Matrices'>
          12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='apply'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='NA'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='sapply'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='lapply'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Graficas'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Paquetes'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Ejemplos para trabajar en R'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='NA'>
+         20
       </a>
     </li>
   </ul>

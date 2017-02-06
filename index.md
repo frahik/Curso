@@ -164,6 +164,39 @@ while(i < 50){
 
 ---
 
+## Condiciones (if-else) 
+Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. 
+ 
+Para ello usaremos las condiciones, existen dos maneras: 
+
+```r
+if(10%%2==0){ 
+  print("Es par") 
+}else{ 
+  print("Es impar") 
+} 
+```
+
+```
+## [1] "Es par"
+```
+
+-----
+
+
+Otra forma, única para el lenguaje de R es la siguiente. 
+
+```r
+set.seed(1) 
+ifelse(10%%2==0,"Par","Impar")  
+```
+
+```
+## [1] "Par"
+```
+
+-----
+
 ## Vectores 
 
 Realmente hemos trabajado con vectores desde que empezamos con `10 + 5`, lo que nos devuelve R es un vector de índice 1, estas son otras formas de crear vectores. 
@@ -203,34 +236,82 @@ rep(1, times=3)
 
 -----
 
-## Condiciones (if-else) 
-Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. 
- 
-Para ello usaremos las condiciones, existen dos maneras: 
+## Matrices
 
-```r
-if(10%%2==0){ 
-  print("Es par") 
-}else{ 
-  print("Es impar") 
-} 
-```
-
-```
-## [1] "Es par"
-```
 
 -----
 
-Otra forma, única para el lenguaje de R es la siguiente. 
+### apply
+
+La función `apply` permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operacion realizad, ya sea por filas o por columnas. 
+
+
+Veamos que el uso es:
 
 ```r
-set.seed(1) 
-ifelse(10%%2==0,"Par","Impar")  
+apply(X, MARGIN, FUN)
+```
+
+Donde `X` es el vector o matriz original, `MARGIN` indica donde se aplicara la función (1 indica fila, 2 indica columna) y FUN es la funcion a aplicar (Suma, promedio, entre muchas otras).
+
+-----
+
+Para ver un ejemplo, crearemos una matriz con 9 valores y sacaremos el promedio por columna.
+
+
+```r
+x <- matrix(data = 1:9, nrow=3, ncol=3, byrow = TRUE)
+x
 ```
 
 ```
-## [1] "Par"
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
 ```
+
+```r
+apply(x,2,mean)
+```
+
+```
+## [1] 4 5 6
+```
+
+El argumento 2 en `apply(x,2,mean)` indica que el cálculo debe realizarse en la segunda dimensión, es decir, en las columnas. 
+
+-----
+
+### sapply
+
+
+-----
+
+### lapply
+
+
+-----
+
+
+## Graficas
+
+Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que «Una imagen vale más que mil palabras»
+
+
+
+
+-----
+
+## Paquetes
+Los paquetes en R, son como «Extensiones» y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de R y para instalarlos basta un comando en la propia terminal de R:
+
+`install.packages("NombreDelPaquete")`
+
+Con ello podremos expandir el potencial de R y a la vez facilitarnos el trabajo de «hacerlo por nosotros mismos»
+
+-----
+
+## Ejemplos para trabajar en R
 
 -----
