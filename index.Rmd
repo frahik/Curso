@@ -2,9 +2,9 @@
 title       : Curso R - Básico
 subtitle    : Aprendiendo lo básico de R
 author      : Francisco Javier Luna Vázquez
-job         : Investigador
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
+job         : Investigador 
+framework   : io2012        
+highlighter : highlight.js 
 hitheme     : solarized_light      # 
 widgets     : [mathjax, quiz, bootstrap]            
 mode        : selfcontained # {standalone, draft}
@@ -19,32 +19,26 @@ license     : by-sa
 ¡Saludos! 
 Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: https://www.r-project.org/ 
 
-#### [Windows] 
-> https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe 
+Pero como muchos somos algo despistados, estas son las maneras más populares para instalar R en distintos Sistemas Operativos:
 
-#### [Linux ]
-##### Debian y derivados (Ubuntu, Elementary)
-> `sudo apt-get install r-base`
-
-##### RPM (Redhat, CentOS y derivados)
-> `sudo yum install R-core R-devel`
-
-##### Arch (Antergos, Cinnamon y derivados)
-> `sudo pacman -S r`
-
-#### [Mac - VideoTutorial] 
-> https://www.youtube.com/watch?v=ICGkG7Gg6j0 
+|Sistema Operativo | Método   |
+|------------------|----------|
+|   Windows        | https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe  |
+|Debian y derivados|`sudo apt-get install r-base`                           |
+|Redhat y derivados| `sudo yum install R-core R-devel`                      |
+|Arch y derivados  | `sudo pacman -S r`                                     |
+|     Mac          | https://www.youtube.com/watch?v=ICGkG7Gg6j0            |
 
 ----
 
 ## IDE 
-Una vez instalo R, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan dos de varias opciones para trabajar con R. 
+Una vez instalo R, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan tres de varias opciones para trabajar con R. 
 
-#### Tinn-R 
-> https://sourceforge.net/projects/tinn-r/ 
-
-#### R-Studio [Recomendado] 
-> https://www.rstudio.com/ 
+|       IDE             |  Link     |
+|:---------------------:|-----------|
+|   Tinn-R              |https://sourceforge.net/projects/tinn-r/ |
+|R-Studio [Recomendado] |https://www.rstudio.com/ |
+| R commander (Rcmdr)   |http://www.rcommander.com/ |
 
 ----
 ## Primeros pasos 
@@ -58,14 +52,7 @@ o
 ``` 
 Pero su potencial va más allá... 
 
---- .segue .quote .dark
-
-<q> Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)</q> 
-<style>
-.dark q {
-  color: white;
-}
-</style>
+Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)
 
 --- 
 
@@ -76,7 +63,7 @@ Por ser el primer contacto con R, crearemos un objeto (izquierda del símbolo `=
 ```{R Creación-Saludo, eval=F}
 saludo = "Hola mundo" 
 ``` 
-Ahora para mostrar en consola lo que contiene la variable u objeto `saludo`, lo escribiremos tal cual y obtendremos una salida muy similar a la siguiente. 
+Ahora para mostrar en consola lo que contiene la _variable_ u _objeto_ `saludo`, lo escribiremos tal cual y obtendremos una salida muy similar a la siguiente. 
 ```{R Saludo, echo=F}
 saludo = "Hola mundo" 
 saludo 
@@ -93,13 +80,16 @@ Otra manera de asignar valores a las variables es mediante el símbolo `<-` que 
 x <- 10+5 
 ``` 
  
-Es recomendable incluir un espacio simple a cada lado del operador de asignación para incrementar la legibilidad. Pero NO coloques un espacio entre el `<` y el `-` que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un único símbolo. 
+Es recomendable incluir un espacio simple a cada lado del operador de asignación para incrementar la legibilidad. Pero <span class = 'red'>NO</span> coloques un espacio entre el `<` y el `-` que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un único símbolo. 
  
-También podemos reasignar un valor a la variable que hemos creado y reutilizar la variable para realizar un calculo: 
-```{R Objetos}
-x <- 10+20 
-x 
+También podemos reasignar un valor a la variable que hemos creado y reutilizar la variable para realizar un calculo:   
+```{R Objetos, eval=F}
 y <- x + 5 
+```
+
+```{R Objetos2, echo=F}
+x <-10+5
+y <- x+5
 y 
 ``` 
 
@@ -145,7 +135,7 @@ X
 
 -----
 
-Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo n veces, podemos usar la función `rep(x,times=n)`, que repetirá un número definido de veces lo indicado como parámetro x. 
+Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo $n$ veces, podemos usar la función `rep(x,times=n)`, que repetirá un número definido de veces lo indicado como parámetro x. 
 ```{R Repeticiones}
 rep(1, times=3)  
 ``` 
@@ -180,8 +170,13 @@ Veamos que el uso es:
 ```{R Apply, eval=F}
 apply(X, MARGIN, FUN)
 ```
+donde `apply()` corresponde al nombre de la función y todo lo que está dentro de los paréntesis son los argumentos de dicha función.
 
-Donde `X` es el vector o matriz original, `MARGIN` indica donde se aplicara la función (1 indica fila, 2 indica columna) y FUN es la funcion a aplicar (Suma, promedio, entre muchas otras).
+| Argumentos | Signficado |
+|------------|------------|
+|   `X`      |Es el vector o matriz original|
+|   `MARGIN` |Indica donde se aplicara la función (1 indica fila, 2 indica columna)      |
+|   `FUN`    |Es la funcion a aplicar (Suma, promedio, entre muchas otras)     |
 
 -----
 
@@ -193,24 +188,14 @@ x
 apply(x,2,mean)
 ``` 
 
-El argumento 2 en `apply(x,2,mean)` indica que el cálculo debe realizarse en la segunda dimensión, es decir, en las columnas. 
+El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe realizarse en la segunda dimensión, es decir, en las columnas. 
 
 -----
-
-### sapply
-
-
------
-
-### lapply
-
-
------
-
 
 ## Graficas
 
 Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que «Una imagen vale más que mil palabras»
+
 
 
 

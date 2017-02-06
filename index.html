@@ -55,37 +55,35 @@
     <p>¡Saludos! 
 Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: <a href="https://www.r-project.org/">https://www.r-project.org/</a> </p>
 
-<h4>[Windows]</h4>
+<p>Pero como muchos somos algo despistados, estas son las maneras más populares para instalar R en distintos Sistemas Operativos:</p>
 
-<blockquote>
-<p><a href="https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe">https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe</a> </p>
-</blockquote>
-
-<h4>[Linux ]</h4>
-
-<h5>Debian y derivados (Ubuntu, Elementary)</h5>
-
-<blockquote>
-<p><code>sudo apt-get install r-base</code></p>
-</blockquote>
-
-<h5>RPM (Redhat, CentOS y derivados)</h5>
-
-<blockquote>
-<p><code>sudo yum install R-core R-devel</code></p>
-</blockquote>
-
-<h5>Arch (Antergos, Cinnamon y derivados)</h5>
-
-<blockquote>
-<p><code>sudo pacman -S r</code></p>
-</blockquote>
-
-<h4>[Mac - VideoTutorial]</h4>
-
-<blockquote>
-<p><a href="https://www.youtube.com/watch?v=ICGkG7Gg6j0">https://www.youtube.com/watch?v=ICGkG7Gg6j0</a> </p>
-</blockquote>
+<table><thead>
+<tr>
+<th>Sistema Operativo</th>
+<th>Método</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Windows</td>
+<td><a href="https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe">https://cran.itam.mx/bin/windows/base/R-3.3.2-win.exe</a></td>
+</tr>
+<tr>
+<td>Debian y derivados</td>
+<td><code>sudo apt-get install r-base</code></td>
+</tr>
+<tr>
+<td>Redhat y derivados</td>
+<td><code>sudo yum install R-core R-devel</code></td>
+</tr>
+<tr>
+<td>Arch y derivados</td>
+<td><code>sudo pacman -S r</code></td>
+</tr>
+<tr>
+<td>Mac</td>
+<td><a href="https://www.youtube.com/watch?v=ICGkG7Gg6j0">https://www.youtube.com/watch?v=ICGkG7Gg6j0</a></td>
+</tr>
+</tbody></table>
 
   </article>
   <!-- Presenter Notes -->
@@ -96,19 +94,27 @@ Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: <a 
     <h2>IDE</h2>
   </hgroup>
   <article data-timings="">
-    <p>Una vez instalo R, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan dos de varias opciones para trabajar con R. </p>
+    <p>Una vez instalo R, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en R, por lo que se presentan tres de varias opciones para trabajar con R. </p>
 
-<h4>Tinn-R</h4>
-
-<blockquote>
-<p><a href="https://sourceforge.net/projects/tinn-r/">https://sourceforge.net/projects/tinn-r/</a> </p>
-</blockquote>
-
-<h4>R-Studio [Recomendado]</h4>
-
-<blockquote>
-<p><a href="https://www.rstudio.com/">https://www.rstudio.com/</a> </p>
-</blockquote>
+<table><thead>
+<tr>
+<th align="center">IDE</th>
+<th>Link</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">Tinn-R</td>
+<td><a href="https://sourceforge.net/projects/tinn-r/">https://sourceforge.net/projects/tinn-r/</a></td>
+</tr>
+<tr>
+<td align="center">R-Studio [Recomendado]</td>
+<td><a href="https://www.rstudio.com/">https://www.rstudio.com/</a></td>
+</tr>
+<tr>
+<td align="center">R commander (Rcmdr)</td>
+<td><a href="http://www.rcommander.com/">http://www.rcommander.com/</a></td>
+</tr>
+</tbody></table>
 
   </article>
   <!-- Presenter Notes -->
@@ -137,25 +143,13 @@ Empezaremos por lo más básico, Podemos instalar R desde el siguiente link: <a 
 
 <p>Pero su potencial va más allá... </p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="segue quote dark" id="slide-4" style="background:;">
-  <article data-timings="">
-    <p><q> Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)</q> </p>
-
-<style>
-.dark q {
-  color: white;
-}
-</style>
+<p>Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-4" style="background:;">
   <hgroup>
     <h2>Creación de objetos</h2>
   </hgroup>
@@ -166,7 +160,7 @@ Por ser el primer contacto con R, crearemos un objeto (izquierda del símbolo <c
 <pre><code class="r">saludo = &quot;Hola mundo&quot; 
 </code></pre>
 
-<p>Ahora para mostrar en consola lo que contiene la variable u objeto <code>saludo</code>, lo escribiremos tal cual y obtendremos una salida muy similar a la siguiente. </p>
+<p>Ahora para mostrar en consola lo que contiene la <em>variable</em> u <em>objeto</em> <code>saludo</code>, lo escribiremos tal cual y obtendremos una salida muy similar a la siguiente. </p>
 
 <pre><code>## [1] &quot;Hola mundo&quot;
 </code></pre>
@@ -181,36 +175,28 @@ Por ser el primer contacto con R, crearemos un objeto (izquierda del símbolo <c
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-5" style="background:;">
   <article data-timings="">
     <p>Otra manera de asignar valores a las variables es mediante el símbolo <code>&lt;-</code> que se compone de un menor que y el signo de menos. </p>
 
 <pre><code class="r">x &lt;- 10+5 
 </code></pre>
 
-<p>Es recomendable incluir un espacio simple a cada lado del operador de asignación para incrementar la legibilidad. Pero NO coloques un espacio entre el <code>&lt;</code> y el <code>-</code> que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un único símbolo. </p>
+<p>Es recomendable incluir un espacio simple a cada lado del operador de asignación para incrementar la legibilidad. Pero <span class = 'red'>NO</span> coloques un espacio entre el <code>&lt;</code> y el <code>-</code> que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un único símbolo. </p>
 
-<p>También podemos reasignar un valor a la variable que hemos creado y reutilizar la variable para realizar un calculo: </p>
-
-<pre><code class="r">x &lt;- 10+20 
-x 
-</code></pre>
-
-<pre><code>## [1] 30
-</code></pre>
+<p>También podemos reasignar un valor a la variable que hemos creado y reutilizar la variable para realizar un calculo:   </p>
 
 <pre><code class="r">y &lt;- x + 5 
-y 
 </code></pre>
 
-<pre><code>## [1] 35
+<pre><code>## [1] 20
 </code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>Condiciones (if-else)</h2>
   </hgroup>
@@ -233,7 +219,7 @@ y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-7" style="background:;">
   <article data-timings="">
     <p>Otra forma, única para el lenguaje de R es la siguiente. </p>
 
@@ -248,7 +234,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Vectores</h2>
   </hgroup>
@@ -275,9 +261,9 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <article data-timings="">
-    <p>Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo n veces, podemos usar la función <code>rep(x,times=n)</code>, que repetirá un número definido de veces lo indicado como parámetro x. </p>
+    <p>Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo \(n\) veces, podemos usar la función <code>rep(x,times=n)</code>, que repetirá un número definido de veces lo indicado como parámetro x. </p>
 
 <pre><code class="r">rep(1, times=3)  
 </code></pre>
@@ -289,7 +275,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Matrices</h2>
   </hgroup>
@@ -333,7 +319,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h3>apply</h3>
   </hgroup>
@@ -345,13 +331,33 @@ X
 <pre><code class="r">apply(X, MARGIN, FUN)
 </code></pre>
 
-<p>Donde <code>X</code> es el vector o matriz original, <code>MARGIN</code> indica donde se aplicara la función (1 indica fila, 2 indica columna) y FUN es la funcion a aplicar (Suma, promedio, entre muchas otras).</p>
+<p>donde <code>apply()</code> corresponde al nombre de la función y todo lo que está dentro de los paréntesis son los argumentos de dicha función.</p>
+
+<table><thead>
+<tr>
+<th>Argumentos</th>
+<th>Signficado</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>X</code></td>
+<td>Es el vector o matriz original</td>
+</tr>
+<tr>
+<td><code>MARGIN</code></td>
+<td>Indica donde se aplicara la función (1 indica fila, 2 indica columna)</td>
+</tr>
+<tr>
+<td><code>FUN</code></td>
+<td>Es la funcion a aplicar (Suma, promedio, entre muchas otras)</td>
+</tr>
+</tbody></table>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <article data-timings="">
     <p>Para ver un ejemplo, crearemos una matriz con 9 valores y sacaremos el promedio por columna.</p>
 
@@ -377,7 +383,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h3>sapply</h3>
   </hgroup>
@@ -387,7 +393,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h3>lapply</h3>
   </hgroup>
@@ -397,7 +403,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Graficas</h2>
   </hgroup>
@@ -408,7 +414,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -431,7 +437,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <article data-timings="">
     <p>Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: </p>
 
@@ -454,7 +460,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Paquetes</h2>
   </hgroup>
@@ -469,7 +475,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Leer y escribir archivos de texto, CSV en R.</h2>
   </hgroup>
@@ -479,7 +485,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en R</h2>
   </hgroup>
@@ -489,7 +495,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -499,7 +505,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <article data-timings="">
     
   </article>
@@ -530,109 +536,109 @@ while(i &lt; 50){
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='NA'>
+        data-slide=4 title='Creación de objetos'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Creación de objetos'>
+        data-slide=5 title='NA'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='NA'>
+        data-slide=6 title='Condiciones (if-else)'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Condiciones (if-else)'>
+        data-slide=7 title='NA'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='NA'>
+        data-slide=8 title='Vectores'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Vectores'>
+        data-slide=9 title='NA'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='NA'>
+        data-slide=10 title='Matrices'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Matrices'>
+        data-slide=11 title='apply'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='apply'>
+        data-slide=12 title='NA'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='NA'>
+        data-slide=13 title='sapply'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='sapply'>
+        data-slide=14 title='lapply'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='lapply'>
+        data-slide=15 title='Graficas'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Graficas'>
+        data-slide=16 title='Ciclos, Repeticiones o Loops'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Ciclos, Repeticiones o Loops'>
+        data-slide=17 title='NA'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='NA'>
+        data-slide=18 title='Paquetes'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Paquetes'>
+        data-slide=19 title='Leer y escribir archivos de texto, CSV en R.'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Leer y escribir archivos de texto, CSV en R.'>
+        data-slide=20 title='Ejemplos para trabajar en R'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Ejemplos para trabajar en R'>
+        data-slide=21 title='NA'>
          21
       </a>
     </li>
@@ -640,12 +646,6 @@ while(i &lt; 50){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=22 title='NA'>
          22
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='NA'>
-         23
       </a>
     </li>
   </ul>
