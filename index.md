@@ -237,7 +237,22 @@ rep(1, times=3)
 -----
 
 ## Matrices
+Para crear una matriz en R se utiliza la función
 
+
+```r
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+```
+
+donde `matrix()` corresponde al nombre de la función y todo lo que está dentro de los paréntesis son los argumentos de dicha función.
+
+| Argumentos | Signficado |
+|------------|------------|
+|   data     |Es un vector de datos opcional |
+|   nrow     |Número deseado de filas        |
+|   ncol     |Número deseado de columnas     |
+|   byrow    |Valor lógico. Si es falso (valor por defecto), la matriz se llena por orden columna, de otra manera se llenará primero por filas. |
+| dimnames   |Utilizado para darles nombres a las filas y a las columnas, respectivamente. |
 
 -----
 
@@ -312,6 +327,16 @@ Con ello podremos expandir el potencial de R y a la vez facilitarnos el trabajo 
 
 -----
 
+## Leer y escribir archivos de texto, CSV en R.
+
+-----
+
 ## Ejemplos para trabajar en R
+
+-----
+
+Puedes continuar el curso con la siguiente diapositiva:
+
+https://frahik.github.io/CursoRIntermedio
 
 -----
