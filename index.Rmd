@@ -1,11 +1,11 @@
 ---
 title       : Curso R - Básico
-subtitle    : Aprendiendo lo básico de R
+subtitle    : Un curso para programadores y NO programadores
 author      : Francisco Javier Luna Vázquez
 job         : Investigador 
 framework   : io2012        
 highlighter : highlight.js 
-hitheme     : solarized_light      # 
+hitheme     : magula
 widgets     : [mathjax, quiz, bootstrap]            
 mode        : selfcontained # {standalone, draft}
 #knit        : slidify::knit2slides
@@ -153,11 +153,11 @@ donde `matrix()` corresponde al nombre de la función y todo lo que está dentro
 
 | Argumentos | Signficado |
 |------------|------------|
-|   data     |Es un vector de datos opcional |
-|   nrow     |Número deseado de filas        |
-|   ncol     |Número deseado de columnas     |
-|   byrow    |Valor lógico. Si es falso (valor por defecto), la matriz se llena por orden columna, de otra manera se llenará primero por filas. |
-| dimnames   |Utilizado para darles nombres a las filas y a las columnas, respectivamente. |
+|   `data`   |Es un vector de datos opcional |
+|   `nrow`   |Número deseado de filas        |
+|   `ncol`   |Número deseado de columnas     |
+|   `byrow`  |Valor lógico. Si es falso (valor por defecto), la matriz se llena por orden columna, de otra manera se llenará primero por filas. |
+| `dimnames` |Utilizado para darles nombres a las filas y a las columnas, respectivamente. |
 
 -----
 
