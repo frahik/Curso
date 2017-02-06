@@ -2,16 +2,17 @@
 title       : Curso R - Básico
 subtitle    : Aprendiendo lo básico de R
 author      : Francisco Javier Luna Vázquez
-job         : Estudiante
+job         : Investigador
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
+hitheme     : solarized_light      # 
+widgets     : [mathjax, quiz, bootstrap]            
 mode        : selfcontained # {standalone, draft}
-knit        : slidify::knit2slides
+#knit        : slidify::knit2slides
 github      :
 user        : frahik
 repo        : Curso
+license     : by-sa
 ---
 
 ## Instalación de R 
@@ -66,10 +67,17 @@ o
 ## [1] 2
 ```
 Pero su potencial va más allá... 
- 
-Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;) 
 
------
+--- .segue .quote .dark
+
+<q> Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)</q> 
+<style>
+.dark q {
+  color: white;
+}
+</style>
+
+--- 
 
 ## Creación de objetos 
 
@@ -120,49 +128,6 @@ y
 ```
 
 ------
-
-## Ciclos, Repeticiones o Loops 
- 
-Habrá momentos en las que ocuparemos realizar un número determinado de veces una misma rutina, para esto existe el ciclo for: 
- 
-
-```r
-for(i in 1:5){ 
-  print(i) 
-} 
-```
-
-```
-## [1] 1
-## [1] 2
-## [1] 3
-## [1] 4
-## [1] 5
-```
-
-----
-
-Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: 
- 
-
-```r
-i = 1 
-while(i < 50){ 
-  i = i * 2 
-  print(i) 
-} 
-```
-
-```
-## [1] 2
-## [1] 4
-## [1] 8
-## [1] 16
-## [1] 32
-## [1] 64
-```
-
----
 
 ## Condiciones (if-else) 
 Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. 
@@ -315,8 +280,50 @@ Hasta éste momento hemos expresado todos los resultados en salidas de consola, 
 
 
 
-
 -----
+
+## Ciclos, Repeticiones o Loops 
+ 
+Habrá momentos en las que ocuparemos realizar un número determinado de veces una misma rutina, para esto existe el ciclo for: 
+ 
+
+```r
+for(i in 1:5){ 
+  print(i) 
+} 
+```
+
+```
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+```
+
+----
+
+Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: 
+ 
+
+```r
+i = 1 
+while(i < 50){ 
+  i = i * 2 
+  print(i) 
+} 
+```
+
+```
+## [1] 2
+## [1] 4
+## [1] 8
+## [1] 16
+## [1] 32
+## [1] 64
+```
+
+---
 
 ## Paquetes
 Los paquetes en R, son como «Extensiones» y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de R y para instalarlos basta un comando en la propia terminal de R:
@@ -329,9 +336,11 @@ Con ello podremos expandir el potencial de R y a la vez facilitarnos el trabajo 
 
 ## Leer y escribir archivos de texto, CSV en R.
 
+
 -----
 
 ## Ejemplos para trabajar en R
+
 
 -----
 
