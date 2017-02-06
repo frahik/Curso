@@ -61,7 +61,7 @@ Principalmente por que esta diapositiva fue diseñada en R y RMarkdown ;)
 
 -----
 
-### Creación de objetos 
+## Creación de objetos 
 
 En R podemos crear y manipular objetos asignándole valores, cadenas de texto, funciones y un largo etc. 
 Por ser el primer contacto con R, crearemos un objeto (izquierda del símbolo `=`), asignándole como valor la cadena de texto "Hola mundo" 
