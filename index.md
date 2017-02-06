@@ -242,16 +242,18 @@ apply(x,2,mean)
 ## [1] 4 5 6
 ```
 
-El argumento 2 en `apply(x,2,mean)` indica que el cálculo debe realizarse en la segunda dimensión, es decir, en las columnas. 
+El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe realizarse en la segunda dimensión, es decir, en las columnas. 
 
 -----
 
-### sapply
+## Escribir y leer archivos de texto, CSV en R.
+
+### Archivo de texto
 
 
 -----
 
-### lapply
+### CSV (Comma-separated values)
 
 
 -----
@@ -259,7 +261,7 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo debe realizarse en la
 
 ## Graficas
 
-Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que «Una imagen vale más que mil palabras»
+Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
 
 
 
@@ -309,20 +311,17 @@ while(i < 50){
 ---
 
 ## Paquetes
-Los paquetes en R, son como «Extensiones» y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de R y para instalarlos basta un comando en la propia terminal de R:
+Los paquetes en R, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de R y para instalarlos basta un comando en la propia terminal de R:
 
 `install.packages("NombreDelPaquete")`
 
-Con ello podremos expandir el potencial de R y a la vez facilitarnos el trabajo de «hacerlo por nosotros mismos»
-
------
-
-## Leer y escribir archivos de texto, CSV en R.
-
+Con ello podremos expandir el potencial de R y a la vez facilitarnos el trabajo de _«hacerlo por nosotros mismos»_.
 
 -----
 
 ## Ejemplos para trabajar en R
+
+Supongamos que
 
 
 -----
