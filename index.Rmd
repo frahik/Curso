@@ -2,7 +2,7 @@
 title       : Curso R - Básico
 subtitle    : Un curso para programadores y NO programadores
 author      : Francisco Javier Luna Vázquez
-job         : Investigador 
+job         : Estudiante UDC - Investigador UQRR 
 framework   : io2012        
 highlighter : highlight.js 
 hitheme     : magula
@@ -28,7 +28,7 @@ El objetivo de la diapositiva es proporcionar un punto de partida para las perso
 ## Instalación de **R** 
 Empezaremos por lo más básico, Podemos instalar **R** desde el siguiente link: https://www.r-project.org/ 
 
-Pero como muchos somos algo despistados, estas son las maneras más populares para instalar **R** en distintos Sistemas Operativos:
+Pero como muchos somos algo despistados, estas son las maneras más sencillas para instalar **R** en distintos Sistemas Operativos:
 
 |Sistema Operativo | Método   |
 |------------------|----------|
@@ -52,8 +52,7 @@ Una vez instalado, un entorno de desarrollo integrado será necesario para facil
 ----
 
 ## Primeros pasos 
-
-En un principio y la manera más sencilla de ver **R** es que puede ser usado como una calculadora: 
+Para interactuar con R se dispone de una potente línea de comandos y en un principio, la manera más sencilla de ver **R** es que puede ser usado como una calculadora: 
 
 ```{R Suma}
 10+5 
@@ -67,7 +66,7 @@ o
 
 Pero su potencial va más allá... 
 
-Principalmente por que esta diapositiva fue diseñada en **R** y RMarkdown ;)
+Principalmente por que esta diapositiva fue diseñada en **R** y **RMarkdown** ;)
 
 --- 
 
@@ -84,8 +83,10 @@ saludo = "Hola mundo"
 saludo 
 ``` 
 
-**NOTA:** 
-> **R** es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`. 
+**NOTAS:** 
+> **R** es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`.
+
+> **R** NO requiere explicitar que tipo de valores van a contener.
 
 -----
 
@@ -232,6 +233,11 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 
 -----
 
+## DataFrames
+
+
+-----
+
 ## Escribir y leer archivos de texto, CSV en **R**.
 
 ### Archivo de texto
@@ -241,15 +247,51 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 
 ### CSV (Comma-separated values)
 
+Un formato muy utilizado en **R** a parte de los archivos de texto, para exportar los datos en dicho formato  
+
+```{R ExportarCSVConFilas, eval=F}
+df = data.frame(runif(10), runif(10), runif(10)) 
+names(df) = c("dato1", "dato2", "dato3")
+
+write.table(df, file = "dataframe1.csv", sep = ",",
+col.names = NA, qmethod = "double") 
+```
+En caso de que no se quisiera exportar el nombre de las filas, basta con modificar un poco el código, como en el siguiente ejemplo:
+```{R ExportarCSVSinFilas, eval=F}
+write.table(df, file = "dataframe2.csv", sep = ",",
+row.names = FALSE, qmethod = "double")
+```
 
 -----
 
+Ahora, si lo que buscamos es importar los datos usaremos el siguiente comando:
+
+```{R ImportarCSVConFilas, eval=F} 
+read.table("dataframe1.csv", header = TRUE, sep = ",",
+row.names = 1) 
+```
+Y si no se quieren importar los nombres de las filas optaremos por el siguiente comando:
+```{R ImportarCSVSinFilas, eval=F} 
+> read.table("dataframe2.csv", header = TRUE, sep = ",")
+```
+
+-----
 
 ## Graficas
 
 Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
 
+La función `plot()` es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función generica permite seleccionar el tipo de grafico que buscamos.
 
+`plot(x, y, type="p", main ="Titulo", sub= "subtitulo", xlab="Eje x", ylab="Eje Y")`
+
+Donde:
+
+|Argumento | Descripción |
+|----------|-------------|
+|x         | Coordenadas de la variable independiente |
+| y        | Coordenadas de la variable dependiente   |
+| type     | Tipo de grafico a dibujar, "p" es para puntos, "l" para líneas, "h" para histogramas, usar `help(plot)` para ver otros tipos. |
 
 -----
 

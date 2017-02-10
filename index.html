@@ -35,7 +35,7 @@
   <hgroup class="auto-fadein">
     <h1>Curso R - Básico</h1>
     <h2>Un curso para programadores y NO programadores</h2>
-    <p>Francisco Javier Luna Vázquez<br/>Investigador</p>
+    <p>Francisco Javier Luna Vázquez<br/>Estudiante UDC - Investigador UQRR</p>
   </hgroup>
   <article></article>  
   <footer class = 'license'>
@@ -69,7 +69,7 @@
   <article data-timings="">
     <p>Empezaremos por lo más básico, Podemos instalar <strong>R</strong> desde el siguiente link: <a href="https://www.r-project.org/">https://www.r-project.org/</a> </p>
 
-<p>Pero como muchos somos algo despistados, estas son las maneras más populares para instalar <strong>R</strong> en distintos Sistemas Operativos:</p>
+<p>Pero como muchos somos algo despistados, estas son las maneras más sencillas para instalar <strong>R</strong> en distintos Sistemas Operativos:</p>
 
 <table><thead>
 <tr>
@@ -139,7 +139,7 @@
     <h2>Primeros pasos</h2>
   </hgroup>
   <article data-timings="">
-    <p>En un principio y la manera más sencilla de ver <strong>R</strong> es que puede ser usado como una calculadora: </p>
+    <p>Para interactuar con R se dispone de una potente línea de comandos y en un principio, la manera más sencilla de ver <strong>R</strong> es que puede ser usado como una calculadora: </p>
 
 <pre><code class="r">10+5 
 </code></pre>
@@ -157,7 +157,7 @@
 
 <p>Pero su potencial va más allá... </p>
 
-<p>Principalmente por que esta diapositiva fue diseñada en <strong>R</strong> y RMarkdown ;)</p>
+<p>Principalmente por que esta diapositiva fue diseñada en <strong>R</strong> y <strong>RMarkdown</strong> ;)</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -179,10 +179,12 @@ Por ser el primer contacto con <strong>R</strong>, crearemos un objeto (izquierd
 <pre><code>## [1] &quot;Hola mundo&quot;
 </code></pre>
 
-<p><strong>NOTA:</strong> </p>
+<p><strong>NOTAS:</strong> </p>
 
 <blockquote>
-<p><strong>R</strong> es sensible a las MAYUSCULAS y minúsculas, por lo que <code>saludo</code> no es igual a <code>Saludo</code> o a <code>SALUDO</code>. </p>
+<p><strong>R</strong> es sensible a las MAYUSCULAS y minúsculas, por lo que <code>saludo</code> no es igual a <code>Saludo</code> o a <code>SALUDO</code>.</p>
+
+<p><strong>R</strong> NO requiere explicitar que tipo de valores van a contener.</p>
 </blockquote>
 
   </article>
@@ -438,6 +440,16 @@ x
 
 <slide class="" id="slide-15" style="background:;">
   <hgroup>
+    <h2>DataFrames</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
     <h2>Escribir y leer archivos de texto, CSV en <strong>R</strong>.</h2>
   </hgroup>
   <article data-timings="">
@@ -447,28 +459,85 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h3>CSV (Comma-separated values)</h3>
   </hgroup>
   <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+    <p>Un formato muy utilizado en <strong>R</strong> a parte de los archivos de texto, para exportar los datos en dicho formato  </p>
 
-<slide class="" id="slide-17" style="background:;">
-  <hgroup>
-    <h2>Graficas</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que <em>«Una imagen vale más que mil palabras»</em></p>
+<pre><code class="r">df = data.frame(runif(10), runif(10), runif(10)) 
+names(df) = c(&quot;dato1&quot;, &quot;dato2&quot;, &quot;dato3&quot;)
+
+write.table(df, file = &quot;dataframe1.csv&quot;, sep = &quot;,&quot;,
+col.names = NA, qmethod = &quot;double&quot;) 
+</code></pre>
+
+<p>En caso de que no se quisiera exportar el nombre de las filas, basta con modificar un poco el código, como en el siguiente ejemplo:</p>
+
+<pre><code class="r">write.table(df, file = &quot;dataframe2.csv&quot;, sep = &quot;,&quot;,
+row.names = FALSE, qmethod = &quot;double&quot;)
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-18" style="background:;">
+  <article data-timings="">
+    <p>Ahora, si lo que buscamos es importar los datos usaremos el siguiente comando:</p>
+
+<pre><code class="r">read.table(&quot;dataframe1.csv&quot;, header = TRUE, sep = &quot;,&quot;,
+row.names = 1) 
+</code></pre>
+
+<p>Y si no se quieren importar los nombres de las filas optaremos por el siguiente comando:</p>
+
+<pre><code class="r">&gt; read.table(&quot;dataframe2.csv&quot;, header = TRUE, sep = &quot;,&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Graficas</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que <em>«Una imagen vale más que mil palabras»</em></p>
+
+<p>La función <code>plot()</code> es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función generica permite seleccionar el tipo de grafico que buscamos.</p>
+
+<p><code>plot(x, y, type=&quot;p&quot;, main =&quot;Titulo&quot;, sub= &quot;subtitulo&quot;, xlab=&quot;Eje x&quot;, ylab=&quot;Eje Y&quot;)</code></p>
+
+<p>Donde:</p>
+
+<table><thead>
+<tr>
+<th>Argumento</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>x</td>
+<td>Coordenadas de la variable independiente</td>
+</tr>
+<tr>
+<td>y</td>
+<td>Coordenadas de la variable dependiente</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Tipo de grafico a dibujar, &quot;p&quot; es para puntos, &quot;l&quot; para líneas, &quot;h&quot; para histogramas, usar <code>help(plot)</code> para ver otros tipos.</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Condiciones (if-else)</h2>
   </hgroup>
@@ -491,7 +560,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <article data-timings="">
     <p>Otra forma, única para el lenguaje de <strong>R</strong> es la siguiente. </p>
 
@@ -506,7 +575,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -529,7 +598,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <article data-timings="">
     <p>Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: </p>
 
@@ -552,7 +621,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Paquetes</h2>
   </hgroup>
@@ -567,7 +636,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en <strong>R</strong></h2>
   </hgroup>
@@ -578,7 +647,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -588,7 +657,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <article data-timings="">
     
   </article>
@@ -685,37 +754,37 @@ while(i &lt; 50){
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Escribir y leer archivos de texto, CSV en <strong>R</strong>.'>
+        data-slide=15 title='DataFrames'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='CSV (Comma-separated values)'>
+        data-slide=16 title='Escribir y leer archivos de texto, CSV en <strong>R</strong>.'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Graficas'>
+        data-slide=17 title='CSV (Comma-separated values)'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Condiciones (if-else)'>
+        data-slide=18 title='NA'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='NA'>
+        data-slide=19 title='Graficas'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Ciclos, Repeticiones o Loops'>
+        data-slide=20 title='Condiciones (if-else)'>
          20
       </a>
     </li>
@@ -727,26 +796,38 @@ while(i &lt; 50){
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Paquetes'>
+        data-slide=22 title='Ciclos, Repeticiones o Loops'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Ejemplos para trabajar en <strong>R</strong>'>
+        data-slide=23 title='NA'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='NA'>
+        data-slide=24 title='Paquetes'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='NA'>
+        data-slide=25 title='Ejemplos para trabajar en <strong>R</strong>'>
          25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='NA'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='NA'>
+         27
       </a>
     </li>
   </ul>
