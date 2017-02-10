@@ -4,6 +4,7 @@
 Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](frahik.github.io/Curso) 
 
 ## Temas
+ - Hablemos de R
  - Instalación de R.
  	- Windows
  	- Linux
@@ -12,16 +13,20 @@ Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](fra
  		- Arch/Antergos
  	- Mac
  - IDE's recomendados para R.
+ - Primeros Pasos.
  - Creación de objetos/variables.
- - Ciclos
- - Condiciones
  - Vectores
+ - Funciones
  - Matrices
  	- apply
- 	- sapply
- 	- lappy
+ - Data Frame
+  - Archivo de Texto
+  - CSV
  - Graficas básicas 
-
+ - Ciclos
+ - Condiciones
+ - Paquetes
+ - Ejemplos en R
 ## Usar ésta diapositiva
 - Clonar el Repositorio o descargar el .Zip.
 - Instalar la libreria slidify (y sus dependencias) y RStudio (Recomendado).
