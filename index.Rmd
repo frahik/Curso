@@ -154,7 +154,7 @@ Partiendo de la edad de los cinco integrantes, crearemos un vector con las edade
 edad_familia <- c(45,43,13,8,5)
 ```
 
-para consultar la edad de un integrante $x$ basta con poner la posición a la que queremos acceder, en éste caso, la primer posición:
+para consultar la edad de un integrante x basta con poner la posición a la que queremos acceder, en éste caso, la primer posición:
 ```{R Familia1, eval=F}
 edad_familia[1]
 ```
@@ -171,6 +171,14 @@ mean(edad_familia)
 edad_familia <- c(45,43,13,8,5)
 mean(edad_familia)
 ```
+
+Nota:
+> En muchos lenguajes de programación, la primera posición de los vectores es 0, como se pudo observar en el caso anterior, en **R** la primera posición es 1.
+
+-----
+## Funciones
+
+
 
 -----
 
