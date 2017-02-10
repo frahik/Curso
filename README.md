@@ -27,12 +27,18 @@ Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](fra
  - Condiciones
  - Paquetes
  - Ejemplos en R
+ 
 ## Usar ésta diapositiva
 - Clonar el Repositorio o descargar el .Zip.
 - Instalar la libreria slidify (y sus dependencias) y RStudio (Recomendado).
 - Establecer el directorio de trabajo `setwd("Ruta/Al/archivo")`, donde se descomprime el .zip o donde se clono el repositorio.
 - Usar la libreria `library(slidify)`.
 - Abrir en Rstudio el index.Rmd y correrlo con _Knit_.
+
+
+Nota: 
+
+> Para cargarla a Github hay que tener una `branch` nombrada `gh-pages`.
 
 ## Otros cursos:
 
