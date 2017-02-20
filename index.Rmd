@@ -98,7 +98,7 @@ x <- 10+5
  
 Es recomendable incluir un espacio simple a cada lado del operador de asignación para incrementar la legibilidad. Pero <span class = 'red'>NO</span> coloques un espacio entre el `<` y el `-` que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un único símbolo. 
  
-También podemos reasignar un valor a la variable que hemos creado y reutilizar la variable para realizar un calculo:   
+También podemos reasignar un valor a la variable que hemos creado y reutilizar el valor de la variable para realizar un calculo:   
 ```{R Objetos, eval=F}
 y <- x + 5 
 y
@@ -110,7 +110,22 @@ y <- x+5
 y 
 ``` 
 
-------
+> Recuerde que aunque pareciera algo matematico, los simbolos `<-` o `=` no funcionan como un «igual», si no, como un «equivale a» o una «asignación», por que a partir de ese momento, el valor de la derecha se le asigna al de la izquierda.
+
+-----
+
+Estos son los operadores más populares que se utilizan en **R** para realizar distintos calculos.
+
+| Aritméticos |                     | Lógicos |                 | Comparativos |           |
+|:-----------:|---------------------|:-------:|-----------------|:------------:|-----------|
+|      +      | Adición             |    ==   | Igual a         |       &      | Y Lógico  |
+|      -      | Substracción        |    !=   | Diferente de    |       !      | No Lógico |
+|      *      | Multiplicación      |    <    | Menor que       |       |      | O Lógico  |
+|      /      | División            |    >    | Mayor que       |   is.na(x)   | ¿Es NA?   |
+|      ^      | Potencia            |    <=   | Menor o igual a |  is.null(x)  | ¿Es Null? |
+|     %/%     | División de enteros |    >=   | Mayor o igual a |   is.nan(x)  | ¿Es NaN?  |
+
+-----
 
 ## Vectores 
 
@@ -179,7 +194,35 @@ Nota:
 -----
 ## Funciones
 
+En **R** existen varias funciones ya definidas que nos permiten hacer varios calculos, desde calcular el promedio hasta algunas distribuciones, entre las más populares tenemos las siguientes:
 
+|función |Objetivo|
+|--------|--------|
+|`sum(x)` |Suma todos los elementos de una matriz o un vector $x$.|
+|`mean(x)`|Calcula el promedio de todos los elementos de una matriz o un vector $x$.|
+|`sd(x)`  |Calcula la desviación estandar de una matriz o un vector $x$.|
+|`var(x)` |Calcula la varianza de una matriz o un vector $x$.|
+
+A continuación se presenta una tabla un poco más extensa con diversas funciones.
+
+-----
+
+|   Función   |           Matemáticas                 | Función       |           Estadísticas        |
+|:-----------:|---------------------------------------|:-------------:|-------------------------------|
+|   sqrt(x)   | Raíz de $x$                           |    mean(x)    | Media                         |
+|    exp(x)   | Exponencial de $x$                    |     sd(x)     | Desviación estándar           |
+|    log(x)   | Logaritmo natural de $x$              |     var(x)    | Varianza                      |
+|   log10(x)  | Logaritmo base 10                     |   median(x)   | Mediana                       |
+|    sum(x)   | Suma de los elementos de $x$          |  quantiles(x) | Quantiles                     |
+|   prod(x)   | Producto de los elementos de $x$      |    cor(x,y)   | Correlación                   |
+|    sin(x)   | Seno                                  |     max(x)    | Valor máximo                  |
+|    cos(x)   | Coseno                                |     min(x)    | Valor mínimo                  |
+|    tan(x)   | Tangente                              |    range(x)   | Retorna el máximo y mínimo    |
+|  round(x,n) | Redondea a $n$ dígitos                |    sort(x)    | Ordena los elementos de $x$   |
+|  cumsum(x)  | Calcula las sumas acumuladas          |    summary    | Resumen de las variables      |
+|             | ($x_1, x_1 + x_2, + x_1 +\ldots+x_n$) |  choose(n,k)  | Combinatoria de $n$ sobre $k$ |
+
+> Existen muchas funciones ya predeterminadas en **R**, todo depende del usuario si requiere estas funciones o no.
 
 -----
 
@@ -235,10 +278,14 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 
 ## DataFrames
 
+Los dataframes, son una clase parecida a las matrices, sin embargo, poseen determinadas cararacteristicas que las hace más utiles en ciertas ocaciones.
+
 
 -----
 
 ## Escribir y leer archivos de texto, CSV en **R**.
+
+En algún momento, tendremos la necesidad de guardar o leer algo en un formato determinado, sea `.txt`, `.csv` o `.Rdata`, veamos unos ejemplos que podrán ser de utilidad.
 
 ### Archivo de texto
 
@@ -283,7 +330,11 @@ Hasta éste momento hemos expresado todos los resultados en salidas de consola, 
 
 La función `plot()` es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función generica permite seleccionar el tipo de grafico que buscamos.
 
-`plot(x, y, type="p", main ="Titulo", sub= "subtitulo", xlab="Eje x", ylab="Eje Y")`
+-----
+
+```{r plot, eval=F}
+plot(x, y, type="p", main ="Titulo", sub= "subtitulo", xlab="Eje x", ylab="Eje Y")
+```
 
 Donde:
 
@@ -292,6 +343,25 @@ Donde:
 |x         | Coordenadas de la variable independiente |
 | y        | Coordenadas de la variable dependiente   |
 | type     | Tipo de grafico a dibujar, "p" es para puntos, "l" para líneas, "h" para histogramas, usar `help(plot)` para ver otros tipos. |
+
+-----
+
+Usando `plot(...)`, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de muestras:
+
+| x   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|:---:|---|---|---|---|---|---|---|---|---|----|
+| y   | 
+
+
+
+-----
+
+**R** Tiene muchas maneras de hacer graficos de manera sencilla, por ejemplo, para graficas de pastel, se puede usar el comando `pie()`. Por ejemplo:
+
+```{r}
+gastos = c(Escuela=100, Alimentos=120, Recreación=90, Transporte=50) 
+pie(gastos) 
+```
 
 -----
 
@@ -342,9 +412,21 @@ while(i < 50){
 ---
 
 ## Paquetes
-Los paquetes en **R**, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de **R** y para instalarlos basta un comando en la propia terminal de **R**:
+Los paquetes en **R**, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de **R** o github y para instalarlos basta un comando en la propia terminal de **R**:
 
-`install.packages("NombreDelPaquete")`
+### Para paquetes oficiales de CRAN
+```{R IntalarPaqueteCRAN, eval=FALSE}
+install.packages("NombreDelPaquete")
+```
+
+### Para paquetes de Github
+```{R InstalarPaqueteGitHub, eval=FALSE}
+install.packages("devtools") #Correr solo si no se tiene el paquete "devtools" instalado.
+install_github("usuario/repositorio")
+```
+
+
+### Para paquetes de Github
 
 Con ello podremos expandir el potencial de **R** y a la vez facilitarnos el trabajo de _«hacerlo por nosotros mismos»_.
 
@@ -352,7 +434,7 @@ Con ello podremos expandir el potencial de **R** y a la vez facilitarnos el trab
 
 ## Ejemplos para trabajar en **R**
 
-Supongamos que
+Supongamos que tenemos una 
 
 
 -----
