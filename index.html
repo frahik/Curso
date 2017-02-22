@@ -734,43 +734,61 @@ row.names = 1)
 </tr>
 </tbody></table>
 
+<p>A continuación veremos unos ejemplos más detallados para el uso básico de plot.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-23" style="background:;">
   <article data-timings="">
-    <p>Usando <code>plot(...)</code>, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de muestras:</p>
+    <p>Usando <code>plot(...)</code>, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses:</p>
 
 <table><thead>
 <tr>
-<th align="center">x</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th>10</th>
+<th></th>
+<th>Enero</th>
+<th>Febrero</th>
+<th>Marzo</th>
+<th>Abril</th>
 </tr>
 </thead><tbody>
 <tr>
-<td align="center">y</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Perro</td>
+<td>10</td>
+<td>8</td>
+<td>12</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Gato</td>
+<td>12</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Otros</td>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
 </tr>
 </tbody></table>
+
+<p>Por lo que, en R, tendríamos:</p>
+
+<pre><code class="r">animales &lt;- matrix(c(10,8,9,7,7,5,5,4,5,3,3,7), nrow = 3, ncol = 4, 
+                   dimnames = list(c(&quot;Perro&quot;, &quot;Gato&quot;, &quot;Otros&quot;),
+                                   c(&quot;Enero&quot;, &quot;Febrero&quot;, &quot;Marzo&quot;, &quot;Abril&quot;)))
+animales
+</code></pre>
+
+<pre><code>##       Enero Febrero Marzo Abril
+## Perro    10       7     5     3
+## Gato      8       7     4     3
+## Otros     9       5     5     7
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -778,7 +796,37 @@ row.names = 1)
 
 <slide class="" id="slide-24" style="background:;">
   <article data-timings="">
-    <p><strong>R</strong> Tiene muchas maneras de hacer graficos de manera sencilla, por ejemplo, para graficas de pastel, se puede usar el comando <code>pie()</code>. Por ejemplo:</p>
+    <p>Ahora, si queremos graficar como se han comportado los rescates por cada animal en cada mes, tenemos que:</p>
+
+<pre><code class="r">plot(x=1:4, y=animales[1,], type = &quot;o&quot;, col=&quot;blue&quot;, axes=FALSE, ann=FALSE)
+axis(1, at=1:4, lab=colnames(animales))
+axis(2, las=1, at=1:12)
+box()
+lines(animales[2,], type=&quot;o&quot;, pch=22, lty=2, col=&quot;red&quot;)
+lines(animales[3,], type=&quot;o&quot;, pch=22, lty=2, col=&quot;orange&quot;)
+title(xlab=&quot;Mes&quot;, col.lab=rgb(0,0.5,0))
+title(ylab=&quot;Rescatados&quot;, col.lab=rgb(0,0.5,0))
+legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1,2,2),
+        lwd=c(2,2),col=c(&quot;blue&quot;,&quot;red&quot;,&quot;Orange&quot;),text.width = 2) 
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <article data-timings="">
+    <p>Quedandonos una grafica como la siguiente:</p>
+
+<p><img src="figure/ejemploPlot3-1.png" alt="plot of chunk ejemploPlot3"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <article data-timings="">
+    <p><strong>R</strong> Tiene otras maneras de hacer graficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando <code>pie()</code>. Por ejemplo:</p>
 
 <pre><code class="r">gastos = c(Escuela=100, Alimentos=120, Recreación=90, Transporte=50) 
 pie(gastos) 
@@ -790,12 +838,12 @@ pie(gastos)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Condiciones (if-else)</h2>
   </hgroup>
   <article data-timings="">
-    <p>Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. </p>
+    <p>Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no.  </p>
 
 <p>Para ello usaremos las condiciones, existen dos maneras: </p>
 
@@ -813,7 +861,7 @@ pie(gastos)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <article data-timings="">
     <p>Otra forma, única para el lenguaje de <strong>R</strong> es la siguiente. </p>
 
@@ -828,7 +876,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -851,7 +899,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <article data-timings="">
     <p>Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: </p>
 
@@ -874,7 +922,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Paquetes</h2>
   </hgroup>
@@ -900,7 +948,7 @@ install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en <strong>R</strong></h2>
   </hgroup>
@@ -911,7 +959,7 @@ install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -921,7 +969,7 @@ install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <article data-timings="">
     
   </article>
@@ -1078,7 +1126,7 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Condiciones (if-else)'>
+        data-slide=25 title='NA'>
          25
       </a>
     </li>
@@ -1090,7 +1138,7 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Ciclos, Repeticiones o Loops'>
+        data-slide=27 title='Condiciones (if-else)'>
          27
       </a>
     </li>
@@ -1102,26 +1150,38 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Paquetes'>
+        data-slide=29 title='Ciclos, Repeticiones o Loops'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Ejemplos para trabajar en <strong>R</strong>'>
+        data-slide=30 title='NA'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='NA'>
+        data-slide=31 title='Paquetes'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='NA'>
+        data-slide=32 title='Ejemplos para trabajar en <strong>R</strong>'>
          32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='NA'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='NA'>
+         34
       </a>
     </li>
   </ul>

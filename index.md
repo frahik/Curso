@@ -396,19 +396,62 @@ Donde:
 | y        | Coordenadas de la variable dependiente   |
 | type     | Tipo de grafico a dibujar, "p" es para puntos, "l" para líneas, "h" para histogramas, usar `help(plot)` para ver otros tipos. |
 
------
 
-Usando `plot(...)`, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de muestras:
-
-| x   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-|:---:|---|---|---|---|---|---|---|---|---|----|
-| y   | 
-
-
+A continuación veremos unos ejemplos más detallados para el uso básico de plot.
 
 -----
 
-**R** Tiene muchas maneras de hacer graficos de manera sencilla, por ejemplo, para graficas de pastel, se puede usar el comando `pie()`. Por ejemplo:
+Usando `plot(...)`, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses:
+
+|       | Enero | Febrero | Marzo | Abril |
+|-------|-------|---------|-------|-------|
+| Perro | 10    | 8       | 12    | 7     |
+| Gato  | 12    | 3       | 3     | 9     |
+| Otros | 5     | 5       | 2     | 1     |
+
+Por lo que, en R, tendríamos:
+
+
+```r
+animales <- matrix(c(10,8,9,7,7,5,5,4,5,3,3,7), nrow = 3, ncol = 4, 
+                   dimnames = list(c("Perro", "Gato", "Otros"),
+                                   c("Enero", "Febrero", "Marzo", "Abril")))
+animales
+```
+
+```
+##       Enero Febrero Marzo Abril
+## Perro    10       7     5     3
+## Gato      8       7     4     3
+## Otros     9       5     5     7
+```
+
+-----
+
+Ahora, si queremos graficar como se han comportado los rescates por cada animal en cada mes, tenemos que:
+
+```r
+plot(x=1:4, y=animales[1,], type = "o", col="blue", axes=FALSE, ann=FALSE)
+axis(1, at=1:4, lab=colnames(animales))
+axis(2, las=1, at=1:12)
+box()
+lines(animales[2,], type="o", pch=22, lty=2, col="red")
+lines(animales[3,], type="o", pch=22, lty=2, col="orange")
+title(xlab="Mes", col.lab=rgb(0,0.5,0))
+title(ylab="Rescatados", col.lab=rgb(0,0.5,0))
+legend(2.2,9.9,c("Perros","Gatos","Otros"),lty=c(1,2,2),
+        lwd=c(2,2),col=c("blue","red","Orange"),text.width = 2) 
+```
+
+-----
+
+Quedandonos una grafica como la siguiente:
+
+![plot of chunk ejemploPlot3](figure/ejemploPlot3-1.png)
+
+-----
+
+**R** Tiene otras maneras de hacer graficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando `pie()`. Por ejemplo:
 
 
 ```r
@@ -421,7 +464,7 @@ pie(gastos)
 -----
 
 ## Condiciones (if-else) 
-Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no. 
+Habrá momentos en los que ocuparemos tener en cuenta que queremos hacer si no sucede un evento, por ejemplo, saber si un número es par o no.  
  
 Para ello usaremos las condiciones, existen dos maneras: 
 
