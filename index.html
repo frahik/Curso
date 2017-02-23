@@ -787,23 +787,14 @@ df[1,]
 
 <slide class="" id="slide-23" style="background:;">
   <hgroup>
-    <h2>Escribir y leer archivos de texto, CSV en <strong>R</strong>.</h2>
+    <h2>Escribir y leer archivos en <strong>R</strong>.</h2>
   </hgroup>
   <article data-timings="">
-    <p>En algún momento, tendremos la necesidad de guardar o leer algo en un formato determinado, sea <code>.txt</code>, <code>.csv</code> o <code>.Rdata</code>, veamos unos ejemplos que podrán ser de utilidad.</p>
+    <p>En algún momento, tendremos la necesidad de guardar o leer algo en un formato determinado, sea <code>.csv</code> o <code>.Rdata</code>, veamos unos ejemplos que podrán ser de utilidad.</p>
 
-<h3>Archivo de texto</h3>
+<h3>CSV (Comma-separated values)</h3>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-24" style="background:;">
-  <hgroup>
-    <h3>CSV (Comma-separated values)</h3>
-  </hgroup>
-  <article data-timings="">
-    <p>Un formato muy utilizado en <strong>R</strong> a parte de los archivos de texto, para exportar los datos en dicho formato  </p>
+<p>Un formato muy utilizado en <strong>R</strong> a parte de los archivos de texto, para exportar los datos en dicho formato  </p>
 
 <pre><code class="r">df = data.frame(runif(10), runif(10), runif(10)) 
 names(df) = c(&quot;dato1&quot;, &quot;dato2&quot;, &quot;dato3&quot;)
@@ -812,19 +803,19 @@ write.table(df, file = &quot;dataframe1.csv&quot;, sep = &quot;,&quot;,
 col.names = NA, qmethod = &quot;double&quot;) 
 </code></pre>
 
-<p>En caso de que no se quisiera exportar el nombre de las filas, basta con modificar un poco el código, como en el siguiente ejemplo:</p>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <article data-timings="">
+    <p>En caso de que no se quisiera exportar el nombre de las filas, basta con modificar un poco el código, como en el siguiente ejemplo:</p>
 
 <pre><code class="r">write.table(df, file = &quot;dataframe2.csv&quot;, sep = &quot;,&quot;,
 row.names = FALSE, qmethod = &quot;double&quot;)
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-25" style="background:;">
-  <article data-timings="">
-    <p>Ahora, si lo que buscamos es importar los datos usaremos el siguiente comando:</p>
+<p>Ahora, si lo que buscamos es importar los datos usaremos el siguiente comando:</p>
 
 <pre><code class="r">read.table(&quot;dataframe1.csv&quot;, header = TRUE, sep = &quot;,&quot;,
 row.names = 1) 
@@ -832,14 +823,14 @@ row.names = 1)
 
 <p>Y si no se quieren importar los nombres de las filas optaremos por el siguiente comando:</p>
 
-<pre><code class="r">&gt; read.table(&quot;dataframe2.csv&quot;, header = TRUE, sep = &quot;,&quot;)
+<pre><code class="r">read.table(&quot;dataframe2.csv&quot;, header = TRUE, sep = &quot;,&quot;)
 </code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <article data-timings="">
     <p>Otra forma de importar <code>.csv</code> es a tráves del comando <code>read.csv(...)</code></p>
 
@@ -880,14 +871,35 @@ row.names = 1)
 
 <p>Un ejemplo seria el siguiente:</p>
 
-<pre><code class="r">read.csv(&quot;dataframe1.csv&quot;)
+<pre><code class="r">csv &lt;- read.csv(&quot;dataframe1.csv&quot;)
 </code></pre>
 
-<pre><code>## Warning in file(file, &quot;rt&quot;): no fue posible abrir el archivo
-## &#39;dataframe1.csv&#39;: No existe el archivo o el directorio
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h3>Guardar y cargar archivos .RData</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>Si tienes objetos que te gustaría guardar como tal para luego procesarlos o simplemente se te hace más sencillo comprenderlo sobre un <code>.csv</code>, los comandos seran los siguientes:</p>
+
+<pre><code class="r">foo = &quot;bar&quot;
+save(foo, file=&quot;nombre.RData&quot;)
 </code></pre>
 
-<pre><code>## Error in file(file, &quot;rt&quot;): no se puede abrir la conexión
+<p>Mientras que, para volver a cargar los datos:</p>
+
+<pre><code class="r">load(&quot;nombre.RData&quot;)
+</code></pre>
+
+<p>Para llamar el objeto, basta con volver a introducir su variable, que, aunque no haya sido creada antes de usar la función <code>load()</code>, esta se encarga de crear el objeto y asignarle el valor que decidimos guardar en un principio.</p>
+
+<pre><code class="r">foo
+</code></pre>
+
+<pre><code>## [1] &quot;bar&quot;
 </code></pre>
 
   </article>
@@ -903,13 +915,7 @@ row.names = 1)
 
 <p>La función <code>plot()</code> es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función generica permite seleccionar el tipo de grafico que buscamos.</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-28" style="background:;">
-  <article data-timings="">
-    <pre><code class="r">plot(x, y, type=&quot;p&quot;, main =&quot;Titulo&quot;, sub= &quot;subtitulo&quot;, xlab=&quot;Eje x&quot;, ylab=&quot;Eje Y&quot;)
+<pre><code class="r">plot(x, y, type=&quot;p&quot;, main =&quot;Titulo&quot;, sub= &quot;subtitulo&quot;, xlab=&quot;Eje x&quot;, ylab=&quot;Eje Y&quot;)
 </code></pre>
 
 <p>Donde:</p>
@@ -934,15 +940,13 @@ row.names = 1)
 </tr>
 </tbody></table>
 
-<p>A continuación veremos unos ejemplos más detallados para el uso básico de plot.</p>
-
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <article data-timings="">
-    <p>Usando <code>plot(...)</code>, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses:</p>
+    <p>A continuación veremos unos ejemplos más detallados usando <code>plot(...)</code>, con dicha función se pueden crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses, generaremos una grafica de ejemplo:</p>
 
 <table><thead>
 <tr>
@@ -994,7 +998,7 @@ animales
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <article data-timings="">
     <p>Ahora, se busca graficar como se han comportado los rescates por cada animal en cada mes, por lo que un código podría ser el siguiente:</p>
 
@@ -1014,7 +1018,7 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <article data-timings="">
     <p>Así se obtendría la grafica siguiente:</p>
 
@@ -1024,7 +1028,7 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <article data-timings="">
     <p><strong>R</strong> Tiene otras maneras de hacer graficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando <code>pie()</code>. Por ejemplo:</p>
 
@@ -1032,13 +1036,13 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
 pie(gastos) 
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7"></p>
+<p><img src="figure/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6"></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Condiciones (if-else)</h2>
   </hgroup>
@@ -1061,12 +1065,19 @@ pie(gastos)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <article data-timings="">
     <p>Otra forma, única para el lenguaje de <strong>R</strong> es la siguiente. </p>
 
-<pre><code class="r">set.seed(1) 
-ifelse(round(runif(1)*10,0)%%2==0,&quot;Par&quot;,&quot;Impar&quot;)  
+<pre><code class="r">set.seed(1)
+val &lt;- round(runif(1)*10,0)
+val
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code class="r">ifelse(val%%2==0,&quot;Par&quot;,&quot;Impar&quot;)  
 </code></pre>
 
 <pre><code>## [1] &quot;Impar&quot;
@@ -1082,7 +1093,7 @@ ifelse(round(runif(1)*10,0)%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -1105,7 +1116,7 @@ ifelse(round(runif(1)*10,0)%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <article data-timings="">
     <p>Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: </p>
 
@@ -1128,13 +1139,13 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
-    <h2>Establecer espacios de trabajo</h2>
+    <h2>Establecer Directorios de trabajo</h2>
   </hgroup>
   <article data-timings="">
-    <p>Al ejecutar <strong>R</strong>, este estable un espacio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que sera la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
-Por ello, para obtener el espacio de trabajo actual basta con usar el siguiente comando:</p>
+    <p>Al ejecutar <strong>R</strong>, este estable un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que sera la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
+Por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:</p>
 
 <pre><code class="r">getwd()
 </code></pre>
@@ -1152,7 +1163,7 @@ setwd(&quot;~/Documentos/Curso&quot;) #Linux
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>Paquetes</h2>
   </hgroup>
@@ -1177,7 +1188,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Ejemplo para trabajar en <strong>R</strong></h2>
   </hgroup>
@@ -1237,7 +1248,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -1247,7 +1258,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <article data-timings="">
     
   </article>
@@ -1392,13 +1403,13 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Escribir y leer archivos de texto, CSV en <strong>R</strong>.'>
+        data-slide=23 title='Escribir y leer archivos en <strong>R</strong>.'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='CSV (Comma-separated values)'>
+        data-slide=24 title='NA'>
          24
       </a>
     </li>
@@ -1410,7 +1421,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='NA'>
+        data-slide=26 title='Guardar y cargar archivos .RData'>
          26
       </a>
     </li>
@@ -1446,49 +1457,49 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='NA'>
+        data-slide=32 title='Condiciones (if-else)'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Condiciones (if-else)'>
+        data-slide=33 title='NA'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='NA'>
+        data-slide=34 title='Ciclos, Repeticiones o Loops'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Ciclos, Repeticiones o Loops'>
+        data-slide=35 title='NA'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='NA'>
+        data-slide=36 title='Establecer Directorios de trabajo'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Establecer espacios de trabajo'>
+        data-slide=37 title='Paquetes'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Paquetes'>
+        data-slide=38 title='Ejemplo para trabajar en <strong>R</strong>'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Ejemplo para trabajar en <strong>R</strong>'>
+        data-slide=39 title='NA'>
          39
       </a>
     </li>
@@ -1496,12 +1507,6 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=40 title='NA'>
          40
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='NA'>
-         41
       </a>
     </li>
   </ul>

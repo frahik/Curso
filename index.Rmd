@@ -355,14 +355,9 @@ df[1,1]
 
 -----
 
-## Escribir y leer archivos de texto, CSV en **R**.
+## Escribir y leer archivos en **R**.
 
-En algún momento, tendremos la necesidad de guardar o leer algo en un formato determinado, sea `.txt`, `.csv` o `.Rdata`, veamos unos ejemplos que podrán ser de utilidad.
-
-### Archivo de texto
-
-
------
+En algún momento, tendremos la necesidad de guardar o leer algo en un formato determinado, sea `.csv` o `.Rdata`, veamos unos ejemplos que podrán ser de utilidad.
 
 ### CSV (Comma-separated values)
 
@@ -375,13 +370,14 @@ names(df) = c("dato1", "dato2", "dato3")
 write.table(df, file = "dataframe1.csv", sep = ",",
 col.names = NA, qmethod = "double") 
 ```
+
+-----
+
 En caso de que no se quisiera exportar el nombre de las filas, basta con modificar un poco el código, como en el siguiente ejemplo:
 ```{R ExportarCSVSinFilas, eval=F}
 write.table(df, file = "dataframe2.csv", sep = ",",
 row.names = FALSE, qmethod = "double")
 ```
-
------
 
 Ahora, si lo que buscamos es importar los datos usaremos el siguiente comando:
 
@@ -391,7 +387,7 @@ row.names = 1)
 ```
 Y si no se quieren importar los nombres de las filas optaremos por el siguiente comando:
 ```{R ImportarCSVSinFilas, eval=F} 
-> read.table("dataframe2.csv", header = TRUE, sep = ",")
+read.table("dataframe2.csv", header = TRUE, sep = ",")
 ```
 
 -----
@@ -415,19 +411,40 @@ Dondé:
 | `...`       | Ver la documentación para argumentos extras   |
 
 Un ejemplo seria el siguiente:
-```{r}
-read.csv("dataframe1.csv")
+```{r readcsv2,eval=F}
+csv <- read.csv("dataframe1.csv")
 ```
 
 -----
+
+### Guardar y cargar archivos .RData
+
+Si tienes objetos que te gustaría guardar como tal para luego procesarlos o simplemente se te hace más sencillo comprenderlo sobre un `.csv`, los comandos seran los siguientes:
+
+```{r save, eval=F}
+foo = "bar"
+save(foo, file="nombre.RData")
+```
+Mientras que, para volver a cargar los datos:
+```{r load, eval=F}
+load("nombre.RData")
+```
+Para llamar el objeto, basta con volver a introducir su variable, que, aunque no haya sido creada antes de usar la función `load()`, esta se encarga de crear el objeto y asignarle el valor que decidimos guardar en un principio.
+```{r loadfoo, eval=F}
+foo
+```
+```{r loadfoo2,echo=F}
+"bar"
+```
+
+-----
+
 
 ## Graficas
 
 Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
 
 La función `plot()` es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función generica permite seleccionar el tipo de grafico que buscamos.
-
------
 
 ```{r plot, eval=F}
 plot(x, y, type="p", main ="Titulo", sub= "subtitulo", xlab="Eje x", ylab="Eje Y")
@@ -441,12 +458,9 @@ Donde:
 | y        | Coordenadas de la variable dependiente   |
 | type     | Tipo de grafico a dibujar, "p" es para puntos, "l" para líneas, "h" para histogramas, usar `help(plot)` para ver otros tipos. |
 
-
-A continuación veremos unos ejemplos más detallados para el uso básico de plot.
-
 -----
 
-Usando `plot(...)`, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses:
+A continuación veremos unos ejemplos más detallados usando `plot(...)`, con dicha función se pueden crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses, generaremos una grafica de ejemplo:
 
 |       | Enero | Febrero | Marzo | Abril |
 |-------|-------|---------|-------|-------|
@@ -524,8 +538,10 @@ if(10%%2==0){
 
 Otra forma, única para el lenguaje de **R** es la siguiente. 
 ```{R ifelse2}
-set.seed(1) 
-ifelse(round(runif(1)*10,0)%%2==0,"Par","Impar")  
+set.seed(1)
+val <- round(runif(1)*10,0)
+val
+ifelse(val%%2==0,"Par","Impar")  
 ``` 
 
 Nota:
@@ -557,10 +573,10 @@ while(i < 50){
 
 ---
 
-## Establecer espacios de trabajo
+## Establecer Directorios de trabajo
 
-Al ejecutar **R**, este estable un espacio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que sera la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
-Por ello, para obtener el espacio de trabajo actual basta con usar el siguiente comando:
+Al ejecutar **R**, este estable un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que sera la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
+Por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:
 ```{r WD}
 getwd()
 ```
