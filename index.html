@@ -566,13 +566,61 @@ X
 </slide>
 
 <slide class="" id="slide-15" style="background:;">
+  <article data-timings="">
+    <p>Al igual que con los vectores, existen varias formas de crear matrices, supongamos que tenemos un vector con 10 datos y queremos convertirlo a una matriz de 5 columnas  por 2 filas</p>
+
+<pre><code class="r">vec &lt;- 1:10
+matrix(vec, ncol=5, nrow=2)
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9
+## [2,]    2    4    6    8   10
+</code></pre>
+
+<p>Si en vez de querer llenar la matriz por fila y no por columna como está actualmente, basta con especificarlo con el parametro <code>byrow = TRUE</code>.</p>
+
+<pre><code class="r">matrix(vec, ncol=5, nrow=2, byrow = TRUE)
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]    6    7    8    9   10
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <article data-timings="">
+    <p>Otra manera, un poco más rustica, es ingresar los valores en la matriz:</p>
+
+<pre><code class="r">matrix(c(1,2,3,4,5,6), ncol = 2, nrow=3)
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
+</code></pre>
+
+<p>También podemos convertir DataFrames a matriz con el comando <code>as.matrix()</code>, aunque con ello perdera las propiedades del objeto DataFrame, para obtener las propiedades de una matriz.</p>
+
+<p>Habrá ocaciones en que ocuparemos tratar las matrices y obtener ciertos valores, por ejemplo, el promedio por renglon o por columna, la desviación estandar, etc., para ello se puede utilizar la función <code>apply(...)</code> como se ve en la siguiente diapositiva.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h3>apply</h3>
   </hgroup>
   <article data-timings="">
-    <p>La función <code>apply</code> permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operacion realizad, ya sea por filas o por columnas. </p>
+    <p>La función <code>apply(...)</code> permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operacion realizad, ya sea por filas o por columnas. </p>
 
-<p>Veamos que el uso es:</p>
+<p>Su implementación es la siguiente:</p>
 
 <pre><code class="r">apply(X, MARGIN, FUN)
 </code></pre>
@@ -603,7 +651,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <article data-timings="">
     <p>Para ver un ejemplo, crearemos una matriz con 9 valores y sacaremos el promedio por columna.</p>
 
@@ -629,18 +677,115 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>DataFrames</h2>
   </hgroup>
   <article data-timings="">
     <p>Los dataframes, son una clase parecida a las matrices, sin embargo, poseen determinadas cararacteristicas que las hace más utiles en ciertas ocaciones.</p>
 
+<p>Al igual que los vectores y matrices, existen varias formas de crear data frames, una forma sencilla de crearlos es especifiar los datos de las columnas como en el ejemplo siguiente:</p>
+
+<pre><code class="r">data.frame(w = 1, x = 1:5, y = LETTERS[1:5], z=runif(5))
+</code></pre>
+
+<pre><code>##   w x y         z
+## 1 1 1 A 0.6385309
+## 2 1 2 B 0.1485289
+## 3 1 3 C 0.6968839
+## 4 1 4 D 0.7570748
+## 5 1 5 E 0.2966532
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-20" style="background:;">
+  <article data-timings="">
+    <p>o tambien se puede cambiar una matriz a un dataframe con el siguiente comando:</p>
+
+<pre><code class="r">matriz &lt;- matrix(runif(10), ncol=5)
+df &lt;- as.data.frame(matriz)
+df
+</code></pre>
+
+<pre><code>##          V1         V2        V3        V4        V5
+## 1 0.3770075 0.18697659 0.5212216 0.1579114 0.3501613
+## 2 0.3094058 0.01659043 0.2525560 0.3640179 0.4413526
+</code></pre>
+
+<p>Para acceder a los datos de una columna de un dataframe, se puede usar el símbolo <code>$</code> junto con el nombre de la columna</p>
+
+<pre><code class="r">df &lt;- data.frame(w = 1, x = 1:5, y = LETTERS[1:5], z=runif(5))
+df$w
+</code></pre>
+
+<pre><code>## [1] 1 1 1 1 1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <article data-timings="">
+    <p>otra opción es acceder mediante los nombres de la columna y fila</p>
+
+<pre><code class="r">df &lt;- data.frame(Letras = LETTERS[1:5], Valores=runif(5))
+df[&quot;Valores&quot;]
+</code></pre>
+
+<pre><code>##      Valores
+## 1 0.68678857
+## 2 0.09559025
+## 3 0.63645474
+## 4 0.18064731
+## 5 0.19652078
+</code></pre>
+
+<pre><code class="r">df[4,&quot;Letras&quot;]
+</code></pre>
+
+<pre><code>## [1] D
+## Levels: A B C D E
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <article data-timings="">
+    <p>claro que si estas acostumbrado al método de acceso de las matrices, tambien existe esé método de acceso</p>
+
+<pre><code class="r">df &lt;- data.frame(Letras = LETTERS[1:5], Valores=runif(5))
+df[1,]
+</code></pre>
+
+<pre><code>##   Letras    Valores
+## 1      A 0.08952084
+</code></pre>
+
+<pre><code class="r">df[,1]
+</code></pre>
+
+<pre><code>## [1] A B C D E
+## Levels: A B C D E
+</code></pre>
+
+<pre><code class="r">df[1,1]
+</code></pre>
+
+<pre><code>## [1] A
+## Levels: A B C D E
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Escribir y leer archivos de texto, CSV en <strong>R</strong>.</h2>
   </hgroup>
@@ -653,7 +798,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h3>CSV (Comma-separated values)</h3>
   </hgroup>
@@ -677,7 +822,7 @@ row.names = FALSE, qmethod = &quot;double&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <article data-timings="">
     <p>Ahora, si lo que buscamos es importar los datos usaremos el siguiente comando:</p>
 
@@ -694,7 +839,62 @@ row.names = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-26" style="background:;">
+  <article data-timings="">
+    <p>Otra forma de importar <code>.csv</code> es a tráves del comando <code>read.csv(...)</code></p>
+
+<p>Su implementación es la siguiente:</p>
+
+<pre><code class="r">read.csv(file, header = TRUE, sep = &quot;,&quot;, dec = &quot;.&quot;, ...)
+</code></pre>
+
+<p>Dondé:</p>
+
+<table><thead>
+<tr>
+<th>Argumentos</th>
+<th>Signficado o úso</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>file</code></td>
+<td>Ruta al archivo, en caso de estar en el mismo directorio de trabajo poner solo el nombre del archivo, de otro modo ingresar la ruta completa</td>
+</tr>
+<tr>
+<td><code>header</code></td>
+<td>Valor logico para determinar si el archivo incluye encabezados en la primera linea.</td>
+</tr>
+<tr>
+<td><code>sep</code></td>
+<td>Este campo sirve para especificar el caracter de separación.</td>
+</tr>
+<tr>
+<td><code>dec</code></td>
+<td>El caracter usado para los puntos decimales</td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td>Ver la documentación para argumentos extras</td>
+</tr>
+</tbody></table>
+
+<p>Un ejemplo seria el siguiente:</p>
+
+<pre><code class="r">read.csv(&quot;dataframe1.csv&quot;)
+</code></pre>
+
+<pre><code>## Warning in file(file, &quot;rt&quot;): no fue posible abrir el archivo
+## &#39;dataframe1.csv&#39;: No existe el archivo o el directorio
+</code></pre>
+
+<pre><code>## Error in file(file, &quot;rt&quot;): no se puede abrir la conexión
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Graficas</h2>
   </hgroup>
@@ -707,7 +907,7 @@ row.names = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x, y, type=&quot;p&quot;, main =&quot;Titulo&quot;, sub= &quot;subtitulo&quot;, xlab=&quot;Eje x&quot;, ylab=&quot;Eje Y&quot;)
 </code></pre>
@@ -740,7 +940,7 @@ row.names = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <article data-timings="">
     <p>Usando <code>plot(...)</code>, podemos crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses:</p>
 
@@ -794,9 +994,9 @@ animales
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <article data-timings="">
-    <p>Ahora, si queremos graficar como se han comportado los rescates por cada animal en cada mes, tenemos que:</p>
+    <p>Ahora, se busca graficar como se han comportado los rescates por cada animal en cada mes, por lo que un código podría ser el siguiente:</p>
 
 <pre><code class="r">plot(x=1:4, y=animales[1,], type = &quot;o&quot;, col=&quot;blue&quot;, axes=FALSE, ann=FALSE)
 axis(1, at=1:4, lab=colnames(animales))
@@ -814,9 +1014,9 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <article data-timings="">
-    <p>Quedandonos una grafica como la siguiente:</p>
+    <p>Así se obtendría la grafica siguiente:</p>
 
 <p><img src="figure/ejemploPlot3-1.png" alt="plot of chunk ejemploPlot3"></p>
 
@@ -824,7 +1024,7 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <article data-timings="">
     <p><strong>R</strong> Tiene otras maneras de hacer graficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando <code>pie()</code>. Por ejemplo:</p>
 
@@ -832,13 +1032,13 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
 pie(gastos) 
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"></p>
+<p><img src="figure/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7"></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Condiciones (if-else)</h2>
   </hgroup>
@@ -861,7 +1061,7 @@ pie(gastos)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <article data-timings="">
     <p>Otra forma, única para el lenguaje de <strong>R</strong> es la siguiente. </p>
 
@@ -876,7 +1076,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -899,7 +1099,7 @@ ifelse(10%%2==0,&quot;Par&quot;,&quot;Impar&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <article data-timings="">
     <p>Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: </p>
 
@@ -922,7 +1122,31 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Establecer espacios de trabajo</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Al ejecutar <strong>R</strong>, este estable un espacio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que sera la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
+Por ello, para obtener el espacio de trabajo actual basta con usar el siguiente comando:</p>
+
+<pre><code class="r">getwd()
+</code></pre>
+
+<pre><code>## [1] &quot;/home/frahik/Documentos/R-project/Curso&quot;
+</code></pre>
+
+<p>dicho directorio va a variar dependiendo de la maquina, por ello, más de una vez será necesario modificar dicho directorio, para lo cual se usara el siguiente comando, el cual varia dependiendo del Sistema Operativo:</p>
+
+<pre><code class="r">setwd(&quot;C:\\Usuario\\Documentos\\Curso&quot;) #Windows
+setwd(&quot;~/Documentos/Curso&quot;) #Linux
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Paquetes</h2>
   </hgroup>
@@ -932,23 +1156,22 @@ while(i &lt; 50){
 <h3>Para paquetes oficiales de CRAN</h3>
 
 <pre><code class="r">install.packages(&quot;NombreDelPaquete&quot;)
+library(&quot;NombreDelPaquete&quot;) #Para usar el paquete
 </code></pre>
 
 <h3>Para paquetes de Github</h3>
 
 <pre><code class="r">install.packages(&quot;devtools&quot;) #Correr solo si no se tiene el paquete &quot;devtools&quot; instalado.
-install_github(&quot;usuario/repositorio&quot;)
+devtools::install_github(&quot;usuario/repositorio&quot;)
 </code></pre>
 
-<h3>Para paquetes de Github</h3>
-
-<p>Con ello podremos expandir el potencial de <strong>R</strong> y a la vez facilitarnos el trabajo de <em>«hacerlo por nosotros mismos»</em>.</p>
+<p>Al agregar nuevos paquetes podremos expandir el potencial de <strong>R</strong> y a la vez facilitarnos el trabajo de <em>«hacerlo por nosotros mismos»</em>.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en <strong>R</strong></h2>
   </hgroup>
@@ -959,7 +1182,7 @@ install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -969,7 +1192,7 @@ install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <article data-timings="">
     
   </article>
@@ -1066,7 +1289,7 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='apply'>
+        data-slide=15 title='NA'>
          15
       </a>
     </li>
@@ -1078,19 +1301,19 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='DataFrames'>
+        data-slide=17 title='apply'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Escribir y leer archivos de texto, CSV en <strong>R</strong>.'>
+        data-slide=18 title='NA'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='CSV (Comma-separated values)'>
+        data-slide=19 title='DataFrames'>
          19
       </a>
     </li>
@@ -1102,7 +1325,7 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Graficas'>
+        data-slide=21 title='NA'>
          21
       </a>
     </li>
@@ -1114,13 +1337,13 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='NA'>
+        data-slide=23 title='Escribir y leer archivos de texto, CSV en <strong>R</strong>.'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='NA'>
+        data-slide=24 title='CSV (Comma-separated values)'>
          24
       </a>
     </li>
@@ -1138,7 +1361,7 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Condiciones (if-else)'>
+        data-slide=27 title='Graficas'>
          27
       </a>
     </li>
@@ -1150,7 +1373,7 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Ciclos, Repeticiones o Loops'>
+        data-slide=29 title='NA'>
          29
       </a>
     </li>
@@ -1162,19 +1385,19 @@ install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Paquetes'>
+        data-slide=31 title='NA'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Ejemplos para trabajar en <strong>R</strong>'>
+        data-slide=32 title='NA'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='NA'>
+        data-slide=33 title='Condiciones (if-else)'>
          33
       </a>
     </li>
@@ -1182,6 +1405,48 @@ install_github(&quot;usuario/repositorio&quot;)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=34 title='NA'>
          34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Ciclos, Repeticiones o Loops'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='NA'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Establecer espacios de trabajo'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Paquetes'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Ejemplos para trabajar en <strong>R</strong>'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='NA'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='NA'>
+         41
       </a>
     </li>
   </ul>

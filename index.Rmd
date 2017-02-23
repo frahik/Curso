@@ -245,12 +245,44 @@ donde `matrix()` corresponde al nombre de la función y todo lo que está dentro
 
 -----
 
+Al igual que con los vectores, existen varias formas de crear matrices, supongamos que tenemos un vector con 10 datos y queremos convertirlo a una matriz de 5 columnas  por 2 filas
+```{r creaciónMatriz}
+vec <- 1:10
+matrix(vec, ncol=5, nrow=2)
+```
+
+Si en vez de querer llenar la matriz por fila y no por columna como está actualmente, basta con especificarlo con el parametro `byrow = TRUE`.
+
+```{r creaciónMatriz2, eval=F}
+matrix(vec, ncol=5, nrow=2, byrow = TRUE)
+```
+
+```{r creaciónMatriz3,echo=F}
+vec <- 1:10
+matrix(vec, ncol=5, nrow=2, byrow = TRUE)
+```
+
+-----
+
+Otra manera, un poco más rustica, es ingresar los valores en la matriz:
+
+```{r creaciónMatriz4}
+matrix(c(1,2,3,4,5,6), ncol = 2, nrow=3)
+```
+
+También podemos convertir DataFrames a matriz con el comando `as.matrix()`, aunque con ello perdera las propiedades del objeto DataFrame, para obtener las propiedades de una matriz.
+
+Habrá ocaciones en que ocuparemos tratar las matrices y obtener ciertos valores, por ejemplo, el promedio por renglon o por columna, la desviación estandar, etc., para ello se puede utilizar la función `apply(...)` como se ve en la siguiente diapositiva.
+
+
+-----
+
 ### apply
 
-La función `apply` permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operacion realizad, ya sea por filas o por columnas. 
+La función `apply(...)` permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operacion realizad, ya sea por filas o por columnas. 
 
 
-Veamos que el uso es:
+Su implementación es la siguiente:
 ```{R Apply, eval=F}
 apply(X, MARGIN, FUN)
 ```
@@ -280,6 +312,46 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 
 Los dataframes, son una clase parecida a las matrices, sin embargo, poseen determinadas cararacteristicas que las hace más utiles en ciertas ocaciones.
 
+Al igual que los vectores y matrices, existen varias formas de crear data frames, una forma sencilla de crearlos es especifiar los datos de las columnas como en el ejemplo siguiente:
+
+```{r}
+data.frame(w = 1, x = 1:5, y = LETTERS[1:5], z=runif(5))
+```
+
+-----
+
+o tambien se puede cambiar una matriz a un dataframe con el siguiente comando:
+```{r}
+matriz <- matrix(runif(10), ncol=5)
+df <- as.data.frame(matriz)
+df
+```
+
+Para acceder a los datos de una columna de un dataframe, se puede usar el símbolo `$` junto con el nombre de la columna
+
+```{r}
+df <- data.frame(w = 1, x = 1:5, y = LETTERS[1:5], z=runif(5))
+df$w
+```
+
+-----
+
+otra opción es acceder mediante los nombres de la columna y fila
+```{r}
+df <- data.frame(Letras = LETTERS[1:5], Valores=runif(5))
+df["Valores"]
+df[4,"Letras"]
+```
+
+-----
+
+claro que si estas acostumbrado al método de acceso de las matrices, tambien existe esé método de acceso
+```{r}
+df <- data.frame(Letras = LETTERS[1:5], Valores=runif(5))
+df[1,]
+df[,1]
+df[1,1]
+```
 
 -----
 
@@ -320,6 +392,31 @@ row.names = 1)
 Y si no se quieren importar los nombres de las filas optaremos por el siguiente comando:
 ```{R ImportarCSVSinFilas, eval=F} 
 > read.table("dataframe2.csv", header = TRUE, sep = ",")
+```
+
+-----
+
+Otra forma de importar `.csv` es a tráves del comando `read.csv(...)`
+
+Su implementación es la siguiente:
+
+```{r ImportarCSV, eval=F}
+read.csv(file, header = TRUE, sep = ",", dec = ".", ...)
+```
+
+Dondé:
+
+| Argumentos  | Signficado o úso  |
+|-------------|-------------------|
+| `file`      | Ruta al archivo, en caso de estar en el mismo directorio de trabajo poner solo el nombre del archivo, de otro modo ingresar la ruta completa  |
+| `header`    | Valor logico para determinar si el archivo incluye encabezados en la primera linea.   |
+| `sep`       | Este campo sirve para especificar el caracter de separación. |
+| `dec`       | El caracter usado para los puntos decimales  |
+| `...`       | Ver la documentación para argumentos extras   |
+
+Un ejemplo seria el siguiente:
+```{r}
+read.csv("dataframe1.csv")
 ```
 
 -----
@@ -368,7 +465,7 @@ animales
 
 -----
 
-Ahora, si queremos graficar como se han comportado los rescates por cada animal en cada mes, tenemos que:
+Ahora, se busca graficar como se han comportado los rescates por cada animal en cada mes, por lo que un código podría ser el siguiente:
 ```{r ejemploPlot2, eval=FALSE}
 plot(x=1:4, y=animales[1,], type = "o", col="blue", axes=FALSE, ann=FALSE)
 axis(1, at=1:4, lab=colnames(animales))
@@ -384,7 +481,7 @@ legend(2.2,9.9,c("Perros","Gatos","Otros"),lty=c(1,2,2),
 
 -----
 
-Quedandonos una grafica como la siguiente:
+Así se obtendría la grafica siguiente:
 
 ```{r ejemploPlot3, echo=FALSE, fig.height=8, fig.width=14}
 animales <- matrix(c(10,8,9,7,7,5,5,4,5,3,3,7), nrow = 3, ncol = 4, dimnames = list(c("Perro", "Gato", "Otros"),c("Enero", "Febrero", "Marzo", "Abril")))
@@ -437,7 +534,7 @@ ifelse(10%%2==0,"Par","Impar")
  
 Habrá momentos en las que ocuparemos realizar un número determinado de veces una misma rutina, para esto existe el ciclo for: 
  
-```{R} 
+```{R cicloFor} 
 for(i in 1:5){ 
   print(i) 
 } 
@@ -447,7 +544,7 @@ for(i in 1:5){
 
 Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: 
  
-```{R} 
+```{R cicloWhile} 
 i = 1 
 while(i < 50){ 
   i = i * 2 
@@ -457,24 +554,37 @@ while(i < 50){
 
 ---
 
+## Establecer espacios de trabajo
+
+Al ejecutar **R**, este estable un espacio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que sera la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
+Por ello, para obtener el espacio de trabajo actual basta con usar el siguiente comando:
+```{r WD}
+getwd()
+```
+dicho directorio va a variar dependiendo de la maquina, por ello, más de una vez será necesario modificar dicho directorio, para lo cual se usara el siguiente comando, el cual varia dependiendo del Sistema Operativo:
+```{r SWD, eval=FALSE}
+setwd("C:\\Usuario\\Documentos\\Curso") #Windows
+setwd("~/Documentos/Curso") #Linux
+```
+
+-------
+
 ## Paquetes
 Los paquetes en **R**, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de **R** o github y para instalarlos basta un comando en la propia terminal de **R**:
 
 ### Para paquetes oficiales de CRAN
 ```{R IntalarPaqueteCRAN, eval=FALSE}
 install.packages("NombreDelPaquete")
+library("NombreDelPaquete") #Para usar el paquete
 ```
 
 ### Para paquetes de Github
 ```{R InstalarPaqueteGitHub, eval=FALSE}
 install.packages("devtools") #Correr solo si no se tiene el paquete "devtools" instalado.
-install_github("usuario/repositorio")
+devtools::install_github("usuario/repositorio")
 ```
 
-
-### Para paquetes de Github
-
-Con ello podremos expandir el potencial de **R** y a la vez facilitarnos el trabajo de _«hacerlo por nosotros mismos»_.
+Al agregar nuevos paquetes podremos expandir el potencial de **R** y a la vez facilitarnos el trabajo de _«hacerlo por nosotros mismos»_.
 
 -----
 
