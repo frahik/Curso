@@ -3,3 +3,7 @@
 .RData
 .Ruserdata
 .Rproj
+.cache
+.nojekyll
+index.md
+.gitignore
