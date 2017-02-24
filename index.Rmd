@@ -89,7 +89,7 @@ saludo
 > **R** es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`.
 
 > **R** NO requiere explicitar que tipo de valores van a contener.
-
+  
 -----
 
 Otra manera de asignar valores a las variables es mediante el símbolo `<-` que se compone de un menor que y el signo de menos. 
@@ -112,11 +112,11 @@ y <- x+5
 y 
 ``` 
 
-> Recuerde que aunque pareciera algo matematico, los simbolos `<-` o `=` no funcionan como un «igual», si no, como un «equivale a» o una «asignación», por que a partir de ese momento, el valor de la derecha se le asigna al de la izquierda.
+> Recuerde que aunque pareciera algo matemático, los símbolos `<-` o `=` no funcionan como un «igual», si no, como un «equivale a» o una «asignación», por que a partir de ese momento, el valor de la derecha se le asigna al de la izquierda.
 
 -----
 
-Estos son los operadores más populares que se utilizan en **R** para realizar distintos calculos.
+Estos son los operadores más populares que se utilizan en **R** para realizar distintos cálculos.
 
 | Aritméticos |                     | Lógicos |                 | Comparativos |           |
 |:-----------:|---------------------|:-------:|-----------------|:------------:|-----------|
@@ -163,7 +163,7 @@ Partiendo de que tenemos un vector con la edad de los integrantes de una familia
 
 dónde, si queremos saber la edad del primer integrante, podemos observar que su edad es 45, y el promedio de todas las edades (es decir $\sum_{i=1}^{5} x_i$) es de 22.8 años.
 
-Todos éstos calculos se pueden hacer de manera rápida y en algunos casos son intuitivos, pero con grandes cantidades de datos, estas tareas se vuelven más complejas, pero continuemos con el mismo ejemplo en  **R**.
+Todos éstos cálculos se pueden hacer de manera rápida y en algunos casos son intuitivos, pero con grandes cantidades de datos, estas tareas se vuelven más complejas, pero continuemos con el mismo ejemplo en  **R**.
 
 ------
 
@@ -196,13 +196,13 @@ Nota:
 -----
 ## Funciones
 
-En **R** existen varias funciones ya definidas que nos permiten hacer varios calculos, desde calcular el promedio hasta algunas distribuciones, entre las más populares tenemos las siguientes:
+En **R** existen varias funciones ya definidas que nos permiten hacer varios cálculos, desde calcular el promedio hasta algunas distribuciones, entre las más populares tenemos las siguientes:
 
 |función |Objetivo|
 |--------|--------|
 |`sum(x)` |Suma todos los elementos de una matriz o un vector $x$.|
 |`mean(x)`|Calcula el promedio de todos los elementos de una matriz o un vector $x$.|
-|`sd(x)`  |Calcula la desviación estandar de una matriz o un vector $x$.|
+|`sd(x)`  |Calcula la desviación estándar de una matriz o un vector $x$.|
 |`var(x)` |Calcula la varianza de una matriz o un vector $x$.|
 
 A continuación se presenta una tabla un poco más extensa con diversas funciones.
@@ -237,7 +237,7 @@ matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
 
 donde `matrix()` corresponde al nombre de la función y todo lo que está dentro de los paréntesis son los argumentos de dicha función.
 
-| Argumentos | Signficado |
+| Argumentos | Significado |
 |------------|------------|
 |   `data`   |Es un vector de datos opcional |
 |   `nrow`   |Número deseado de filas        |
@@ -253,7 +253,7 @@ vec <- 1:10
 matrix(vec, ncol=5, nrow=2)
 ```
 
-Si en vez de querer llenar la matriz por fila y no por columna como está actualmente, basta con especificarlo con el parametro `byrow = TRUE`.
+Si en vez de querer llenar la matriz por fila y no por columna como está actualmente, basta con especificarlo con el parámetro `byrow = TRUE`.
 
 ```{r creaciónMatriz2, eval=F}
 matrix(vec, ncol=5, nrow=2, byrow = TRUE)
@@ -272,16 +272,16 @@ Otra manera, un poco más rustica, es ingresar los valores en la matriz:
 matrix(c(1,2,3,4,5,6), ncol = 2, nrow=3)
 ```
 
-También podemos convertir DataFrames a matriz con el comando `as.matrix()`, aunque con ello perdera las propiedades del objeto DataFrame, para obtener las propiedades de una matriz.
+También podemos convertir DataFrames a matriz con el comando `as.matrix()`, aunque con ello perderá las propiedades del objeto DataFrame, para obtener las propiedades de una matriz.
 
-Habrá ocaciones en que ocuparemos tratar las matrices y obtener ciertos valores, por ejemplo, el promedio por renglon o por columna, la desviación estandar, etc., para ello se puede utilizar la función `apply(...)` como se ve en la siguiente diapositiva.
+Habrá ocasiones en que ocuparemos tratar las matrices y obtener ciertos valores, por ejemplo, el promedio por renglón o por columna, la desviación estándar, etc., para ello se puede utilizar la función `apply(...)` como se ve en la siguiente diapositiva.
 
 
 -----
 
 ### apply
 
-La función `apply(...)` permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operacion realizad, ya sea por filas o por columnas. 
+La función `apply(...)` permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operación realizada, ya sea por filas o por columnas. 
 
 
 Su implementación es la siguiente:
@@ -290,11 +290,11 @@ apply(X, MARGIN, FUN)
 ```
 donde `apply()` corresponde al nombre de la función y todo lo que está dentro de los paréntesis son los argumentos de dicha función.
 
-| Argumentos | Signficado |
+| Argumentos | Significado |
 |------------|------------|
 |   `X`      |Es el vector o matriz original|
 |   `MARGIN` |Indica donde se aplicara la función (1 indica fila, 2 indica columna)      |
-|   `FUN`    |Es la funcion a aplicar (Suma, promedio, entre muchas otras)     |
+|   `FUN`    |Es la función a aplicar (Suma, promedio, entre muchas otras)     |
 
 -----
 
@@ -312,9 +312,9 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 
 ## DataFrames
 
-Los dataframes, son una clase parecida a las matrices, sin embargo, poseen determinadas cararacteristicas que las hace más utiles en ciertas ocaciones.
+Los dataframes, son una clase parecida a las matrices, sin embargo, poseen determinadas características que las hace más útiles en ciertas ocasiones. 
 
-Al igual que los vectores y matrices, existen varias formas de crear data frames, una forma sencilla de crearlos es especifiar los datos de las columnas como en el ejemplo siguiente:
+Al igual que los vectores y matrices, existen varias formas de crear data frames, una forma sencilla de crearlos es especificar los datos de las columnas como en el ejemplo siguiente:
 
 ```{r dataframe1}
 data.frame(w = 1, x = 1:5, y = LETTERS[1:5], z=runif(5))
@@ -322,7 +322,7 @@ data.frame(w = 1, x = 1:5, y = LETTERS[1:5], z=runif(5))
 
 -----
 
-o tambien se puede cambiar una matriz a un dataframe con el siguiente comando:
+o también se puede cambiar una matriz a un dataframe con el siguiente comando:
 ```{r dataframe2}
 matriz <- matrix(runif(10), ncol=5)
 df <- as.data.frame(matriz)
@@ -347,7 +347,7 @@ df[4,"Letras"]
 
 -----
 
-claro que si estas acostumbrado al método de acceso de las matrices, tambien existe esé método de acceso
+Claro que si estas acostumbrado al método de acceso de las matrices, también existe ese método de acceso
 ```{r dataframe5}
 df <- data.frame(Letras = LETTERS[1:5], Valores=runif(5))
 df[1,]
@@ -394,7 +394,7 @@ read.table("dataframe2.csv", header = TRUE, sep = ",")
 
 -----
 
-Otra forma de importar `.csv` es a tráves del comando `read.csv(...)`
+Otra forma de importar `.csv` es a través del comando `read.csv(...)`
 
 Su implementación es la siguiente:
 
@@ -402,14 +402,14 @@ Su implementación es la siguiente:
 read.csv(file, header = TRUE, sep = ",", dec = ".", ...)
 ```
 
-Dondé:
+Dónde:
 
-| Argumentos  | Signficado o úso  |
+| Argumentos  | Significado o uso  |
 |-------------|-------------------|
 | `file`      | Ruta al archivo, en caso de estar en el mismo directorio de trabajo poner solo el nombre del archivo, de otro modo ingresar la ruta completa  |
-| `header`    | Valor logico para determinar si el archivo incluye encabezados en la primera linea.   |
-| `sep`       | Este campo sirve para especificar el caracter de separación. |
-| `dec`       | El caracter usado para los puntos decimales  |
+| `header`    | Valor lógico para determinar si el archivo incluye encabezados en la primera linea.   |
+| `sep`       | Este campo sirve para especificar el carácter de separación. |
+| `dec`       | El carácter usado para los puntos decimales  |
 | `...`       | Ver la documentación para argumentos extras   |
 
 Un ejemplo seria el siguiente:
@@ -421,7 +421,7 @@ csv <- read.csv("dataframe1.csv")
 
 ### Guardar y cargar archivos .RData
 
-Si tienes objetos que te gustaría guardar como tal para luego procesarlos o simplemente se te hace más sencillo comprenderlo sobre un `.csv`, los comandos seran los siguientes:
+Si tienes objetos que te gustaría guardar como tal para luego procesarlos o simplemente se te hace más sencillo comprenderlo sobre un `.csv`, los comandos serán los siguientes:
 
 ```{r save, eval=F}
 foo = "bar"
@@ -443,9 +443,9 @@ foo
 
 ## Graficas
 
-Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rapidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
+Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rápidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
 
-La función `plot()` es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función generica permite seleccionar el tipo de grafico que buscamos.
+La función `plot()` es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función genérica permite seleccionar el tipo de grafico que buscamos.
 
 ```{r plot, eval=F}
 plot(x, y, type="p", main ="Titulo", sub= "subtitulo", xlab="Eje x", ylab="Eje Y")
@@ -513,7 +513,7 @@ legend(2.2,9.9,c("Perros","Gatos","Otros"),lty=c(1,2,2),
 
 -----
 
-**R** Tiene otras maneras de hacer graficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando `pie()`. Por ejemplo:
+**R** Tiene otras maneras de hacer gráficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando `pie()`. Por ejemplo:
 
 ```{r, fig.height=8, fig.width=12}
 gastos = c(Escuela=100, Alimentos=120, Recreación=90, Transporte=50) 
@@ -575,7 +575,7 @@ while(i < 50){
 
 ## Establecer Directorios de trabajo
 
-Al ejecutar **R**, este estable un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que sera la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
+Al ejecutar **R**, este estable un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que será la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
 Por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:
 ```{r WD}
 getwd()
@@ -609,7 +609,7 @@ Al agregar nuevos paquetes podremos expandir el potencial de **R** y a la vez fa
 
 ## Ejemplo para trabajar en **R**
 
-El profesor quiere conocer el rendimiendo del semestre de sus 5 alumnos de maestria
+El profesor quiere conocer el rendimiento del semestre de sus 5 alumnos de maestría:
 
 |                   | Alberto | Francisco | Juan  | Alejandro | Oswaldo |
 |-------------------|:-------:|:---------:|:-----:|:---------:|:-------:|
