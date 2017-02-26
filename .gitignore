@@ -3,7 +3,7 @@
 .RData
 .Ruserdata
 .Rproj
-
 Curso\.Rproj
-
 \.nojekyll
+.cache
+index.md
