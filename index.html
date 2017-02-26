@@ -54,9 +54,9 @@
   <article data-timings="">
     <p>El objetivo de la diapositiva es proporcionar un punto de partida para las personas interesadas en aprender a usar <strong>R</strong>, esto con el fin de promover el conocimiento de manera sencilla, practica y entendible.</p>
 
-<p><strong>R</strong> se distribuye de manera gratuita y es un sistema para análisis estadísticos, tiene una vista doble, como programa y lenguaje de programación y es considerado como una implementación del dialecto del lenguaje S creado por los laboratorios AT&amp;T Bell.</p>
+<p><strong>R</strong> se distribuye de manera gratuita, es usado comúnmente para análisis estadísticos, funcionando como programa y lenguaje de programación es considerado como una implementación del lenguaje S creado por los laboratorios AT&amp;T Bell.</p>
 
-<p><strong>R</strong> está disponible en varias formas: el código fuente escrito principalmente en C, esencialmente para máquinas Unix y Linux, o como archivos binarios pre-compilados para Windows, Linux (Debian, RedHat,SuSe) y Macintosh, se distribuye bajo los términos de <em>GNU General Public Licence</em> al igual que esta diapositiva.</p>
+<p><strong>R</strong> está disponible en varias formas: el código fuente o como archivos binarios pre-compilados para Windows, Linux (Debian, RedHat, etc.) y Macintosh, se distribuye bajo los términos de <em>GNU General Public Licence</em> al igual que esta diapositiva.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -67,7 +67,7 @@
     <h2>Instalación de <strong>R</strong></h2>
   </hgroup>
   <article data-timings="">
-    <p>Empezaremos por lo más básico, Podemos instalar <strong>R</strong> desde el siguiente link: <a href="https://www.r-project.org/">https://www.r-project.org/</a> </p>
+    <p>Empezaremos por lo más básico, Podemos instalar <strong>R</strong> desde el siguiente link: <a href="https://www.r-project.org/">https://www.r-project.org/</a></p>
 
 <p>Pero como muchos somos algo despistados, estas son las maneras más sencillas para instalar <strong>R</strong> en distintos Sistemas Operativos:</p>
 
@@ -130,6 +130,8 @@
 </tr>
 </tbody></table>
 
+<p><img src="https://rstudio.com/wp-content/uploads/2015/10/rstudio-300x260.png" alt="RIDE"></p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -165,6 +167,29 @@
 
 <slide class="" id="slide-5" style="background:;">
   <hgroup>
+    <h2>Establecer Directorios de trabajo</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Al ejecutar <strong>R</strong>, este establece un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que será la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido) durante la sesión (es decir, mientras se mantiene el programa abierto), por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:</p>
+
+<pre><code class="r">getwd()
+</code></pre>
+
+<pre><code>## [1] &quot;/home/frahik/Documentos/R-project/Curso&quot;
+</code></pre>
+
+<p>dicho directorio va a variar dependiendo de la maquina, por ello, más de una vez será necesario modificarlo, para lo cual se usara el siguiente comando, el cual varia dependiendo del Sistema Operativo:</p>
+
+<pre><code class="r">setwd(&quot;C:\\Usuario\\Documentos\\Curso&quot;) #Windows
+setwd(&quot;~/Documentos/Curso&quot;) #Linux
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
     <h2>Creación de objetos</h2>
   </hgroup>
   <article data-timings="">
@@ -187,16 +212,20 @@ Por ser el primer contacto con <strong>R</strong>, crearemos un objeto (izquierd
 <p><strong>R</strong> NO requiere explicitar que tipo de valores van a contener.</p>
 </blockquote>
 
-<hr>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<p>Otra manera de asignar valores a las variables es mediante el símbolo <code>&lt;-</code> que se compone de un menor que y el signo de menos. </p>
+<slide class="" id="slide-7" style="background:;">
+  <article data-timings="">
+    <p>Otra manera de asignar valores a las variables es mediante el símbolo <code>&lt;-</code> que se compone de un menor que y el signo de menos. </p>
 
 <pre><code class="r">x &lt;- 10+5 
 </code></pre>
 
 <p>Es recomendable incluir un espacio simple a cada lado del operador de asignación para incrementar la legibilidad. Pero <span class = 'red'>NO</span> coloques un espacio entre el <code>&lt;</code> y el <code>-</code> que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un único símbolo. </p>
 
-<p>También podemos reasignar un valor a la variable que hemos creado y reutilizar el valor de la variable para realizar un calculo:   </p>
+<p>Es posible reasignar un valor a la variable que hemos creado, así como reutilizar el valor de la variable para realizar un calculo:   </p>
 
 <pre><code class="r">y &lt;- x + 5 
 y
@@ -213,7 +242,7 @@ y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <article data-timings="">
     <p>Estos son los operadores más populares que se utilizan en <strong>R</strong> para realizar distintos cálculos.</p>
 
@@ -281,7 +310,7 @@ y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Vectores</h2>
   </hgroup>
@@ -308,7 +337,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <article data-timings="">
     <p>Por ultimo,  cuando ya tenemos una lista o simplemente queremos repetir algo \(n\) veces, podemos usar la función <code>rep(x,times=n)</code>, que repetirá un número definido de veces lo indicado como parámetro x. </p>
 
@@ -322,7 +351,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h3>Accediendo a los valores del vector</h3>
   </hgroup>
@@ -349,20 +378,20 @@ X
 
 <p>dónde, si queremos saber la edad del primer integrante, podemos observar que su edad es 45, y el promedio de todas las edades (es decir \(\sum_{i=1}^{5} x_i\)) es de 22.8 años.</p>
 
-<p>Todos éstos cálculos se pueden hacer de manera rápida y en algunos casos son intuitivos, pero con grandes cantidades de datos, estas tareas se vuelven más complejas, pero continuemos con el mismo ejemplo en  <strong>R</strong>.</p>
+<p>Todos éstos cálculos se pueden hacer de manera rápida y en algunos casos son intuitivos, pero con grandes cantidades de datos, estas tareas se vuelven más complejas, así que continuemos con el mismo ejemplo en  <strong>R</strong>.</p>
+
+<p>Partiendo de la edad de los cinco integrantes, crearemos un vector con las edades de cada uno</p>
+
+<pre><code class="r">edad_familia &lt;- c(45,43,13,8,5)
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <article data-timings="">
-    <p>Partiendo de la edad de los cinco integrantes, crearemos un vector con las edades de cada uno</p>
-
-<pre><code class="r">edad_familia &lt;- c(45,43,13,8,5)
-</code></pre>
-
-<p>para consultar la edad de un integrante x basta con poner la posición a la que queremos acceder, en éste caso, la primer posición:</p>
+    <p>para consultar la edad de un integrante \(i\) basta con poner la posición a la que queremos acceder, en éste caso, la primer posición, que pertenece al primer integrante:</p>
 
 <pre><code class="r">edad_familia[1]
 </code></pre>
@@ -370,7 +399,7 @@ X
 <pre><code>## [1] 45
 </code></pre>
 
-<p>Mientras que para calcular el promedio basta con usar la función <code>mean( )</code></p>
+<p>Mientras que si buscamos calcular el promedio de edades basta con usar la función <code>mean( )</code></p>
 
 <pre><code class="r">mean(edad_familia)
 </code></pre>
@@ -388,46 +417,38 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Funciones</h2>
   </hgroup>
   <article data-timings="">
-    <p>En <strong>R</strong> existen varias funciones ya definidas que nos permiten hacer varios cálculos, desde calcular el promedio hasta algunas distribuciones, entre las más populares tenemos las siguientes:</p>
+    <p>En <strong>R</strong> existen varias funciones ya definidas que nos permiten hacer varios cálculos, pero si el usuario requiere realizar una función para un determinado caso, las funciones se implementan de la siguiente manera:</p>
 
-<table><thead>
-<tr>
-<th>función</th>
-<th>Objetivo</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>sum(x)</code></td>
-<td>Suma todos los elementos de una matriz o un vector \(x\).</td>
-</tr>
-<tr>
-<td><code>mean(x)</code></td>
-<td>Calcula el promedio de todos los elementos de una matriz o un vector \(x\).</td>
-</tr>
-<tr>
-<td><code>sd(x)</code></td>
-<td>Calcula la desviación estándar de una matriz o un vector \(x\).</td>
-</tr>
-<tr>
-<td><code>var(x)</code></td>
-<td>Calcula la varianza de una matriz o un vector \(x\).</td>
-</tr>
-</tbody></table>
+<pre><code class="r">Promedio &lt;- function(vec) {
+    return(sum(vec)/length(vec))
+}
 
-<p>A continuación se presenta una tabla un poco más extensa con diversas funciones.</p>
+Promedio(c(1,2,3,4,5))
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p>Donde, <code>vec</code> es el parametro que debe de ingresar el usuario para hacer uso de la función, en este caso, un vector de numeros.</p>
+
+<blockquote>
+<p>Nota: Es recomendable declarar los parametros con nombres que los puedan identificar, así si otra persona revisa el código, le será más fácil comprenderlo.</p>
+</blockquote>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <article data-timings="">
-    <table><thead>
+    <p>Existen muchas funciones ya predeterminadas en <strong>R</strong>, todo depende del usuario si requiere estas funciones o requiere hacer una a su medida.</p>
+
+<table><thead>
 <tr>
 <th align="center">Función</th>
 <th>Matemáticas</th>
@@ -509,15 +530,11 @@ X
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Existen muchas funciones ya predeterminadas en <strong>R</strong>, todo depende del usuario si requiere estas funciones o no.</p>
-</blockquote>
-
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Matrices</h2>
   </hgroup>
@@ -561,7 +578,7 @@ X
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <article data-timings="">
     <p>Al igual que con los vectores, existen varias formas de crear matrices, supongamos que tenemos un vector con 10 datos y queremos convertirlo a una matriz de 5 columnas  por 2 filas</p>
 
@@ -588,7 +605,7 @@ matrix(vec, ncol=5, nrow=2)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <article data-timings="">
     <p>Otra manera, un poco más rustica, es ingresar los valores en la matriz:</p>
 
@@ -601,20 +618,25 @@ matrix(vec, ncol=5, nrow=2)
 ## [3,]    3    6
 </code></pre>
 
-<p>También podemos convertir DataFrames a matriz con el comando <code>as.matrix()</code>, aunque con ello perderá las propiedades del objeto DataFrame, para obtener las propiedades de una matriz.</p>
+<p>Es posible convertir los objetos de la clase <em>Data frame</em> a la clase  <em>matriz</em> con el comando <code>as.matrix()</code>, aunque con ello perderá las propiedades de un DataFrame, para obtener las propiedades de una matriz.</p>
 
-<p>Habrá ocasiones en que ocuparemos tratar las matrices y obtener ciertos valores, por ejemplo, el promedio por renglón o por columna, la desviación estándar, etc., para ello se puede utilizar la función <code>apply(...)</code> como se ve en la siguiente diapositiva.</p>
+<blockquote>
+<p>Como se ha mencionado, una matriz en <strong>R</strong> es un <em>«clase de objeto»</em> , para conocer la clase de un objeto use <code>class(objeto)</code>, en el caso anterior debera de retornar lo siguiente:</p>
+</blockquote>
+
+<pre><code>## [1] &quot;matrix&quot;
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h3>apply</h3>
   </hgroup>
   <article data-timings="">
-    <p>La función <code>apply(...)</code> permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operación realizada, ya sea por filas o por columnas. </p>
+    <p>La función <code>apply(...)</code> permite realizar un cálculo (como el promedio) por fila ó por columna (sin importar si es una matriz o un dataframe), el resultado de dicha operación será un vector de longitud \(p\) con el resultado de la operación realizada, ya sea por filas o por columnas. </p>
 
 <p>Su implementación es la siguiente:</p>
 
@@ -647,7 +669,7 @@ matrix(vec, ncol=5, nrow=2)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <article data-timings="">
     <p>Para ver un ejemplo, crearemos una matriz con 9 valores y sacaremos el promedio por columna.</p>
 
@@ -673,7 +695,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>DataFrames</h2>
   </hgroup>
@@ -697,9 +719,9 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <article data-timings="">
-    <p>o también se puede cambiar una matriz a un dataframe con el siguiente comando:</p>
+    <p>así como es posible cambiar la clase de un dataframe a una matriz también se puede realizar de manera inversa con el siguiente comando:</p>
 
 <pre><code class="r">matriz &lt;- matrix(runif(10), ncol=5)
 df &lt;- as.data.frame(matriz)
@@ -724,9 +746,9 @@ df$w
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <article data-timings="">
-    <p>otra opción es acceder mediante los nombres de la columna y fila</p>
+    <p>otra opción es acceder mediante los nombres de la columna o fila o ambas.</p>
 
 <pre><code class="r">df &lt;- data.frame(Letras = LETTERS[1:5], Valores=runif(5))
 df[&quot;Valores&quot;]
@@ -751,7 +773,7 @@ df[&quot;Valores&quot;]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <article data-timings="">
     <p>Claro que si estas acostumbrado al método de acceso de las matrices, también existe ese método de acceso</p>
 
@@ -781,7 +803,7 @@ df[1,]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Escribir y leer archivos en <strong>R</strong>.</h2>
   </hgroup>
@@ -790,7 +812,7 @@ df[1,]
 
 <h3>CSV (Comma-separated values)</h3>
 
-<p>Un formato muy utilizado en <strong>R</strong> a parte de los archivos de texto, para exportar los datos en dicho formato  </p>
+<p>Un formato muy utilizado en <strong>R</strong> a parte de los <code>.RData</code> (que son archivos especiales de <strong>R</strong>), para exportar los datos en dicho formato:  </p>
 
 <pre><code class="r">df = data.frame(runif(10), runif(10), runif(10)) 
 names(df) = c(&quot;dato1&quot;, &quot;dato2&quot;, &quot;dato3&quot;)
@@ -803,7 +825,7 @@ col.names = NA, qmethod = &quot;double&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <article data-timings="">
     <p>En caso de que no se quisiera exportar el nombre de las filas, basta con modificar un poco el código, como en el siguiente ejemplo:</p>
 
@@ -826,11 +848,9 @@ row.names = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <article data-timings="">
-    <p>Otra forma de importar <code>.csv</code> es a través del comando <code>read.csv(...)</code></p>
-
-<p>Su implementación es la siguiente:</p>
+    <p>La forma más sencilla de importar un <code>.csv</code> es a través del comando <code>read.csv(...)</code>, cuya implementación es la siguiente:</p>
 
 <pre><code class="r">read.csv(file, header = TRUE, sep = &quot;,&quot;, dec = &quot;.&quot;, ...)
 </code></pre>
@@ -874,7 +894,7 @@ row.names = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h3>Guardar y cargar archivos .RData</h3>
   </hgroup>
@@ -902,7 +922,7 @@ save(foo, file=&quot;nombre.RData&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Graficas</h2>
   </hgroup>
@@ -940,7 +960,7 @@ save(foo, file=&quot;nombre.RData&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <article data-timings="">
     <p>A continuación veremos unos ejemplos más detallados usando <code>plot(...)</code>, con dicha función se pueden crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses, generaremos una grafica de ejemplo:</p>
 
@@ -994,7 +1014,7 @@ animales
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <article data-timings="">
     <p>Ahora, se busca graficar como se han comportado los rescates por cada animal en cada mes, por lo que un código podría ser el siguiente:</p>
 
@@ -1014,7 +1034,7 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <article data-timings="">
     <p>Así se obtendría la grafica siguiente:</p>
 
@@ -1024,7 +1044,7 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <article data-timings="">
     <p><strong>R</strong> Tiene otras maneras de hacer gráficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando <code>pie()</code>. Por ejemplo:</p>
 
@@ -1032,13 +1052,13 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
 pie(gastos) 
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"></p>
+<p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Condiciones (if-else)</h2>
   </hgroup>
@@ -1061,7 +1081,7 @@ pie(gastos)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <article data-timings="">
     <p>Otra forma, única para el lenguaje de <strong>R</strong> es la siguiente. </p>
 
@@ -1089,7 +1109,7 @@ val
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -1112,7 +1132,7 @@ val
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <article data-timings="">
     <p>Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: </p>
 
@@ -1135,31 +1155,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
-  <hgroup>
-    <h2>Establecer Directorios de trabajo</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Al ejecutar <strong>R</strong>, este estable un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que será la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
-Por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:</p>
-
-<pre><code class="r">getwd()
-</code></pre>
-
-<pre><code>## [1] &quot;/home/frahik/Documentos/R-project/Curso&quot;
-</code></pre>
-
-<p>dicho directorio va a variar dependiendo de la maquina, por ello, más de una vez será necesario modificar dicho directorio, para lo cual se usara el siguiente comando, el cual varia dependiendo del Sistema Operativo:</p>
-
-<pre><code class="r">setwd(&quot;C:\\Usuario\\Documentos\\Curso&quot;) #Windows
-setwd(&quot;~/Documentos/Curso&quot;) #Linux
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>Paquetes</h2>
   </hgroup>
@@ -1184,7 +1180,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Ejemplo para trabajar en <strong>R</strong></h2>
   </hgroup>
@@ -1244,7 +1240,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -1254,7 +1250,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <article data-timings="">
     
   </article>
@@ -1291,19 +1287,19 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Creación de objetos'>
+        data-slide=5 title='Establecer Directorios de trabajo'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='NA'>
+        data-slide=6 title='Creación de objetos'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Vectores'>
+        data-slide=7 title='NA'>
          7
       </a>
     </li>
@@ -1315,7 +1311,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Accediendo a los valores del vector'>
+        data-slide=9 title='Vectores'>
          9
       </a>
     </li>
@@ -1327,7 +1323,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Funciones'>
+        data-slide=11 title='Accediendo a los valores del vector'>
          11
       </a>
     </li>
@@ -1339,7 +1335,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Matrices'>
+        data-slide=13 title='Funciones'>
          13
       </a>
     </li>
@@ -1351,13 +1347,13 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='NA'>
+        data-slide=15 title='Matrices'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='apply'>
+        data-slide=16 title='NA'>
          16
       </a>
     </li>
@@ -1369,7 +1365,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='DataFrames'>
+        data-slide=18 title='apply'>
          18
       </a>
     </li>
@@ -1381,7 +1377,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='NA'>
+        data-slide=20 title='DataFrames'>
          20
       </a>
     </li>
@@ -1393,7 +1389,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Escribir y leer archivos en <strong>R</strong>.'>
+        data-slide=22 title='NA'>
          22
       </a>
     </li>
@@ -1405,31 +1401,31 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='NA'>
+        data-slide=24 title='Escribir y leer archivos en <strong>R</strong>.'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Guardar y cargar archivos .RData'>
+        data-slide=25 title='NA'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Graficas'>
+        data-slide=26 title='NA'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='NA'>
+        data-slide=27 title='Guardar y cargar archivos .RData'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='NA'>
+        data-slide=28 title='Graficas'>
          28
       </a>
     </li>
@@ -1447,7 +1443,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Condiciones (if-else)'>
+        data-slide=31 title='NA'>
          31
       </a>
     </li>
@@ -1459,7 +1455,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Ciclos, Repeticiones o Loops'>
+        data-slide=33 title='Condiciones (if-else)'>
          33
       </a>
     </li>
@@ -1471,25 +1467,25 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Establecer Directorios de trabajo'>
+        data-slide=35 title='Ciclos, Repeticiones o Loops'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Paquetes'>
+        data-slide=36 title='NA'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Ejemplo para trabajar en <strong>R</strong>'>
+        data-slide=37 title='Paquetes'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='NA'>
+        data-slide=38 title='Ejemplo para trabajar en <strong>R</strong>'>
          38
       </a>
     </li>
@@ -1497,6 +1493,12 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=39 title='NA'>
          39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='NA'>
+         40
       </a>
     </li>
   </ul>

@@ -19,15 +19,15 @@ license     : by-sa
 
 El objetivo de la diapositiva es proporcionar un punto de partida para las personas interesadas en aprender a usar **R**, esto con el fin de promover el conocimiento de manera sencilla, practica y entendible.
 
-**R** se distribuye de manera gratuita y es un sistema para análisis estadísticos, tiene una vista doble, como programa y lenguaje de programación y es considerado como una implementación del dialecto del lenguaje S creado por los laboratorios AT&T Bell.
+**R** se distribuye de manera gratuita, es usado comúnmente para análisis estadísticos, funcionando como programa y lenguaje de programación es considerado como una implementación del lenguaje S creado por los laboratorios AT&T Bell.
 
-**R** está disponible en varias formas: el código fuente escrito principalmente en C, esencialmente para máquinas Unix y Linux, o como archivos binarios pre-compilados para Windows, Linux (Debian, RedHat,SuSe) y Macintosh, se distribuye bajo los términos de _GNU General Public Licence_ al igual que esta diapositiva.
+**R** está disponible en varias formas: el código fuente o como archivos binarios pre-compilados para Windows, Linux (Debian, RedHat, etc.) y Macintosh, se distribuye bajo los términos de _GNU General Public Licence_ al igual que esta diapositiva.
 
 -----
 
 ## Instalación de **R**
 
-Empezaremos por lo más básico, Podemos instalar **R** desde el siguiente link: https://www.r-project.org/ 
+Empezaremos por lo más básico, Podemos instalar **R** desde el siguiente link: https://www.r-project.org/
 
 Pero como muchos somos algo despistados, estas son las maneras más sencillas para instalar **R** en distintos Sistemas Operativos:
 
@@ -51,6 +51,8 @@ Una vez instalado, un entorno de desarrollo integrado será necesario para facil
 |R-Studio [Recomendado] |https://www.rstudio.com/ |
 | R commander (Rcmdr)   |http://www.rcommander.com/ |
 
+![RIDE](https://rstudio.com/wp-content/uploads/2015/10/rstudio-300x260.png)
+
 ----
 
 ## Primeros pasos 
@@ -72,6 +74,23 @@ Principalmente por que esta diapositiva fue diseñada en **R** y **RMarkdown** ;
 
 --- 
 
+## Establecer Directorios de trabajo
+
+Al ejecutar **R**, este establece un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que será la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido) durante la sesión (es decir, mientras se mantiene el programa abierto), por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:
+
+```{r WD}
+getwd()
+```
+
+dicho directorio va a variar dependiendo de la maquina, por ello, más de una vez será necesario modificarlo, para lo cual se usara el siguiente comando, el cual varia dependiendo del Sistema Operativo:
+
+```{r SWD, eval=FALSE}
+setwd("C:\\Usuario\\Documentos\\Curso") #Windows
+setwd("~/Documentos/Curso") #Linux
+```
+
+------
+
 ## Creación de objetos 
 
 En **R** podemos crear y manipular objetos asignándole valores, cadenas de texto, funciones y un largo etc. 
@@ -89,7 +108,7 @@ saludo
 > **R** es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`.
 
 > **R** NO requiere explicitar que tipo de valores van a contener.
-  
+
 -----
 
 Otra manera de asignar valores a las variables es mediante el símbolo `<-` que se compone de un menor que y el signo de menos. 
@@ -100,7 +119,7 @@ x <- 10+5
  
 Es recomendable incluir un espacio simple a cada lado del operador de asignación para incrementar la legibilidad. Pero <span class = 'red'>NO</span> coloques un espacio entre el `<` y el `-` que forman la flecha, recuerda que a pesar de estar compuesto por dos caracteres es un único símbolo. 
  
-También podemos reasignar un valor a la variable que hemos creado y reutilizar el valor de la variable para realizar un calculo:   
+Es posible reasignar un valor a la variable que hemos creado, así como reutilizar el valor de la variable para realizar un calculo:   
 ```{R Objetos, eval=F}
 y <- x + 5 
 y
@@ -163,16 +182,16 @@ Partiendo de que tenemos un vector con la edad de los integrantes de una familia
 
 dónde, si queremos saber la edad del primer integrante, podemos observar que su edad es 45, y el promedio de todas las edades (es decir $\sum_{i=1}^{5} x_i$) es de 22.8 años.
 
-Todos éstos cálculos se pueden hacer de manera rápida y en algunos casos son intuitivos, pero con grandes cantidades de datos, estas tareas se vuelven más complejas, pero continuemos con el mismo ejemplo en  **R**.
-
-------
+Todos éstos cálculos se pueden hacer de manera rápida y en algunos casos son intuitivos, pero con grandes cantidades de datos, estas tareas se vuelven más complejas, así que continuemos con el mismo ejemplo en  **R**.
 
 Partiendo de la edad de los cinco integrantes, crearemos un vector con las edades de cada uno
 ```{R Familia}
 edad_familia <- c(45,43,13,8,5)
 ```
 
-para consultar la edad de un integrante x basta con poner la posición a la que queremos acceder, en éste caso, la primer posición:
+------
+
+para consultar la edad de un integrante $i$ basta con poner la posición a la que queremos acceder, en éste caso, la primer posición, que pertenece al primer integrante:
 ```{R Familia1, eval=F}
 edad_familia[1]
 ```
@@ -181,7 +200,7 @@ edad_familia <- c(45,43,13,8,5)
 edad_familia[1]
 ```
 
-Mientras que para calcular el promedio basta con usar la función `mean( )`
+Mientras que si buscamos calcular el promedio de edades basta con usar la función `mean( )`
 ```{R familia2, eval=F}
 mean(edad_familia)
 ```
@@ -194,20 +213,26 @@ Nota:
 > En muchos lenguajes de programación, la primera posición de los vectores es 0, como se pudo observar en el caso anterior, en **R** la primera posición es 1.
 
 -----
+
 ## Funciones
 
-En **R** existen varias funciones ya definidas que nos permiten hacer varios cálculos, desde calcular el promedio hasta algunas distribuciones, entre las más populares tenemos las siguientes:
+En **R** existen varias funciones ya definidas que nos permiten hacer varios cálculos, pero si el usuario requiere realizar una función para un determinado caso, las funciones se implementan de la siguiente manera:
 
-|función |Objetivo|
-|--------|--------|
-|`sum(x)` |Suma todos los elementos de una matriz o un vector $x$.|
-|`mean(x)`|Calcula el promedio de todos los elementos de una matriz o un vector $x$.|
-|`sd(x)`  |Calcula la desviación estándar de una matriz o un vector $x$.|
-|`var(x)` |Calcula la varianza de una matriz o un vector $x$.|
+```{r}
+Promedio <- function(vec) {
+    return(sum(vec)/length(vec))
+}
 
-A continuación se presenta una tabla un poco más extensa con diversas funciones.
+Promedio(c(1,2,3,4,5))
+```
+
+Donde, `vec` es el parametro que debe de ingresar el usuario para hacer uso de la función, en este caso, un vector de numeros.
+
+> Nota: Es recomendable declarar los parametros con nombres que los puedan identificar, así si otra persona revisa el código, le será más fácil comprenderlo.
 
 -----
+
+Existen muchas funciones ya predeterminadas en **R**, todo depende del usuario si requiere estas funciones o requiere hacer una a su medida.
 
 |   Función   |           Matemáticas                 | Función       |           Estadísticas        |
 |:-----------:|---------------------------------------|:-------------:|-------------------------------|
@@ -224,7 +249,6 @@ A continuación se presenta una tabla un poco más extensa con diversas funcione
 |  cumsum(x)  | Calcula las sumas acumuladas          |    summary    | Resumen de las variables      |
 |             | ($x_1, x_1 + x_2, + x_1 +\ldots+x_n$) |  choose(n,k)  | Combinatoria de $n$ sobre $k$ |
 
-> Existen muchas funciones ya predeterminadas en **R**, todo depende del usuario si requiere estas funciones o no.
 
 -----
 
@@ -272,17 +296,19 @@ Otra manera, un poco más rustica, es ingresar los valores en la matriz:
 matrix(c(1,2,3,4,5,6), ncol = 2, nrow=3)
 ```
 
-También podemos convertir DataFrames a matriz con el comando `as.matrix()`, aunque con ello perderá las propiedades del objeto DataFrame, para obtener las propiedades de una matriz.
+Es posible convertir los objetos de la clase _Data frame_ a la clase  _matriz_ con el comando `as.matrix()`, aunque con ello perderá las propiedades de un DataFrame, para obtener las propiedades de una matriz.
 
-Habrá ocasiones en que ocuparemos tratar las matrices y obtener ciertos valores, por ejemplo, el promedio por renglón o por columna, la desviación estándar, etc., para ello se puede utilizar la función `apply(...)` como se ve en la siguiente diapositiva.
+> Como se ha mencionado, una matriz en **R** es un _«clase de objeto»_ , para conocer la clase de un objeto use `class(objeto)`, en el caso anterior debera de retornar lo siguiente:
 
+```{r objetomatrix, echo=F}
+class(as.matrix(c(1,2,3)))
+```
 
 -----
 
 ### apply
 
-La función `apply(...)` permite realizar un cálculo por fila ó por columna, dará un vector de longitud p con el resultado de la operación realizada, ya sea por filas o por columnas. 
-
+La función `apply(...)` permite realizar un cálculo (como el promedio) por fila ó por columna (sin importar si es una matriz o un dataframe), el resultado de dicha operación será un vector de longitud $p$ con el resultado de la operación realizada, ya sea por filas o por columnas. 
 
 Su implementación es la siguiente:
 ```{R Apply, eval=F}
@@ -322,7 +348,7 @@ data.frame(w = 1, x = 1:5, y = LETTERS[1:5], z=runif(5))
 
 -----
 
-o también se puede cambiar una matriz a un dataframe con el siguiente comando:
+así como es posible cambiar la clase de un dataframe a una matriz también se puede realizar de manera inversa con el siguiente comando:
 ```{r dataframe2}
 matriz <- matrix(runif(10), ncol=5)
 df <- as.data.frame(matriz)
@@ -338,7 +364,7 @@ df$w
 
 -----
 
-otra opción es acceder mediante los nombres de la columna y fila
+otra opción es acceder mediante los nombres de la columna o fila o ambas.
 ```{r dataframe4}
 df <- data.frame(Letras = LETTERS[1:5], Valores=runif(5))
 df["Valores"]
@@ -363,7 +389,7 @@ En algún momento, tendremos la necesidad de guardar o leer algo en un formato d
 
 ### CSV (Comma-separated values)
 
-Un formato muy utilizado en **R** a parte de los archivos de texto, para exportar los datos en dicho formato  
+Un formato muy utilizado en **R** a parte de los `.RData` (que son archivos especiales de **R**), para exportar los datos en dicho formato:  
 
 ```{R ExportarCSVConFilas, eval=F}
 df = data.frame(runif(10), runif(10), runif(10)) 
@@ -394,9 +420,7 @@ read.table("dataframe2.csv", header = TRUE, sep = ",")
 
 -----
 
-Otra forma de importar `.csv` es a través del comando `read.csv(...)`
-
-Su implementación es la siguiente:
+La forma más sencilla de importar un `.csv` es a través del comando `read.csv(...)`, cuya implementación es la siguiente:
 
 ```{r ImportarCSV, eval=F}
 read.csv(file, header = TRUE, sep = ",", dec = ".", ...)
@@ -570,21 +594,6 @@ while(i < 50){
   print(i) 
 } 
 ``` 
-
----
-
-## Establecer Directorios de trabajo
-
-Al ejecutar **R**, este estable un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que será la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido).
-Por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:
-```{r WD}
-getwd()
-```
-dicho directorio va a variar dependiendo de la maquina, por ello, más de una vez será necesario modificar dicho directorio, para lo cual se usara el siguiente comando, el cual varia dependiendo del Sistema Operativo:
-```{r SWD, eval=FALSE}
-setwd("C:\\Usuario\\Documentos\\Curso") #Windows
-setwd("~/Documentos/Curso") #Linux
-```
 
 -------
 
