@@ -1,7 +1,7 @@
 # Curso básico de R
 
 Éste es un repositorio con una diapositiva diseñada con `R` y  `Rmarkdown`, usando la librería [Slidify](https://github.com/ramnathv/slidify/) para enseñar lo básico sobre R. 
-Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](frahik.github.io/Curso) 
+Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](https://frahik.github.io/Curso) 
 
 ## Usar la diapositiva
 
@@ -13,11 +13,12 @@ Para navegar entre la diapositiva hacer uso de las flechas del teclado:
 
 | Tecla | Función |
 |:-----:|---------|
-|   W   | Cambial la resolución de la diapositiva |
-|   G   | Permite escribir el numero de la diapositiva a la que se desea ir, sin necesidad de irlas recorriendo una por una.  |
-|   O   | Cambia el estilo de la diapositiva |
-|   F   | Activa el modo Pantalla Completa  |
-|   H   | Esconde o muestra los códigos de una diapositiva  |
+|   W   | Cambia la resolución de la diapositiva |
+|   G   | Permite escribir el número de la diapositiva a la que se desea ir, sin necesidad de recorrer una por una.  |
+|   O   | Cambia el estilo de la diapositiva. |
+|   F   | Activa el modo Pantalla Completa.  |
+|   H   | Esconde o muestra los códigos de una diapositiva.  |
+| Esc   | Salir de cualquiera de las funciones anteriores. |
 
 ### Dispositivo Movil
 

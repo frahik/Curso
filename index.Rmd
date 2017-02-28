@@ -626,19 +626,18 @@ El profesor quiere conocer el rendimiento del semestre de sus 5 alumnos de maest
 | Segunda parcial   |   8.3   |     7.9   | 8.2   |     7.1   |   8.5   |
 | Tercera parcial   |   8     |     9.5   | 7     |     8.3   |   8.5   |
 
-  * Determine la varianza de la calificación del grupo
+  * Determine la varianza de la calificación del grupo `ProTip: apply() + var()`
     * Por semestre.
     * Por parcial.
     * Por alumno.
   * Graficar el desempeño de los alumnos (eje x = parcial, eje y = calificación)
-  * Calcule el promedio final de los alumnos.
+  * Calcule el promedio final de los alumnos `ProTip: apply() + mean()`.
   * Reporte quienes han aprobado la materia y quienes la han reprobado
 
 -----
 ## Ejemplos para trabajar en R (Continuación)
 
 La dueña de una empresa quiere saber si su negocio aun es rentable, ha presentado los gastos y ventas de los últimos 6 meses (En miles de pesos).
-
 
 |        | Enero | Febrero | Marzo | Abril | Mayo  | Junio |
 |--------|-------|---------|-------|-------|-------|-------|
@@ -647,8 +646,8 @@ La dueña de una empresa quiere saber si su negocio aun es rentable, ha presenta
 
 
   * Realice una grafica donde se comparen las ventas con los gastos.
-  * Calcule el promedio de ventas y gastos de los 6 meses.
-  * Calcule las ganancias finales de la dueña.
+  * Calcule el promedio de ventas y gastos de los 6 meses `ProTip: apply() + mean()`.
+  * Calcule las ganancias finales de la dueña `ProTip: Ventas - Gastos`.
   * Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos seran el promedio de los 6 meses.
 
 
