@@ -25,7 +25,7 @@ Para navegar entre la diapositiva hacer uso de las flechas del teclado:
 Para cambiar de diapositiva, solo es necesario hacer clic sobre la misma.
 
 ## Temas
- - Hablemos de R
+ - Hablemos de R.
  - Instalación de R.
  	- Windows
  	- Linux
@@ -33,25 +33,29 @@ Para cambiar de diapositiva, solo es necesario hacer clic sobre la misma.
  		- Redhat/CentOS
  		- Arch/Antergos
  	- Mac
- - IDE's recomendados para R.
+ - Entornos de desarrollo para R.
  - Primeros Pasos.
- - Establecer Directorios de trabajo.
+ - Establecer directorios de trabajo.
  - Creación de objetos/variables.
  - Vectores
+  - Accediendo a un vector
  - Funciones
  - Matrices
  	- apply
  - Data Frame
- - Escribir archivos en R
-  - CSV
+ - Escribir y leer archivos en R
+  - CSV (Comma-separated values)
   - .RData
- - Graficas básicas
+ - Graficas
   - plot
   - pie
  - Condiciones
  - Ciclos
  - Paquetes
- - Ejemplos en R
+  -CRAN
+  -GitHub
+ - Ayuda y Documentación
+ - Ejemplos para trabajar en R
   - Ejemplo #1
   - Ejemplo #2
  

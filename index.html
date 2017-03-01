@@ -105,7 +105,7 @@
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>IDE</h2>
+    <h2>Entornos de desarrollo para R</h2>
   </hgroup>
   <article data-timings="">
     <p>Una vez instalado, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en <strong>R</strong>, por lo que se presentan tres de varias opciones para trabajar con <strong>R</strong>. </p>
@@ -167,7 +167,7 @@
 
 <slide class="" id="slide-5" style="background:;">
   <hgroup>
-    <h2>Establecer Directorios de trabajo</h2>
+    <h2>Establecer directorios de trabajo</h2>
   </hgroup>
   <article data-timings="">
     <p>Al ejecutar <strong>R</strong>, este establece un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que será la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido) durante la sesión (es decir, mientras se mantiene el programa abierto), por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:</p>
@@ -190,7 +190,7 @@ setwd(&quot;~/Documentos/Curso&quot;) #Linux
 
 <slide class="" id="slide-6" style="background:;">
   <hgroup>
-    <h2>Creación de objetos</h2>
+    <h2>Creación de objetos/variables</h2>
   </hgroup>
   <article data-timings="">
     <p>En <strong>R</strong> podemos crear y manipular objetos asignándole valores, cadenas de texto, funciones y un largo etc. 
@@ -434,10 +434,10 @@ Promedio(c(1,2,3,4,5))
 <pre><code>## [1] 3
 </code></pre>
 
-<p>Donde, <code>vec</code> es el parametro que debe de ingresar el usuario para hacer uso de la función, en este caso, un vector de numeros.</p>
+<p>Donde, <code>vec</code> es el parámetro que debe de ingresar el usuario para hacer uso de la función, en este caso, un vector de números.</p>
 
 <blockquote>
-<p>Nota: Es recomendable declarar los parametros con nombres que los puedan identificar, así si otra persona revisa el código, le será más fácil comprenderlo.</p>
+<p>Nota: Es recomendable declarar los parámetros con nombres que los puedan identificar, así si otra persona revisa el código, le será más fácil comprenderlo.</p>
 </blockquote>
 
   </article>
@@ -697,7 +697,7 @@ x
 
 <slide class="" id="slide-20" style="background:;">
   <hgroup>
-    <h2>DataFrames</h2>
+    <h2>Data Frames</h2>
   </hgroup>
   <article data-timings="">
     <p>Los dataframes, son una clase parecida a las matrices, sin embargo, poseen determinadas características que las hace más útiles en ciertas ocasiones. </p>
@@ -988,7 +988,7 @@ save(foo, file=&quot;nombre.RData&quot;)
 </tr>
 </tbody></table>
 
-<p>Por lo que, si quiseramos graficar esto en <strong>R</strong>, seria de la siguiente manera:</p>
+<p>Por lo que, para graficar esto en <strong>R</strong>, los comandos a utilizar son los siguientes:</p>
 
 <pre><code class="r">peso &lt;- c(85,84,84.5,78,76.5,74.5,75)
 plot(peso)
@@ -1002,7 +1002,7 @@ plot(peso)
 
 <slide class="" id="slide-30" style="background:;">
   <article data-timings="">
-    <p>Si en vez de tener una grafica de puntos, quisieramos una con lineas, solo es necesario especificar el tipo con el parametro <code>type = &quot;l&quot;</code>, para ver otros posibles graficos, ver la documentación de plot usando el comando <code>help(plot)</code>.</p>
+    <p>Si en vez de tener una grafica de puntos, quisiéramos una con líneas, solo es necesario especificar el tipo con el parámetro <code>type = &quot;l&quot;</code>, para ver otros posibles gráficos, ver la documentación de plot usando el comando <code>help(plot)</code>.</p>
 
 <pre><code class="r">peso &lt;- c(85,84,84.5,78,76.5,74.5,75)
 plot(peso, type=&quot;l&quot;)
@@ -1026,7 +1026,7 @@ title(main = &quot;Un asombroso título&quot;, xlab=&quot;Semana&quot;, ylab = &
 <p><img src="figure/graficaPesoLinea2-1.png" alt="plot of chunk graficaPesoLinea2"></p>
 
 <blockquote>
-<p>Note que en el comando <code>plot(...)</code> se añadio el parametro <code>ann=F</code>.</p>
+<p>Note que en el comando <code>plot(...)</code> se añadió el parámetro <code>ann=F</code>.</p>
 </blockquote>
 
   </article>
@@ -1035,8 +1035,8 @@ title(main = &quot;Un asombroso título&quot;, xlab=&quot;Semana&quot;, ylab = &
 
 <slide class="" id="slide-32" style="background:;">
   <article data-timings="">
-    <p>Otra posible modificación en las graficas es renombrar los ejes, en vez de decir solamente el número, queremos que diga  &quot;Semana &quot; y el número de la semana, para ello, sera necesario añadir a la función <code>plot(...)</code> el parametro <code>xaxt=&quot;n&quot;</code> para que no agregue las notaciones originales, también es posible quitar las notaciones para el eje o para ambos ejes usando <code>yaxt=&quot;n&quot;</code> o <code>axes=F</code> respectivamente.
-Y despues añadirlos con el comando <code>axis(...)</code>.</p>
+    <p>Otra posible modificación en las graficas es renombrar los ejes, en vez de decir solamente el número, queremos que diga  &quot;Semana &quot; y el número de la semana, para ello, será necesario añadir a la función <code>plot(...)</code> el parámetro <code>xaxt=&quot;n&quot;</code> para que no agregue las notaciones originales, también es posible quitar las notaciones para el eje o para ambos ejes usando <code>yaxt=&quot;n&quot;</code> o <code>axes=F</code> respectivamente.
+Y después añadirlos con el comando <code>axis(...)</code>.</p>
 
 <pre><code class="r">peso &lt;- c(85,84,84.5,78,76.5,74.5,75)
 plot(peso, type=&quot;l&quot;, ann = F, xaxt=&quot;n&quot;)
@@ -1121,7 +1121,7 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
        col=c(&quot;blue&quot;,&quot;red&quot;,&quot;Orange&quot;)) 
 </code></pre>
 
-<p>Como se están analizando 3 variables, es necesario identificarlas, por lo cuál se a agregado una legenda, donde los primeros dos valores es la posición en \(X\) y \(Y\); el tercer parametro son los nombres; el cuarto parametro, es el tipo de linea utilizado (1, es continua y 2 es punteada) y el quinto son los colores de dichas lineas. Note que, algunos de estos parametros es posible usarlos en comandos anteriores.</p>
+<p>Como se están analizando 3 variables, es necesario identificarlas, por lo cuál se a agregado una legenda, donde los primeros dos valores es la posición en \(X\) y \(Y\); el tercer parámetro son los nombres; el cuarto parámetro, es el tipo de línea utilizado (1, es continua y 2 es punteada) y el quinto son los colores de dichas líneas. Note que, algunos de estos parámetros es posible usarlos en comandos anteriores.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -1253,7 +1253,7 @@ while(i &lt; 50){
     <h2>Paquetes</h2>
   </hgroup>
   <article data-timings="">
-    <p>Los paquetes en <strong>R</strong>, son como <em>«Extensiones»</em> y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de <strong>R</strong> o github y para instalarlos basta un comando en la propia terminal de <strong>R</strong>:</p>
+    <p>Los paquetes en <strong>R</strong>, son como <em>«Extensiones»</em> y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de <strong>R</strong> o GitHub y para instalarlos basta un comando en la propia terminal de <strong>R</strong>:</p>
 
 <h3>Para paquetes oficiales de CRAN</h3>
 
@@ -1261,7 +1261,7 @@ while(i &lt; 50){
 library(NombreDelPaquete) #Para usar el paquete
 </code></pre>
 
-<h3>Para paquetes de Github</h3>
+<h3>Para paquetes de GitHub</h3>
 
 <pre><code class="r">install.packages(&quot;devtools&quot;) #Correr solo si no se tiene el paquete &quot;devtools&quot; instalado.
 devtools::install_github(&quot;usuario/repositorio&quot;)
@@ -1274,6 +1274,29 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
 </slide>
 
 <slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h2>Ayuda y documentación</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>R</strong> Nos proporciona toda la documentación de sus paquetes, así que si se nos olvida para que funciona un comando o por que la función no hace lo que uno escribe, revisar la documentación podrá evitar que pases horas frente al ordenador buscando el «punto y coma» que te falta, cuando en <strong>R</strong> los códigos no lo llevan.</p>
+
+<pre><code class="r">help(nombre)
+</code></pre>
+
+<p>Donde <code>nombre</code> puede ser cualquier función o librería instalada de <strong>R</strong>.</p>
+
+<p>ejemplos:</p>
+
+<pre><code class="r">help(help)  #Sí, es posible
+help(sum)   #Documentación de una función
+help(slidify) #Documentación de un paquete
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en <strong>R</strong></h2>
   </hgroup>
@@ -1333,7 +1356,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-43" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en R (Continuación)</h2>
   </hgroup>
@@ -1375,14 +1398,14 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
 <li>Realice una grafica donde se comparen las ventas con los gastos.</li>
 <li>Calcule el promedio de ventas y gastos de los 6 meses <code>ProTip: apply() + mean()</code>.</li>
 <li>Calcule las ganancias finales de la dueña <code>ProTip: Ventas - Gastos</code>.</li>
-<li>Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos seran el promedio de los 6 meses.</li>
+<li>Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos serán el promedio de los 6 meses.</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-44" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -1392,7 +1415,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-46" style="background:;">
   <article data-timings="">
     
   </article>
@@ -1417,7 +1440,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='IDE'>
+        data-slide=3 title='Entornos de desarrollo para R'>
          3
       </a>
     </li>
@@ -1429,13 +1452,13 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Establecer Directorios de trabajo'>
+        data-slide=5 title='Establecer directorios de trabajo'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Creación de objetos'>
+        data-slide=6 title='Creación de objetos/variables'>
          6
       </a>
     </li>
@@ -1519,7 +1542,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='DataFrames'>
+        data-slide=20 title='Data Frames'>
          20
       </a>
     </li>
@@ -1651,19 +1674,19 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='Ejemplos para trabajar en <strong>R</strong>'>
+        data-slide=42 title='Ayuda y documentación'>
          42
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Ejemplos para trabajar en R (Continuación)'>
+        data-slide=43 title='Ejemplos para trabajar en <strong>R</strong>'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='NA'>
+        data-slide=44 title='Ejemplos para trabajar en R (Continuación)'>
          44
       </a>
     </li>
@@ -1671,6 +1694,12 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=45 title='NA'>
          45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='NA'>
+         46
       </a>
     </li>
   </ul>

@@ -41,7 +41,7 @@ Pero como muchos somos algo despistados, estas son las maneras más sencillas pa
 
 ----
 
-## IDE 
+## Entornos de desarrollo para R
 
 Una vez instalado, un entorno de desarrollo integrado será necesario para facilitar el desarrollo de códigos en **R**, por lo que se presentan tres de varias opciones para trabajar con **R**. 
 
@@ -74,7 +74,7 @@ Principalmente por que esta diapositiva fue diseñada en **R** y **RMarkdown** ;
 
 --- 
 
-## Establecer Directorios de trabajo
+## Establecer directorios de trabajo
 
 Al ejecutar **R**, este establece un directorio de trabajo, es decir, establece una carpeta donde guardar los datos ejecutados en R, misma que será la carpeta que usara para buscar, leer y escribir los archivos (de ser requerido) durante la sesión (es decir, mientras se mantiene el programa abierto), por ello, para obtener el directorio de trabajo actual basta con usar el siguiente comando:
 
@@ -91,7 +91,7 @@ setwd("~/Documentos/Curso") #Linux
 
 ------
 
-## Creación de objetos 
+## Creación de objetos/variables
 
 En **R** podemos crear y manipular objetos asignándole valores, cadenas de texto, funciones y un largo etc. 
 Por ser el primer contacto con **R**, crearemos un objeto (izquierda del símbolo `=`), asignándole como valor la cadena de texto "Hola mundo" 
@@ -226,9 +226,9 @@ Promedio <- function(vec) {
 Promedio(c(1,2,3,4,5))
 ```
 
-Donde, `vec` es el parametro que debe de ingresar el usuario para hacer uso de la función, en este caso, un vector de numeros.
+Donde, `vec` es el parámetro que debe de ingresar el usuario para hacer uso de la función, en este caso, un vector de números.
 
-> Nota: Es recomendable declarar los parametros con nombres que los puedan identificar, así si otra persona revisa el código, le será más fácil comprenderlo.
+> Nota: Es recomendable declarar los parámetros con nombres que los puedan identificar, así si otra persona revisa el código, le será más fácil comprenderlo.
 
 -----
 
@@ -336,7 +336,7 @@ El argumento 2 en `apply(x,2,mean)` indica que el cálculo del promedio debe rea
 
 -----
 
-## DataFrames
+## Data Frames
 
 Los dataframes, son una clase parecida a las matrices, sin embargo, poseen determinadas características que las hace más útiles en ciertas ocasiones. 
 
@@ -491,7 +491,7 @@ Empezaremos viendo la función `plot()` de la manera más sencilla, Una persona 
 |----|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 |Peso|    85     |    84     |    84.5   |    78     |    76.5   |    74.5   |    75     |
 
-Por lo que, si quiseramos graficar esto en **R**, seria de la siguiente manera:
+Por lo que, para graficar esto en **R**, los comandos a utilizar son los siguientes:
 
 ```{r graficaPeso, echo=TRUE, fig.height=4.5, fig.width=14}
 peso <- c(85,84,84.5,78,76.5,74.5,75)
@@ -500,7 +500,7 @@ plot(peso)
 
 ------
 
-Si en vez de tener una grafica de puntos, quisieramos una con lineas, solo es necesario especificar el tipo con el parametro `type = "l"`, para ver otros posibles graficos, ver la documentación de plot usando el comando `help(plot)`.
+Si en vez de tener una grafica de puntos, quisiéramos una con líneas, solo es necesario especificar el tipo con el parámetro `type = "l"`, para ver otros posibles gráficos, ver la documentación de plot usando el comando `help(plot)`.
 
 ```{r graficaPesoLinea, echo=TRUE, fig.height=6, fig.width=14}
 peso <- c(85,84,84.5,78,76.5,74.5,75)
@@ -516,13 +516,13 @@ peso <- c(85,84,84.5,78,76.5,74.5,75)
 plot(peso, type="l", ann = F)
 title(main = "Un asombroso título", xlab="Semana", ylab = "Peso en Kg" )
 ```
-> Note que en el comando `plot(...)` se añadio el parametro `ann=F`.
+> Note que en el comando `plot(...)` se añadió el parámetro `ann=F`.
 
 
 ----
 
-Otra posible modificación en las graficas es renombrar los ejes, en vez de decir solamente el número, queremos que diga  "Semana " y el número de la semana, para ello, sera necesario añadir a la función `plot(...)` el parametro `xaxt="n"` para que no agregue las notaciones originales, también es posible quitar las notaciones para el eje o para ambos ejes usando `yaxt="n"` o `axes=F` respectivamente.
-Y despues añadirlos con el comando `axis(...)`.
+Otra posible modificación en las graficas es renombrar los ejes, en vez de decir solamente el número, queremos que diga  "Semana " y el número de la semana, para ello, será necesario añadir a la función `plot(...)` el parámetro `xaxt="n"` para que no agregue las notaciones originales, también es posible quitar las notaciones para el eje o para ambos ejes usando `yaxt="n"` o `axes=F` respectivamente.
+Y después añadirlos con el comando `axis(...)`.
 
 ```{r graficaPesoLinea3, echo=TRUE, fig.height=4, fig.width=14}
 peso <- c(85,84,84.5,78,76.5,74.5,75)
@@ -567,7 +567,7 @@ legend(2.2,9.9,c("Perros","Gatos","Otros"),lty=c(1,2,2),
        col=c("blue","red","Orange")) 
 ```
 
-Como se están analizando 3 variables, es necesario identificarlas, por lo cuál se a agregado una legenda, donde los primeros dos valores es la posición en $X$ y $Y$; el tercer parametro son los nombres; el cuarto parametro, es el tipo de linea utilizado (1, es continua y 2 es punteada) y el quinto son los colores de dichas lineas. Note que, algunos de estos parametros es posible usarlos en comandos anteriores.
+Como se están analizando 3 variables, es necesario identificarlas, por lo cuál se a agregado una legenda, donde los primeros dos valores es la posición en $X$ y $Y$; el tercer parámetro son los nombres; el cuarto parámetro, es el tipo de línea utilizado (1, es continua y 2 es punteada) y el quinto son los colores de dichas líneas. Note que, algunos de estos parámetros es posible usarlos en comandos anteriores.
 
 -----
 
@@ -650,7 +650,7 @@ while(i < 50){
 -------
 
 ## Paquetes
-Los paquetes en **R**, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de **R** o github y para instalarlos basta un comando en la propia terminal de **R**:
+Los paquetes en **R**, son como _«Extensiones»_ y nos sirven para evitar reinventar la rueda, existen muchos paquetes disponibles en el CRAN de **R** o GitHub y para instalarlos basta un comando en la propia terminal de **R**:
 
 ### Para paquetes oficiales de CRAN
 ```{R IntalarPaqueteCRAN, eval=FALSE}
@@ -658,13 +658,33 @@ install.packages("NombreDelPaquete")
 library(NombreDelPaquete) #Para usar el paquete
 ```
 
-### Para paquetes de Github
+### Para paquetes de GitHub
 ```{R InstalarPaqueteGitHub, eval=FALSE}
 install.packages("devtools") #Correr solo si no se tiene el paquete "devtools" instalado.
 devtools::install_github("usuario/repositorio")
 ```
 
 Al agregar nuevos paquetes podremos expandir el potencial de **R** y a la vez facilitarnos el trabajo de _«hacerlo por nosotros mismos»_.
+
+-----
+
+## Ayuda y documentación
+
+**R** Nos proporciona toda la documentación de sus paquetes, así que si se nos olvida para que funciona un comando o por que la función no hace lo que uno escribe, revisar la documentación podrá evitar que pases horas frente al ordenador buscando el «punto y coma» que te falta, cuando en **R** los códigos no lo llevan.
+
+```{r help, eval=F}
+help(nombre)
+```
+
+Donde `nombre` puede ser cualquier función o librería instalada de **R**.
+
+ejemplos:
+
+```{r helpEjemplo, eval=F}
+help(help)  #Sí, es posible
+help(sum)   #Documentación de una función
+help(slidify) #Documentación de un paquete
+```
 
 -----
 
@@ -700,7 +720,7 @@ La dueña de una empresa quiere saber si su negocio aun es rentable, ha presenta
   * Realice una grafica donde se comparen las ventas con los gastos.
   * Calcule el promedio de ventas y gastos de los 6 meses `ProTip: apply() + mean()`.
   * Calcule las ganancias finales de la dueña `ProTip: Ventas - Gastos`.
-  * Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos seran el promedio de los 6 meses.
+  * Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos serán el promedio de los 6 meses.
 
 
 -----
