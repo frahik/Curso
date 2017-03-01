@@ -927,9 +927,9 @@ save(foo, file=&quot;nombre.RData&quot;)
     <h2>Graficas</h2>
   </hgroup>
   <article data-timings="">
-    <p>Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rápidamente el tema del que se habla, vaya, que <em>«Una imagen vale más que mil palabras»</em></p>
+    <p>Hasta éste momento hemos mostrado todos los resultados en consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rápidamente el tema del que se habla, vaya, que <em>«Una imagen vale más que mil palabras»</em></p>
 
-<p>La función <code>plot()</code> es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función genérica permite seleccionar el tipo de grafico que buscamos.</p>
+<p>La función <code>plot()</code> es una de varias formas que se pueden utilizar para graficar, además al ser una función genérica permite seleccionar el tipo de grafico que buscamos.</p>
 
 <pre><code class="r">plot(x, y, type=&quot;p&quot;, main =&quot;Titulo&quot;, sub= &quot;subtitulo&quot;, xlab=&quot;Eje x&quot;, ylab=&quot;Eje Y&quot;)
 </code></pre>
@@ -962,7 +962,98 @@ save(foo, file=&quot;nombre.RData&quot;)
 
 <slide class="" id="slide-29" style="background:;">
   <article data-timings="">
-    <p>A continuación veremos unos ejemplos más detallados usando <code>plot(...)</code>, con dicha función se pueden crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses, generaremos una grafica de ejemplo:</p>
+    <p>Empezaremos viendo la función <code>plot()</code> de la manera más sencilla, Una persona ha estado realizando ejercicio últimamente y durante 7 semanas fue tomando su peso:</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Semana 1</th>
+<th>Semana 2</th>
+<th>Semana 3</th>
+<th>Semana 4</th>
+<th>Semana 5</th>
+<th>Semana 6</th>
+<th>Semana 7</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Peso</td>
+<td>85</td>
+<td>84</td>
+<td>84.5</td>
+<td>78</td>
+<td>76.5</td>
+<td>74.5</td>
+<td>75</td>
+</tr>
+</tbody></table>
+
+<p>Por lo que, si quiseramos graficar esto en <strong>R</strong>, seria de la siguiente manera:</p>
+
+<pre><code class="r">peso &lt;- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso)
+</code></pre>
+
+<p><img src="figure/graficaPeso-1.png" alt="plot of chunk graficaPeso"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <article data-timings="">
+    <p>Si en vez de tener una grafica de puntos, quisieramos una con lineas, solo es necesario especificar el tipo con el parametro <code>type = &quot;l&quot;</code>, para ver otros posibles graficos, ver la documentación de plot usando el comando <code>help(plot)</code>.</p>
+
+<pre><code class="r">peso &lt;- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso, type=&quot;l&quot;)
+</code></pre>
+
+<p><img src="figure/graficaPesoLinea-1.png" alt="plot of chunk graficaPesoLinea"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <article data-timings="">
+    <p>Es posible modificar o añadir un título a los ejes para hacer más comprensible la grafica, así como añadirle un título a toda la grafica usando los siguientes comandos:</p>
+
+<pre><code class="r">peso &lt;- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso, type=&quot;l&quot;, ann = F)
+title(main = &quot;Un asombroso título&quot;, xlab=&quot;Semana&quot;, ylab = &quot;Peso en Kg&quot; )
+</code></pre>
+
+<p><img src="figure/graficaPesoLinea2-1.png" alt="plot of chunk graficaPesoLinea2"></p>
+
+<blockquote>
+<p>Note que en el comando <code>plot(...)</code> se añadio el parametro <code>ann=F</code>.</p>
+</blockquote>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <article data-timings="">
+    <p>Otra posible modificación en las graficas es renombrar los ejes, en vez de decir solamente el número, queremos que diga  &quot;Semana &quot; y el número de la semana, para ello, sera necesario añadir a la función <code>plot(...)</code> el parametro <code>xaxt=&quot;n&quot;</code> para que no agregue las notaciones originales, también es posible quitar las notaciones para el eje o para ambos ejes usando <code>yaxt=&quot;n&quot;</code> o <code>axes=F</code> respectivamente.
+Y despues añadirlos con el comando <code>axis(...)</code>.</p>
+
+<pre><code class="r">peso &lt;- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso, type=&quot;l&quot;, ann = F, xaxt=&quot;n&quot;)
+title(main = &quot;Un asombroso título&quot;, ylab = &quot;Peso en Kg&quot; )
+axis(1, at=1:length(peso), lab=c(&quot;Semana 1&quot;,&quot;Semana 2&quot;,&quot;Semana 3&quot;,&quot;Semana 4&quot;,
+                                 &quot;Semana 5&quot;,&quot;Semana 6&quot;,&quot;Semana 7&quot;))
+</code></pre>
+
+<p><img src="figure/graficaPesoLinea3-1.png" alt="plot of chunk graficaPesoLinea3"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <article data-timings="">
+    <p>A continuación veremos un ejemplo más complicado usando <code>plot(...)</code>, partiendo de la siguiente tabla de animales rescatados en 4 meses, generaremos una grafica que muestre el comportamiento de los datos:</p>
 
 <table><thead>
 <tr>
@@ -1014,7 +1105,7 @@ animales
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <article data-timings="">
     <p>Ahora, se busca graficar como se han comportado los rescates por cada animal en cada mes, por lo que un código podría ser el siguiente:</p>
 
@@ -1027,14 +1118,16 @@ lines(animales[3,], type=&quot;o&quot;, pch=22, lty=2, col=&quot;orange&quot;)
 title(xlab=&quot;Mes&quot;, col.lab=rgb(0,0.5,0))
 title(ylab=&quot;Rescatados&quot;, col.lab=rgb(0,0.5,0))
 legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1,2,2),
-        lwd=c(2,2),col=c(&quot;blue&quot;,&quot;red&quot;,&quot;Orange&quot;),text.width = 2) 
+       col=c(&quot;blue&quot;,&quot;red&quot;,&quot;Orange&quot;)) 
 </code></pre>
+
+<p>Como se están analizando 3 variables, es necesario identificarlas, por lo cuál se a agregado una legenda, donde los primeros dos valores es la posición en \(X\) y \(Y\); el tercer parametro son los nombres; el cuarto parametro, es el tipo de linea utilizado (1, es continua y 2 es punteada) y el quinto son los colores de dichas lineas. Note que, algunos de estos parametros es posible usarlos en comandos anteriores.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <article data-timings="">
     <p>Así se obtendría la grafica siguiente:</p>
 
@@ -1044,7 +1137,7 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <article data-timings="">
     <p><strong>R</strong> Tiene otras maneras de hacer gráficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando <code>pie()</code>. Por ejemplo:</p>
 
@@ -1052,13 +1145,13 @@ legend(2.2,9.9,c(&quot;Perros&quot;,&quot;Gatos&quot;,&quot;Otros&quot;),lty=c(1
 pie(gastos) 
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+<p><img src="figure/pie-1.png" alt="plot of chunk pie"></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>Condiciones (if-else)</h2>
   </hgroup>
@@ -1081,7 +1174,7 @@ pie(gastos)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <article data-timings="">
     <p>Otra forma, única para el lenguaje de <strong>R</strong> es la siguiente. </p>
 
@@ -1109,7 +1202,7 @@ val
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <hgroup>
     <h2>Ciclos, Repeticiones o Loops</h2>
   </hgroup>
@@ -1132,7 +1225,7 @@ val
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <article data-timings="">
     <p>Y en ocasiones no sabremos hasta que momento queremos detener el ciclo, por lo que podemos usar: </p>
 
@@ -1155,7 +1248,7 @@ while(i &lt; 50){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h2>Paquetes</h2>
   </hgroup>
@@ -1180,7 +1273,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en <strong>R</strong></h2>
   </hgroup>
@@ -1240,7 +1333,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Ejemplos para trabajar en R (Continuación)</h2>
   </hgroup>
@@ -1281,7 +1374,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
 <ul>
 <li>Realice una grafica donde se comparen las ventas con los gastos.</li>
 <li>Calcule el promedio de ventas y gastos de los 6 meses <code>ProTip: apply() + mean()</code>.</li>
-<li>Calcule las ganancias finales de la dueña <code>ProTip:</code>.</li>
+<li>Calcule las ganancias finales de la dueña <code>ProTip: Ventas - Gastos</code>.</li>
 <li>Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos seran el promedio de los 6 meses.</li>
 </ul>
 
@@ -1289,7 +1382,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
@@ -1299,7 +1392,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <article data-timings="">
     
   </article>
@@ -1504,7 +1597,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Condiciones (if-else)'>
+        data-slide=33 title='NA'>
          33
       </a>
     </li>
@@ -1516,7 +1609,7 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Ciclos, Repeticiones o Loops'>
+        data-slide=35 title='NA'>
          35
       </a>
     </li>
@@ -1528,19 +1621,19 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Paquetes'>
+        data-slide=37 title='Condiciones (if-else)'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Ejemplos para trabajar en <strong>R</strong>'>
+        data-slide=38 title='NA'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Ejemplos para trabajar en R (Continuación)'>
+        data-slide=39 title='Ciclos, Repeticiones o Loops'>
          39
       </a>
     </li>
@@ -1552,8 +1645,32 @@ devtools::install_github(&quot;usuario/repositorio&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='NA'>
+        data-slide=41 title='Paquetes'>
          41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='Ejemplos para trabajar en <strong>R</strong>'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='Ejemplos para trabajar en R (Continuación)'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='NA'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='NA'>
+         45
       </a>
     </li>
   </ul>

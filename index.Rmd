@@ -467,9 +467,9 @@ foo
 
 ## Graficas
 
-Hasta éste momento hemos expresado todos los resultados en salidas de consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rápidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
+Hasta éste momento hemos mostrado todos los resultados en consola, lo cual, para muchos puede ser un poco tedioso, sin decir aburrido, por lo que, expresar los resultados en graficas sencillas, permiten comprender rápidamente el tema del que se habla, vaya, que _«Una imagen vale más que mil palabras»_
 
-La función `plot()` es una de varias formas que se pueden utilizar para graficar teniendo que al ser una función genérica permite seleccionar el tipo de grafico que buscamos.
+La función `plot()` es una de varias formas que se pueden utilizar para graficar, además al ser una función genérica permite seleccionar el tipo de grafico que buscamos.
 
 ```{r plot, eval=F}
 plot(x, y, type="p", main ="Titulo", sub= "subtitulo", xlab="Eje x", ylab="Eje Y")
@@ -485,7 +485,57 @@ Donde:
 
 -----
 
-A continuación veremos unos ejemplos más detallados usando `plot(...)`, con dicha función se pueden crear varios estilos de graficas de manera muy sencilla, partiendo de la siguiente tabla de animales rescatados en 4 meses, generaremos una grafica de ejemplo:
+Empezaremos viendo la función `plot()` de la manera más sencilla, Una persona ha estado realizando ejercicio últimamente y durante 7 semanas fue tomando su peso:
+
+|    | Semana 1  | Semana 2  | Semana 3  | Semana 4  | Semana 5  | Semana 6  | Semana 7  |
+|----|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+|Peso|    85     |    84     |    84.5   |    78     |    76.5   |    74.5   |    75     |
+
+Por lo que, si quiseramos graficar esto en **R**, seria de la siguiente manera:
+
+```{r graficaPeso, echo=TRUE, fig.height=4.5, fig.width=14}
+peso <- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso)
+```
+
+------
+
+Si en vez de tener una grafica de puntos, quisieramos una con lineas, solo es necesario especificar el tipo con el parametro `type = "l"`, para ver otros posibles graficos, ver la documentación de plot usando el comando `help(plot)`.
+
+```{r graficaPesoLinea, echo=TRUE, fig.height=6, fig.width=14}
+peso <- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso, type="l")
+```
+
+-----
+
+Es posible modificar o añadir un título a los ejes para hacer más comprensible la grafica, así como añadirle un título a toda la grafica usando los siguientes comandos:
+
+```{r graficaPesoLinea2, echo=TRUE, fig.height=5, fig.width=14}
+peso <- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso, type="l", ann = F)
+title(main = "Un asombroso título", xlab="Semana", ylab = "Peso en Kg" )
+```
+> Note que en el comando `plot(...)` se añadio el parametro `ann=F`.
+
+
+----
+
+Otra posible modificación en las graficas es renombrar los ejes, en vez de decir solamente el número, queremos que diga  "Semana " y el número de la semana, para ello, sera necesario añadir a la función `plot(...)` el parametro `xaxt="n"` para que no agregue las notaciones originales, también es posible quitar las notaciones para el eje o para ambos ejes usando `yaxt="n"` o `axes=F` respectivamente.
+Y despues añadirlos con el comando `axis(...)`.
+
+```{r graficaPesoLinea3, echo=TRUE, fig.height=4, fig.width=14}
+peso <- c(85,84,84.5,78,76.5,74.5,75)
+plot(peso, type="l", ann = F, xaxt="n")
+title(main = "Un asombroso título", ylab = "Peso en Kg" )
+axis(1, at=1:length(peso), lab=c("Semana 1","Semana 2","Semana 3","Semana 4",
+                                 "Semana 5","Semana 6","Semana 7"))
+
+```
+
+-----
+
+A continuación veremos un ejemplo más complicado usando `plot(...)`, partiendo de la siguiente tabla de animales rescatados en 4 meses, generaremos una grafica que muestre el comportamiento de los datos:
 
 |       | Enero | Febrero | Marzo | Abril |
 |-------|-------|---------|-------|-------|
@@ -514,8 +564,10 @@ lines(animales[3,], type="o", pch=22, lty=2, col="orange")
 title(xlab="Mes", col.lab=rgb(0,0.5,0))
 title(ylab="Rescatados", col.lab=rgb(0,0.5,0))
 legend(2.2,9.9,c("Perros","Gatos","Otros"),lty=c(1,2,2),
-        lwd=c(2,2),col=c("blue","red","Orange"),text.width = 2) 
+       col=c("blue","red","Orange")) 
 ```
+
+Como se están analizando 3 variables, es necesario identificarlas, por lo cuál se a agregado una legenda, donde los primeros dos valores es la posición en $X$ y $Y$; el tercer parametro son los nombres; el cuarto parametro, es el tipo de linea utilizado (1, es continua y 2 es punteada) y el quinto son los colores de dichas lineas. Note que, algunos de estos parametros es posible usarlos en comandos anteriores.
 
 -----
 
@@ -539,7 +591,7 @@ legend(2.2,9.9,c("Perros","Gatos","Otros"),lty=c(1,2,2),
 
 **R** Tiene otras maneras de hacer gráficos sencillos, por ejemplo, para graficas de pastel, se puede usar el comando `pie()`. Por ejemplo:
 
-```{r, fig.height=8, fig.width=12}
+```{r pie, fig.height=8, fig.width=12}
 gastos = c(Escuela=100, Alimentos=120, Recreación=90, Transporte=50) 
 pie(gastos) 
 ```
