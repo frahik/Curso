@@ -12,7 +12,7 @@ knit        : slidify::knit2slides
 github      :
 user        : frahik
 repo        : Curso
-license     : by-sa
+license     : by-nc-sa
 ---
 
 ## Hablemos de **R**
@@ -686,9 +686,76 @@ help(sum)   #Documentación de una función
 help(slidify) #Documentación de un paquete
 ```
 
------
+---  &radio
 
-## Ejemplos para trabajar en **R**
+## Preguntas para validar lo aprendido
+
+¿Qué comando se usa para hacer una gráfica de pastel?
+
+1. _pie()_
+2. cake()
+3. plot()
+
+*** .hint
+
+Not hint available
+
+*** .explanation
+
+pie()
+
+----- &radio
+
+Si tenemos el peso de 4 personas durante 3 semanas y queremos ver el promedio del peso por persona, ¿Qué comando deberíamos utilizar?
+
+|            | Persona 1 | Persona 2 | Persona 3  | Persona 4 |
+|------------|:---------:|:---------:|:----------:|:---------:|
+| Semana 1   |   79      |     59    |    67.5    |     60    |
+| Semana 2   |   82.3    |     57.9  |    68.2    |     57.1  |
+| Semana 3   |   80      |     59.5  |    67      |     58.3  |
+
+
+1. apply(matriz,2,mean())
+2. _apply(matriz,2,mean)_
+3. apply(matriz,mean,2)
+
+*** .hint
+
+Ver sección sobre `Apply()`
+
+*** .explanation
+
+Demostración:
+
+```{r}
+df <- data.frame(W=c(79,82.3,80),X=c(59,57.9,59.5),
+              Y=c(67.5,68.2,67),Z=c(60,57.1,58.3))
+apply(df,2,mean)
+```
+
+----- &multitext
+
+En una pista de carreras, se observan 3 autos dar 4 vueltas:
+
+|           | Civic   | Mazda   |Tsuru  |
+|-----------|---------|---------|-------|
+| Vuleta 1  |  110 km |  125 km |  95 km|  
+| Vuleta 2  |  140 km |  130 km | 105 km|
+| Vuleta 3  |  135 km |  125 km | 115 km|
+| Vuleta 4  |  135 km |  115 km | 120 km|
+
+1. ¿A qué velocidad va el primer auto en promedio?
+2. ¿A qué velocidad va el segundo auto en promedio?
+3. ¿A qué velocidad va el tercer auto en promedio?
+
+*** .explanation
+
+1. <span class='answer'>`r mean(c(110,140,135,135))`</span>
+2. <span class='answer'>`r mean(c(125,130,125,115))`</span>
+3. <span class='answer'>`r mean(c(95,105,115,120))`</span>
+
+
+----- &multitext
 
 El profesor quiere conocer el rendimiento del semestre de sus 5 alumnos de maestría:
 
@@ -698,35 +765,37 @@ El profesor quiere conocer el rendimiento del semestre de sus 5 alumnos de maest
 | Segunda parcial   |   8.3   |     7.9   | 8.2   |     7.1   |   8.5   |
 | Tercera parcial   |   8     |     9.5   | 7     |     8.3   |   8.5   |
 
-  * Determine la varianza de la calificación del grupo `ProTip: apply() + var()`
-    * Por semestre.
-    * Por parcial.
-    * Por alumno.
-  * Graficar el desempeño de los alumnos (eje x = parcial, eje y = calificación)
-  * Calcule el promedio final de los alumnos `ProTip: apply() + mean()`.
-  * Reporte quienes han aprobado la materia y quienes la han reprobado
+1. ¿Cuál es el promedio de la calificación del grupo en el semestre?:
+2. ¿Cuál es el promedio de la calificación del grupo por parcial?:
+3. ¿Cuál es el promedio de la calificación de cada alumno en el semestre?:
+4. ¿Quíenes han reprobado la materia?
 
------
-## Ejemplos para trabajar en R (Continuación)
+*** .explanation
 
-La dueña de una empresa quiere saber si su negocio aun es rentable, ha presentado los gastos y ventas de los últimos 6 meses (En miles de pesos).
-
-|        | Enero | Febrero | Marzo | Abril | Mayo  | Junio |
-|--------|-------|---------|-------|-------|-------|-------|
-| Ventas |   15  |  14     |  11   |  8    |  21   |  8    |
-| Gastos |  10   |     10  |  9    |   8   |   14  |  8    |
-
-
-  * Realice una grafica donde se comparen las ventas con los gastos.
-  * Calcule el promedio de ventas y gastos de los 6 meses `ProTip: apply() + mean()`.
-  * Calcule las ganancias finales de la dueña `ProTip: Ventas - Gastos`.
-  * Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos serán el promedio de los 6 meses.
-
+1. <span class='answer'>`r mean(c(7.77,8.8,7.57,8.47,8.5))`</span>
+2. <span class='answer'>`r paste(mean(c(7,9,7.5,10,8.5)), mean(c(8.3,7.9,8.2,7.1,8.5)), mean(c(8,9.5,7,8.3,8.5)),sep=",")`</span>
+3. <span class='answer'>`r paste(round(mean(c(7,8.3,8)),2), mean(c(9,7.9,9.5)), round(mean(c(7.5,8.2,7)),2), round(mean(c(10,7.1,8.3)),2), 8.5,sep=",")`</span>
+4. <span class='answer'> "Alberto y Juan" </span>
 
 -----
 
 Puedes continuar el curso con la siguiente diapositiva:
 
 https://frahik.github.io/CursoRIntermedio
+
+
+
+> **¿INTERESADO EN ESTA DIAPOSITIVA?**
+>
+> ¿Crees que falta algo o crees que se puede mejorar? 
+> 
+> Pide que se agregue a través de este botón:
+>
+> <div class="col-xs-6 download-bttn start-xs animated fadeInUp"><a href="https://github.com/frahik/Curso/issues/new" target="_blank"><button class="bttn-gradient bttn-md bttn-primary bttn-no-outline">Nueva corrección</button></a></div>
+>
+> _¿No eres muy de Github?_
+> Envía el comentario a este [Correo](mailto:frahik@gmail.com)
+
+
 
 -----

@@ -39,8 +39,8 @@
   </hgroup>
   <article></article>  
   <footer class = 'license'>
-    <a href='http://creativecommons.org/licenses/by-sa/3.0/'>
-    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
     </a>
   </footer>
 </slide>
@@ -1298,10 +1298,177 @@ help(slidify) #Documentación de un paquete
 
 <slide class="" id="slide-43" style="background:;">
   <hgroup>
-    <h2>Ejemplos para trabajar en <strong>R</strong></h2>
+    <h2>Preguntas para validar lo aprendido</h2>
   </hgroup>
   <article data-timings="">
-    <p>El profesor quiere conocer el rendimiento del semestre de sus 5 alumnos de maestría:</p>
+    
+<div class="quiz quiz-single well ">
+  <p>¿Qué comando se usa para hacer una gráfica de pastel?</p>
+
+<ol>
+<li><em>pie()</em></li>
+<li>cake()</li>
+<li>plot()</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Not hint available</p>
+
+</div>
+<div class="quiz-explanation">
+  <p>pie()</p>
+
+</div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-44" style="background:;">
+  <article data-timings="">
+    
+<div class="quiz quiz-single well ">
+  <p>Si tenemos el peso de 4 personas durante 3 semanas y queremos ver el promedio del peso por persona, ¿Qué comando deberíamos utilizar?</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th align="center">Persona 1</th>
+<th align="center">Persona 2</th>
+<th align="center">Persona 3</th>
+<th align="center">Persona 4</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Semana 1</td>
+<td align="center">79</td>
+<td align="center">59</td>
+<td align="center">67.5</td>
+<td align="center">60</td>
+</tr>
+<tr>
+<td>Semana 2</td>
+<td align="center">82.3</td>
+<td align="center">57.9</td>
+<td align="center">68.2</td>
+<td align="center">57.1</td>
+</tr>
+<tr>
+<td>Semana 3</td>
+<td align="center">80</td>
+<td align="center">59.5</td>
+<td align="center">67</td>
+<td align="center">58.3</td>
+</tr>
+</tbody></table>
+
+<ol>
+<li>apply(matriz,2,mean())</li>
+<li><em>apply(matriz,2,mean)</em></li>
+<li>apply(matriz,mean,2)</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Ver sección sobre <code>Apply()</code></p>
+
+</div>
+<div class="quiz-explanation">
+  <p>Demostración:</p>
+
+<pre><code class="r">df &lt;- data.frame(W=c(79,82.3,80),X=c(59,57.9,59.5),
+              Y=c(67.5,68.2,67),Z=c(60,57.1,58.3))
+apply(df,2,mean)
+</code></pre>
+
+<pre><code>##        W        X        Y        Z 
+## 80.43333 58.80000 67.56667 58.46667
+</code></pre>
+
+</div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  <article data-timings="">
+    
+<div class="quiz-text quiz-multitext well">
+  <p>En una pista de carreras, se observan 3 autos dar 4 vueltas:</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Civic</th>
+<th>Mazda</th>
+<th>Tsuru</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Vuleta 1</td>
+<td>110 km</td>
+<td>125 km</td>
+<td>95 km</td>
+</tr>
+<tr>
+<td>Vuleta 2</td>
+<td>140 km</td>
+<td>130 km</td>
+<td>105 km</td>
+</tr>
+<tr>
+<td>Vuleta 3</td>
+<td>135 km</td>
+<td>125 km</td>
+<td>115 km</td>
+</tr>
+<tr>
+<td>Vuleta 4</td>
+<td>135 km</td>
+<td>115 km</td>
+<td>120 km</td>
+</tr>
+</tbody></table>
+
+<ol>
+<li>¿A qué velocidad va el primer auto en promedio?</li>
+<li>¿A qué velocidad va el segundo auto en promedio?</li>
+<li>¿A qué velocidad va el tercer auto en promedio?</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-explanation">
+  <ol>
+<li><span class='answer'>130</span></li>
+<li><span class='answer'>123.75</span></li>
+<li><span class='answer'>108.75</span></li>
+</ol>
+
+</div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  <article data-timings="">
+    
+<div class="quiz-text quiz-multitext well">
+  <p>El profesor quiere conocer el rendimiento del semestre de sus 5 alumnos de maestría:</p>
 
 <table><thead>
 <tr>
@@ -1339,83 +1506,56 @@ help(slidify) #Documentación de un paquete
 </tr>
 </tbody></table>
 
-<ul>
-<li>Determine la varianza de la calificación del grupo <code>ProTip: apply() + var()</code>
+<ol>
+<li>¿Cuál es el promedio de la calificación del grupo en el semestre?:</li>
+<li>¿Cuál es el promedio de la calificación del grupo por parcial?:</li>
+<li>¿Cuál es el promedio de la calificación de cada alumno en el semestre?:</li>
+<li>¿Quíenes han reprobado la materia?</li>
+</ol>
 
-<ul>
-<li>Por semestre.</li>
-<li>Por parcial.</li>
-<li>Por alumno.</li>
-</ul></li>
-<li>Graficar el desempeño de los alumnos (eje x = parcial, eje y = calificación)</li>
-<li>Calcule el promedio final de los alumnos <code>ProTip: apply() + mean()</code>.</li>
-<li>Reporte quienes han aprobado la materia y quienes la han reprobado</li>
-</ul>
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-explanation">
+  <ol>
+<li><span class='answer'>8.222</span></li>
+<li><span class='answer'>8.4,8,8.26</span></li>
+<li><span class='answer'>7.77,8.8,7.57,8.47,8.5</span></li>
+<li><span class='answer'> &quot;Alberto y Juan&quot; </span></li>
+</ol>
 
+</div>
+</div>
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-44" style="background:;">
-  <hgroup>
-    <h2>Ejemplos para trabajar en R (Continuación)</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>La dueña de una empresa quiere saber si su negocio aun es rentable, ha presentado los gastos y ventas de los últimos 6 meses (En miles de pesos).</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th>Enero</th>
-<th>Febrero</th>
-<th>Marzo</th>
-<th>Abril</th>
-<th>Mayo</th>
-<th>Junio</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Ventas</td>
-<td>15</td>
-<td>14</td>
-<td>11</td>
-<td>8</td>
-<td>21</td>
-<td>8</td>
-</tr>
-<tr>
-<td>Gastos</td>
-<td>10</td>
-<td>10</td>
-<td>9</td>
-<td>8</td>
-<td>14</td>
-<td>8</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li>Realice una grafica donde se comparen las ventas con los gastos.</li>
-<li>Calcule el promedio de ventas y gastos de los 6 meses <code>ProTip: apply() + mean()</code>.</li>
-<li>Calcule las ganancias finales de la dueña <code>ProTip: Ventas - Gastos</code>.</li>
-<li>Si la dueña tiene una empleada a la que le paga $4000 mensuales (incluido en los gastos), determine que tan factible es que la dueña tenga una segunda empleada si se pronostica que los siguiente 3 meses, las ventas y gastos serán el promedio de los 6 meses.</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <article data-timings="">
     <p>Puedes continuar el curso con la siguiente diapositiva:</p>
 
 <p><a href="https://frahik.github.io/CursoRIntermedio">https://frahik.github.io/CursoRIntermedio</a></p>
 
+<blockquote>
+<p><strong>¿INTERESADO EN ESTA DIAPOSITIVA?</strong></p>
+
+<p>¿Crees que falta algo o crees que se puede mejorar? </p>
+
+<p>Pide que se agregue a través de este botón:</p>
+
+<div class="col-xs-6 download-bttn start-xs animated fadeInUp"><a href="https://github.com/frahik/Curso/issues/new" target="_blank"><button class="bttn-gradient bttn-md bttn-primary bttn-no-outline">Nueva corrección</button></a></div>
+
+<p><em>¿No eres muy de Github?</em>
+Envía el comentario a este <a href="mailto:frahik@gmail.com">Correo</a></p>
+</blockquote>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-46" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <article data-timings="">
     
   </article>
@@ -1680,13 +1820,13 @@ help(slidify) #Documentación de un paquete
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Ejemplos para trabajar en <strong>R</strong>'>
+        data-slide=43 title='Preguntas para validar lo aprendido'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='Ejemplos para trabajar en R (Continuación)'>
+        data-slide=44 title='NA'>
          44
       </a>
     </li>
@@ -1700,6 +1840,18 @@ help(slidify) #Documentación de un paquete
       <a href="#" target="_self" rel='tooltip' 
         data-slide=46 title='NA'>
          46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='NA'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='NA'>
+         48
       </a>
     </li>
   </ul>
