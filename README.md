@@ -1,4 +1,4 @@
-# Curso básico de R
+# Curso básico de R [![Beerpay](https://beerpay.io/frahik/Curso/make-wish.svg?style=flat)](https://beerpay.io/frahik/Curso) [![Beerpay](https://beerpay.io/frahik/Curso/badge.svg?style=plastic)](https://beerpay.io/frahik/Curso) <a href='https://ko-fi.com/A465OV9' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 Éste es un repositorio con una diapositiva diseñada con `R` y  `Rmarkdown`, usando la librería [Slidify](https://github.com/ramnathv/slidify/) para enseñar lo básico sobre R. 
 Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](https://frahik.github.io/Curso) 

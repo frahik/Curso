@@ -105,9 +105,9 @@ saludo
 ``` 
 
 **NOTAS:** 
-> **R** es sensible a las MAYUSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`.
+> **R** es sensible a las MAYÚSCULAS y minúsculas, por lo que `saludo` no es igual a `Saludo` o a `SALUDO`.
 
-> **R** NO requiere explicitar que tipo de valores van a contener.
+> **R** NO requiere explicitar que tipo de valores van a contener las variables.
 
 -----
 
@@ -777,7 +777,7 @@ El profesor quiere conocer el rendimiento del semestre de sus 5 alumnos de maest
 3. <span class='answer'>`r paste(round(mean(c(7,8.3,8)),2), mean(c(9,7.9,9.5)), round(mean(c(7.5,8.2,7)),2), round(mean(c(10,7.1,8.3)),2), 8.5,sep=",")`</span>
 4. <span class='answer'> "Alberto y Juan" </span>
 
------
+----- .thank-you-slide
 
 Puedes continuar el curso con la siguiente diapositiva:
 
@@ -795,7 +795,3 @@ https://frahik.github.io/CursoRIntermedio
 >
 > _¿No eres muy de Github?_
 > Envía el comentario a este [Correo](mailto:frahik@gmail.com)
-
-
-
------
