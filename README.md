@@ -1,9 +1,9 @@
 # Curso básico de R [![Beerpay](https://beerpay.io/frahik/Curso/make-wish.svg?style=flat)](https://beerpay.io/frahik/Curso) [![Beerpay](https://beerpay.io/frahik/Curso/badge.svg?style=plastic)](https://beerpay.io/frahik/Curso) <a href='https://ko-fi.com/A465OV9' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
-Éste es un repositorio con una diapositiva diseñada con `R` y  `Rmarkdown`, usando la librería [Slidify](https://github.com/ramnathv/slidify/) para enseñar lo básico sobre R. 
-Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](https://frahik.github.io/Curso) 
+Éste es un repositorio con una diapositiva diseñada con `R` y  `Rmarkdown`, usando la librería [Slidify](https://github.com/ramnathv/slidify/) para enseñar lo básico sobre R.
+Pueden ver la diapositiva usando el siguiente link: [frahik.github.io/Curso](https://frahik.github.io/Curso)
 
-## Usar la diapositiva
+## Instrucciones de uso (Versión Online)
 
 ### Navegador de escritorio
 Para navegar entre la diapositiva hacer uso de las flechas del teclado:
@@ -52,33 +52,40 @@ Para cambiar de diapositiva, solo es necesario hacer clic sobre la misma.
  - Condiciones
  - Ciclos
  - Paquetes
-  -CRAN
-  -GitHub
+  - CRAN
+  - GitHub
  - Ayuda y Documentación
  - Ejemplos para trabajar en R
   - Ejemplo #1
   - Ejemplo #2
- 
+
 ## Distribuir o modificar la diapositiva
-- Clonar el Repositorio o descargar el .Zip.
-- Instalar la libreria [Slidify](https://github.com/ramnathv/slidify/) (y sus dependencias).
+
+- Clonar el repositorio o descargar el `.Zip`.
+- Instalar la librería [Slidify](https://github.com/ramnathv/slidify/) (y sus dependencias).
 - Instalar [RStudio](https://www.rstudio.com/) (Recomendado).
 - Establecer el directorio de trabajo `setwd("Ruta/Al/archivo")`, donde se descomprime el .zip o donde se clono el repositorio.
-- Usar la libreria `library(slidify)`.
-- Abrir en Rstudio el index.Rmd y correrlo con _Knit_.
+- Usar la librería `library(slidify)`.
+- Abrir en Rstudio el index.Rmd y ejecutarlo con `Knit`.
 
-Nota: 
+Nota:
 
-> Para cargarla a Github hay que tener una `branch` nombrada `gh-pages` donde se encuentre el código para poder montarla como una versión web.
+> Para crear una versión online, es posible subirla a Github y sera necesario tener una `branch` nombrada `gh-pages` donde se encuentre el código.
 
 ## Otros cursos:
 
-|   Curso   |     link       |
-|-----------|----------------|
-|Intermedio | Verano 2017    |
-| Avanzado  | En planeación  |
+|   Curso   |     Estado       |    Link al repositorio |   Link a la diapositiva |
+|-----------|------------------|------------------------|-------------------------|
+| Intermedio|   En construcción| [GitHub - Curso Intermedio](https://github.com/frahik/Curso)| [Diapositiva](frahik.github.io/Curso) |
+| Avanzado  | En planeación    |      NA                |       NA                |
 
+**Creado por**: _Francisco Javier Luna Vázquez_
+**Licencia**: _GNU AGPLv3_
 
-Creado por: _Francisco Javier Luna Vázquez_
+## Contribuir
+  > **¿INTERESADO EN ESTA DIAPOSITIVA?**
+  > Agrega lo que crees que se debe corregir o añadir a través de la siguiente liga: [Nuevo Issue](https://github.com/frahik/Curso/issues/new).
 
-Licencia: GNU AGPLv3 
+  > _¿No eres muy de Github?_
+  > Envía el comentario a este [Correo](mailto:frahik@gmail.com).
+
